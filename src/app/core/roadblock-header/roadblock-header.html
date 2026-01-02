@@ -1,0 +1,130 @@
+<div class="prb-header-banner">
+  <div class="prb-header-logo-menu">
+    <div class="prb-header-logo-container">
+      <span class="prb-roadblocks-text">Programmer</span>
+      <img ngSrc="/assets/images/roadblocks-logo.png"
+           alt="Roadblocks Logo"
+           class="prb-roadblocks-logo"
+           priority
+           height="45"
+           width="43"/>
+      <span class="prb-roadblocks-text">Roadblocks</span>
+    </div>
+<!--    <div class="prb-header-menu">-->
+<!--      <p-megaMenu [model]="menuItems" orientation="horizontal"-->
+<!--                  class="prb-mega-menu">-->
+<!--        <ng-template pTemplate="item" let-item>-->
+<!--          @if (item.root) {-->
+<!--            <div>{{ item.label }}</div>-->
+<!--          } @else {-->
+<!--            @if (item.route) {-->
+<!--              <a [routerLink]="item.route"-->
+<!--                 class="gap-2">-->
+<!--                {{ item.label }}-->
+<!--              </a>-->
+<!--            } @else {-->
+<!--              <a href="{{ item.url }}"-->
+<!--                 target="{{ item.target }}"-->
+<!--                 class="gap-2">{{ item.label }}-->
+<!--              </a>-->
+<!--            }-->
+<!--          }-->
+<!--        </ng-template>-->
+<!--      </p-megaMenu>-->
+<!--    </div>-->
+  </div>
+  <div class="prb-header-options">
+    @if (isShowColorPalette()) {
+      <prb-color-palette/>
+    }
+    <p-button icon="pi pi-palette"
+              (click)="toggleColorPicker()"
+              [rounded]="true"
+              [pTooltip]="colorPicker"
+              [size]="'small'"
+              showDelay="1000"
+              tooltipPosition="left"/>
+    <ng-template #colorPicker>
+      <i>Click icon</i> to select color scheme
+    </ng-template>
+    @if (!isFixedFooter()) {
+      <p-button icon="pi pi-caret-down"
+                (click)="fixed()"
+                class="btn btn-outline-secondary"
+                severity="secondary"
+                [size]="'small'"
+                [rounded]="true"
+                [pTooltip]="fixedFooter"
+                showDelay="1000"
+                tooltipPosition="left"/>
+      <ng-template #fixedFooter>
+        <i>Click icon</i> to toggle set fixed footer
+      </ng-template>
+    } @else {
+      <p-button icon="pi pi-caret-up"
+                (click)="floatng()"
+                class="btn btn-outline-secondary"
+                severity="secondary"
+                [size]="'small'"
+                [rounded]="true"
+                [pTooltip]="floatingFooter"
+                showDelay="1000"
+                tooltipPosition="left"/>
+      <ng-template #floatingFooter>
+        <i>Click icon</i> to toggle set floating footer
+      </ng-template>
+    }
+    @if (!isProductionEnvironment()) {
+      @if (!isDebug()) {
+        <p-button icon="fa fa-bug"
+                  (click)="setDebug(true)"
+                  class="btn btn-outline-secondary"
+                  severity="secondary"
+                  [size]="'small'"
+                  [rounded]="true"
+                  [pTooltip]="toDebugMode"
+                  showDelay="1000"
+                  tooltipPosition="left"/>
+        <ng-template #toDebugMode>
+          <i>Click icon</i> to switch to Debug Mode
+        </ng-template>
+      } @else {
+        <p-button icon="fa fa-bug fa-rotate-270"
+                  (click)="setDebug(false)"
+                  class="btn btn-outline-primary"
+                  severity="primary"
+                  [size]="'small'"
+                  [rounded]="true"
+                  [pTooltip]="toNormalMode"
+                  showDelay="1000"
+                  tooltipPosition="left"/>
+        <ng-template #toNormalMode>
+          <i>Click icon</i> to switch to Normal Mode
+        </ng-template>
+      }
+    }
+    @if (!isDarkTheme()) {
+      <p-button icon="pi pi-sun"
+                (click)="darkTheme()"
+                class="btn btn-outline-secondary"
+                severity="secondary"
+                [size]="'small'"
+                [rounded]="true"
+                [pTooltip]="'<i>Click icon</i> to switch to Dark Mode'"
+                showDelay="1000"
+                escape="false"
+                tooltipPosition="left"/>
+    } @else {
+      <p-button icon="pi pi-moon"
+                (click)="lightTheme()"
+                class="btn btn-outline-secondary"
+                severity="secondary"
+                [size]="'small'"
+                [rounded]="true"
+                [pTooltip]="'<i>Click icon</i> to switch to Light Mode'"
+                showDelay="1000"
+                escape="false"
+                tooltipPosition="left"/>
+    }
+  </div>
+</div>

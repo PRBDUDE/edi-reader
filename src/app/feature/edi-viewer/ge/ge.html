@@ -1,0 +1,8 @@
+@for (element of ge; track $index) {
+  <span>{{ element }}</span>
+  @if ($index == 2) {
+    <span class="prb-segment-delimiter">~</span>
+  } @else {
+    <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+  }
+}

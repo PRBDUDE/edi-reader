@@ -1,0 +1,69 @@
+/* To learn more about Typescript configuration file: https://www.typescriptlang.org/docs/handbook/tsconfig-json.html. */
+/* To learn more about Angular compiler options: https://angular.dev/reference/configs/angular-compiler-options. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve",
+    "baseUrl": "./",
+    "paths": {
+      "@utility/*": [
+        "./src/app/core/utility/css-property/*",
+        "./src/app/core/utility/css-property/css-property-name/*",
+        "./src/app/core/utility/css-property/css-property-value/*",
+        "./src/app/core/utility/css-property/css-property-value-array/*",
+        "./src/app/core/utility/css-property/css-selector/*",
+        "./src/app/core/utility/debug-output-card/*",
+        "./src/app/core/utility/functions/*",
+        "./src/app/core/utility/primeng-config/*",
+        "./src/app/core/utility/html-tag/*"
+      ],
+      "@header/*": [
+        "./src/app/core/roadblock-header/*"
+      ],
+      "@footer/*": [
+        "./src/app/core/roadblock-footer/*"
+      ],
+      "@filters/*": [
+        "./src/app/core/filter-types/*"
+      ],
+      "@errorHandlers/*": [
+        "./src/app/core/error-handlers/input-error/*"
+      ],
+      "@environments/*": [
+        "./src/environments/*"
+      ],
+      "@model/*": [
+        "./src/app/core/model/*"
+      ],
+      "@services/*": [
+        "./src/app/core/services/*"
+      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "typeCheckHostBindings": true,
+    "strictTemplates": true
+  },
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}

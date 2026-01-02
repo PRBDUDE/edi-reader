@@ -1,0 +1,24 @@
+@for (element of st; track $index) {
+  <span>{{ element }}</span>
+  @if ($index == (getStLength() - 1)) {
+    <span class="prb-segment-delimiter">~</span>
+  } @else {
+    <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+  }
+}
+
+<!--<div class="prb-info">-->
+<!--  <h3>ST Segments</h3>-->
+<!--  <div>ST01:-->
+<!--    <span class="prb-element-data">{{ getStElement(1) }}</span>-->
+<!--    <span class="prb-element-desc">transaction set identifier code</span>-->
+<!--  </div>-->
+<!--  <div>ST02:-->
+<!--    <span class="prb-element-data">{{ getStElement(2) }}</span>-->
+<!--    <span class="prb-element-desc">transaction set control number</span>-->
+<!--  </div>-->
+<!--  <div>ST03:-->
+<!--    <span class="prb-element-data">{{ getStElement(3) }}</span>-->
+<!--    <span class="prb-element-desc">implementation convention reference</span>-->
+<!--  </div>-->
+<!--</div>-->

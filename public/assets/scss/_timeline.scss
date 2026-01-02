@@ -1,0 +1,72 @@
+:root {
+  --prb-timeline-color-initiate: #eeeeee;
+  --prb-timeline-background-color-initiate: #007bff;
+
+  --prb-timeline-color-transmitting: #eeeeee;
+  --prb-timeline-background-color-transmitting: #0633c7;
+
+  --prb-timeline-color-checksum: #303030;
+  --prb-timeline-background-color-checksum: #04b404;
+
+  --prb-timeline-color-final: #303030;
+  --prb-timeline-background-color-final: #04b404;
+
+  --prb-timeline-color-warning: #303030;
+  --prb-timeline-background-color-warning: #f1ed1f;
+
+  --prb-timeline-color-error: #f8f8f8;
+  --prb-timeline-background-color-error: #fc1148;
+
+  --prb-timeline-color-unknown: #fcfcfc;
+  --prb-timeline-background-color-unknown: #e511fc;
+
+  --prb-timeline-group-border-color: #575757;
+  --prb-timeline-group-header-background-color: #8c8c8c;
+  --prb-timeline-group-header-text-color: white;
+
+  --prb-timeline-horizontal-height: 3rem;
+
+  &[class*="prb-dark-theme"] {
+    --prb-timeline-color-initiate: #dddddd;
+
+    --prb-timeline-color-transmitting: #dddddd;
+
+    --prb-timeline-color-checksum: #dddddd;
+
+    --prb-timeline-color-final: #dddddd;
+
+    --prb-timeline-group-border-color: #dddddd;
+    --prb-timeline-group-header-background-color: #dddddd;
+    --prb-timeline-group-header-text-color: black;
+  }
+}
+
+.p-timeline.p-timeline-alternate.p-timeline-horizontal {
+  .p-timeline-event-content,
+  .p-timeline-event-opposite {
+    min-height: 10em;
+    padding-left: 0.5em;
+  }
+
+  //.p-timeline-event-opposite {
+  //  background-color: var(--p-surface-300);
+  //  color: var(--p-surface-900);
+  //  border-radius: 10px;
+  //}
+}
+
+.p-timeline.p-timeline-alternate.p-timeline-vertical {
+  .p-timeline-event-content,
+  .p-timeline-event-opposite {
+    //min-width: 10em;
+    //padding-bottom: 5em;
+    //background-color:var(--p-surface-500);
+    //margin-left: 0.5em;
+  }
+
+  //.p-timeline-event-opposite {
+  //  background-color: var(--p-surface-300);
+  //  color: var(--p-surface-900);
+  //  border-radius: 10px;
+  //}
+}
