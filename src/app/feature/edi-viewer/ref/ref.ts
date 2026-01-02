@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-ref',
   imports: [],
   templateUrl: './ref.html',
-  styleUrls: ['./ref.scss','../edi-viewer.scss']
+  styleUrls: ['./ref.scss', '../edi-viewer.scss']
 })
 export class Ref implements OnInit {
-  data = input<String>('REF*38*GROUP123~');
+  data = input<string>('REF*38*GROUP123~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  ref: String[] | undefined;
+  ref: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

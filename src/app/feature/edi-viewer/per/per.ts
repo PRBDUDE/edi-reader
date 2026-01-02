@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-per',
   imports: [],
   templateUrl: './per.html',
-  styleUrls: ['./per.scss','../edi-viewer.scss']
+  styleUrls: ['./per.scss', '../edi-viewer.scss']
 })
 export class Per implements OnInit {
-  data = input<String>('PER*IP*JOHN DOE*HP*5551234567~');
+  data = input<string>('PER*IP*JOHN DOE*HP*5551234567~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  per: String[] | undefined;
+  per: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

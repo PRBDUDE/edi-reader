@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-n3',
   imports: [],
   templateUrl: './n3.html',
-  styleUrls: ['./n3.scss','../edi-viewer.scss']
+  styleUrls: ['./n3.scss', '../edi-viewer.scss']
 })
 export class N3 implements OnInit {
-  data = input<String>('N3*100 MAIN ST~');
+  data = input<string>('N3*100 MAIN ST~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  n3: String[] | undefined;
+  n3: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

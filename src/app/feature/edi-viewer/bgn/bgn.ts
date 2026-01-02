@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-bgn',
   imports: [],
   templateUrl: './bgn.html',
-  styleUrls: ['./bgn.scss','../edi-viewer.scss']
+  styleUrls: ['./bgn.scss', '../edi-viewer.scss']
 })
 export class Bgn implements OnInit {
-  data = input<String>('BGN*00*123456*20251107*1430~');
+  data = input<string>('BGN*00*123456*20251107*1430~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  bgn: String[] | undefined;
+  bgn: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

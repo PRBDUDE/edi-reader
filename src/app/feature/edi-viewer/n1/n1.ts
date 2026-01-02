@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-n1',
   imports: [],
   templateUrl: './n1.html',
-  styleUrls: ['./n1.scss','../edi-viewer.scss']
+  styleUrls: ['./n1.scss', '../edi-viewer.scss']
 })
 export class N1 implements OnInit {
-  data = input<String>('N1*P5*ACME EMPLOYER~');
+  data = input<string>('N1*P5*ACME EMPLOYER~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  n1: String[] | undefined;
+  n1: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

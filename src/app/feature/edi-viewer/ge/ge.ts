@@ -1,4 +1,4 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-ge',
@@ -7,14 +7,14 @@ import {Component, input, OnInit, signal} from '@angular/core';
   styleUrls: ['./ge.scss', '../edi-viewer.scss']
 })
 export class Ge implements OnInit {
-  data = input<String>('GE*2*1~');
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
+  data = input<string>('GE*2*1~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   numberOfTransactionSets = input(0);
   groupControlNumber = input(0);
   valid = false;
-  ge: String[] | undefined;
+  ge: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

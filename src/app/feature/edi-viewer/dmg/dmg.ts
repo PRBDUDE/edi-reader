@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-dmg',
   imports: [],
   templateUrl: './dmg.html',
-  styleUrls: ['./dmg.scss','../edi-viewer.scss']
+  styleUrls: ['./dmg.scss', '../edi-viewer.scss']
 })
 export class Dmg implements OnInit {
-  data = input<String>('DMG*D8*19860115*M~');
+  data = input<string>('DMG*D8*19860115*M~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  dmg: String[] | undefined;
+  dmg: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

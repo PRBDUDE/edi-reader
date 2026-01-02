@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-ins',
   imports: [],
   templateUrl: './ins.html',
-  styleUrls: ['./ins.scss','../edi-viewer.scss']
+  styleUrls: ['./ins.scss', '../edi-viewer.scss']
 })
 export class Ins implements OnInit {
-  data = input<String>('INS*Y*18*021*XN*A*E**FT~');
+  data = input<string>('INS*Y*18*021*XN*A*E**FT~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  ins: String[] | undefined;
+  ins: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

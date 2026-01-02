@@ -7,13 +7,13 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./iea.scss', '../edi-viewer.scss']
 })
 export class Iea implements OnInit {
-  data = input<String>('IEA*1*000000905~');
+  data = input<string>('IEA*1*000000905~');
   interchangeControlNumber = input<number>(0);
   elementDelimiter = input<string>('*');
   subElementDelimiter = input<string>(':');
   segmentDelimiter = input<string>('~');
   valid = false;
-  iea: String[] | undefined;
+  iea: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-dtp',
   imports: [],
   templateUrl: './dtp.html',
-  styleUrls: ['./dtp.scss','../edi-viewer.scss']
+  styleUrls: ['./dtp.scss', '../edi-viewer.scss']
 })
 export class Dtp implements OnInit {
-  data = input<String>('DTP*007*D8*20251101~');
+  data = input<string>('DTP*007*D8*20251101~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  dtp: String[] | undefined;
+  dtp: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;

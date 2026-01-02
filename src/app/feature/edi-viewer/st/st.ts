@@ -1,4 +1,4 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-st',
@@ -7,12 +7,12 @@ import {Component, input, OnInit, signal} from '@angular/core';
   styleUrls: ['./st.scss', '../edi-viewer.scss']
 })
 export class St implements OnInit {
-  data = input<String>('ST*834*0001*005010X220A1~');
+  data = input<string>('ST*834*0001*005010X220A1~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  st: String[] | undefined;
+  st: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;
@@ -27,9 +27,5 @@ export class St implements OnInit {
   getStLength() {
     if (!this.st) return 0;
     return this.st.length;
-  }
-
-  getStElement(number: number) {
-    return this.st?.[number];
   }
 }

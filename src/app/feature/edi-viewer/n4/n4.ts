@@ -1,18 +1,18 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'prb-n4',
   imports: [],
   templateUrl: './n4.html',
-  styleUrls: ['./n4.scss','../edi-viewer.scss']
+  styleUrls: ['./n4.scss', '../edi-viewer.scss']
 })
 export class N4 implements OnInit {
-  data = input<String>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
+  data = input<string>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
+  elementDelimiter = input<string>('*');
+  subElementDelimiter = input<string>(':');
+  segmentDelimiter = input<string>('~');
   valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  n4: String[] | undefined;
+  n4: string[] | undefined;
 
   ngOnInit() {
     const segmentLength = this.data().length;
