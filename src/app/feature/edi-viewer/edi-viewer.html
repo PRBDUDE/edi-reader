@@ -29,7 +29,7 @@
       </div>
     } @else if (segment.startsWith('SE')) {
       <div class="prb-x12-transactions">
-        <prb-ge
+        <prb-se
           [data]="segment"
           [segmentDelimiter]="segmentDelimiter"
           [elementDelimiter]="elementDelimiter"
@@ -38,7 +38,7 @@
       </div>
     } @else if (segment.startsWith('GE')) {
       <div class="prb-x12-group">
-        <prb-iea
+        <prb-ge
           [data]="segment"
           [segmentDelimiter]="segmentDelimiter"
           [elementDelimiter]="elementDelimiter"
