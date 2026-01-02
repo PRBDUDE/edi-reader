@@ -2,71 +2,105 @@
   @for (segment of segments; track segment) {
     @if (segment.startsWith('ISA')) {
       <div>
-        <prb-isa [data]="segment"/>
+        <prb-isa
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('GS')) {
       <div class="prb-x12-group">
-        <prb-gs [data]="segment"/>
+        <prb-gs
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('ST')) {
       <div class="prb-x12-transactions">
-        <prb-st [data]="segment"/>
+        <prb-st
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('SE')) {
       <div class="prb-x12-transactions">
-        <prb-ge [data]="segment"/>
+        <prb-ge
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('GE')) {
       <div class="prb-x12-group">
-        <prb-iea [data]="segment"/>
+        <prb-iea
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('IEA')) {
       <div>
-        <prb-iea [data]="segment"/>
+        <prb-iea
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('BGN')) {
       <div class="prb-x12-transactions">
-        <prb-bgn [data]="segment"/>
+        <prb-bgn
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('REF')) {
       <div class="prb-x12-transactions">
-        <prb-ref [data]="segment"/>
+        <prb-ref
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('DTP')) {
       <div class="prb-x12-transactions">
-        <prb-dtp [data]="segment"/>
+        <prb-dtp
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('N1')) {
       <div class="prb-x12-transactions">
-        <prb-n1 [data]="segment"/>
+        <prb-n1
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('N3')) {
       <div class="prb-x12-transactions">
-        <prb-n3 [data]="segment"/>
+        <prb-n3
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('N4')) {
       <div class="prb-x12-transactions">
-        <prb-n4 [data]="segment"/>
+        <prb-n4
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('INS')) {
       <div class="prb-x12-transactions">
-        <prb-ins [data]="segment"/>
+        <prb-ins
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('NM1')) {
       <div class="prb-x12-transactions">
-        <prb-nm1 [data]="segment"/>
+        <prb-nm1
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('PER')) {
       <div class="prb-x12-transactions">
-        <prb-per [data]="segment"/>
+        <prb-per
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('DMG')) {
       <div class="prb-x12-transactions">
-        <prb-dmg [data]="segment"/>
+        <prb-dmg
+          [data]="segment"
+        />
       </div>
     } @else if (segment.startsWith('HD')) {
       <div class="prb-x12-transactions">
-        <prb-hd [data]="segment"/>
+        <prb-hd
+          [data]="segment"
+        />
       </div>
     } @else {
       <div class="prb-x12-transactions">
