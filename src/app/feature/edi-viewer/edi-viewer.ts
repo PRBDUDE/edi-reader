@@ -75,5 +75,8 @@ export class EdiViewer {
     'SE*18*0001~' +
     'GE*1*1~' +
     'IEA*1*000000905~'
-  segments = this.ediData.split('~');
+  elementDelimiter = this.ediData.charAt(101);
+  subElementDelimiter = this.ediData.charAt(102);
+  segmentDelimiter = this.ediData.charAt(103);
+  segments = this.ediData.split(this.segmentDelimiter);
 }
