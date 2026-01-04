@@ -73,7 +73,7 @@ export class Ins implements OnInit {
     return this.ins03TransactionTypeCode.find(x => x.code === code);
   }
 
-  getIns04MaintenaceReasonCode(code: string) {
+  getIns04MaintenanceReasonCode(code: string) {
     return this.ins04MaintenanceReasonCode.find(x => x.code === code);
   }
 
