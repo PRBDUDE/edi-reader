@@ -7,23 +7,28 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./ge.scss', '../edi-viewer.scss']
 })
 export class Ge implements OnInit {
-  data = input<string>('GE*2*1~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  numberOfTransactionSets = input(0);
-  groupControlNumber = input(0);
-  valid = false;
+  geData = input<string>('GE*2*1~');
+  geElementDelimiter = input<string>('*');
+  geSubElementDelimiter = input<string>(':');
+  geSegmentDelimiter = input<string>('~');
+  geNumberOfTransactionSets = input(0);
+  geGroupControlNumber = input(0);
+  geValid = false;
   ge: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.ge = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = (this.groupControlNumber() == Number(this.ge[2])) &&
-      (this.numberOfTransactionSets() == Number(this.ge[1]));
+    const geSegmentLength = this.geData().length;
+    this.ge = this.geData().substring(0, geSegmentLength).split(this.geElementDelimiter());
+    this.geValid = (this.geGroupControlNumber() == Number(this.ge[2])) &&
+      (this.geNumberOfTransactionSets() == Number(this.ge[1]));
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getGeLength() {
+    if (!this.ge) return 0;
+    return this.ge.length;
+  }
+
+  getGeElementDelimiter() {
+    return this.geElementDelimiter();
   }
 }

@@ -7,21 +7,21 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./ref.scss', '../edi-viewer.scss']
 })
 export class Ref implements OnInit {
-  data = input<string>('REF*38*GROUP123~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  refData = input<string>('REF*38*GROUP123~');
+  refElementDelimiter = input<string>('*');
+  refSubElementDelimiter = input<string>(':');
+  refSegmentDelimiter = input<string>('~');
+  refValid = false;
   ref: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.ref = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const refSegmentLength = this.refData().length;
+    this.ref = this.refData().substring(0, refSegmentLength).split(this.refElementDelimiter());
+    this.refValid = true;
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getRefElementDelimiter() {
+    return this.refElementDelimiter();
   }
 
   getRefLength() {

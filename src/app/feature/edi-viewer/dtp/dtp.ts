@@ -7,17 +7,17 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./dtp.scss', '../edi-viewer.scss']
 })
 export class Dtp implements OnInit {
-  data = input<string>('DTP*007*D8*20251101~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  dtpData = input<string>('DTP*007*D8*20251101~');
+  dtpElementDelimiter = input<string>('*');
+  dtpSubElementDelimiter = input<string>(':');
+  dtpSegmentDelimiter = input<string>('~');
+  dtpValid = false;
   dtp: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.dtp = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const dtpSegmentLength = this.dtpData().length;
+    this.dtp = this.dtpData().substring(0, dtpSegmentLength).split(this.dtpElementDelimiter());
+    this.dtpValid = true;
   }
 
   getDtpLength() {
@@ -25,11 +25,7 @@ export class Dtp implements OnInit {
     return this.dtp.length;
   }
 
-  getDtpElement(number: number) {
-    return this.dtp?.[number];
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getDtpElementDelimiter() {
+    return this.dtpElementDelimiter();
   }
 }

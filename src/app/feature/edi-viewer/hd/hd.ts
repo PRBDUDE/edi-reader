@@ -7,21 +7,21 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./hd.scss', '../edi-viewer.scss']
 })
 export class Hd implements OnInit {
-  data = input<string>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  hdData = input<string>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
+  hdElementDelimiter = input<string>('*');
+  hdSubElementDelimiter = input<string>(':');
+  hdSegmentDelimiter = input<string>('~');
+  hdValid = false;
   hd: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.hd = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const hdSegmentLength = this.hdData().length;
+    this.hd = this.hdData().substring(0, hdSegmentLength).split(this.hdElementDelimiter());
+    this.hdValid = true;
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getHdElementDelimiter() {
+    return this.hdElementDelimiter();
   }
 
   getHdLength() {

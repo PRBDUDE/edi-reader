@@ -7,17 +7,17 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./bgn.scss', '../edi-viewer.scss']
 })
 export class Bgn implements OnInit {
-  data = input<string>('BGN*00*123456*20251107*1430~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  bgnData = input<string>('BGN*00*123456*20251107*1430~');
+  bgnElementDelimiter = input<string>('*');
+  bgnSubElementDelimiter = input<string>(':');
+  bgnSegmentDelimiter = input<string>('~');
+  bgnValid = false;
   bgn: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.bgn = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const bgnSegmentLength = this.bgnData().length;
+    this.bgn = this.bgnData().substring(0, bgnSegmentLength).split(this.bgnElementDelimiter());
+    this.bgnValid = true;
   }
 
   getBgnLength() {
@@ -25,7 +25,7 @@ export class Bgn implements OnInit {
     return this.bgn.length;
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getBgnElementDelimiter() {
+    return this.bgnElementDelimiter();
   }
 }

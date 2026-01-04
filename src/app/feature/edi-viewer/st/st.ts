@@ -7,21 +7,21 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./st.scss', '../edi-viewer.scss']
 })
 export class St implements OnInit {
-  data = input<string>('ST*834*0001*005010X220A1~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  stData = input<string>('ST*834*0001*005010X220A1~');
+  stElementDelimiter = input<string>('*');
+  stSubElementDelimiter = input<string>(':');
+  stSegmentDelimiter = input<string>('~');
+  stValid = false;
   st: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.st = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const segmentLength = this.stData().length;
+    this.st = this.stData().substring(0, segmentLength).split(this.stElementDelimiter());
+    this.stValid = true;
   }
 
   getElementDelimiter() {
-    return this.elementDelimiter();
+    return this.stElementDelimiter();
   }
 
   getStLength() {

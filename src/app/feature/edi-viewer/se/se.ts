@@ -7,21 +7,21 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./se.scss', '../edi-viewer.scss']
 })
 export class Se implements OnInit {
-  data = input<string>('SE*18*0001~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  seData = input<string>('SE*18*0001~');
+  seElementDelimiter = input<string>('*');
+  seSubElementDelimiter = input<string>(':');
+  seSegmentDelimiter = input<string>('~');
+  seValid = false;
   se: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.se = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const seSegmentLength = this.seData().length;
+    this.se = this.seData().substring(0, seSegmentLength).split(this.seElementDelimiter());
+    this.seValid = true;
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getSeElementDelimiter() {
+    return this.seElementDelimiter();
   }
 
   getSeLength() {

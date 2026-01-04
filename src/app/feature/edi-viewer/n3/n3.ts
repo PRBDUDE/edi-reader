@@ -7,21 +7,21 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./n3.scss', '../edi-viewer.scss']
 })
 export class N3 implements OnInit {
-  data = input<string>('N3*100 MAIN ST~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  n3Data = input<string>('N3*100 MAIN ST~');
+  n3ElementDelimiter = input<string>('*');
+  n3SubElementDelimiter = input<string>(':');
+  n3SegmentDelimiter = input<string>('~');
+  n3Valid = false;
   n3: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.n3 = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const n3SegmentLength = this.n3Data().length;
+    this.n3 = this.n3Data().substring(0, n3SegmentLength).split(this.n3ElementDelimiter());
+    this.n3Valid = true;
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getN3ElementDelimiter() {
+    return this.n3ElementDelimiter();
   }
 
   getN3Length() {

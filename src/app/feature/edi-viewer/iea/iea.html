@@ -1,8 +1,8 @@
 @for (element of iea; track $index) {
   <span>{{ element }}</span>
-  @if ($index == 2) {
+  @if ($index == getIeaLength() - 1) {
     <span class="prb-segment-delimiter">~</span>
   } @else {
-    <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+    <span class="prb-element-delimiter">{{ this.getIeaElementDelimiter() }}</span>
   }
 }

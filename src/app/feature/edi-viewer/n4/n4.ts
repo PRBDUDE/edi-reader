@@ -7,21 +7,21 @@ import {Component, input, OnInit} from '@angular/core';
   styleUrls: ['./n4.scss', '../edi-viewer.scss']
 })
 export class N4 implements OnInit {
-  data = input<string>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  n4Data = input<string>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
+  n4ElementDelimiter = input<string>('*');
+  n4SubElementDelimiter = input<string>(':');
+  n4SegmentDelimiter = input<string>('~');
+  n4Valid = false;
   n4: string[] | undefined;
 
   ngOnInit() {
-    const segmentLength = this.data().length;
-    this.n4 = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const n4SegmentLength = this.n4Data().length;
+    this.n4 = this.n4Data().substring(0, n4SegmentLength).split(this.n4ElementDelimiter());
+    this.n4Valid = true;
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getN4ElementDelimiter() {
+    return this.n4ElementDelimiter();
   }
 
   getN4Length() {

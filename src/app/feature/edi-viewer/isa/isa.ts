@@ -7,22 +7,23 @@ import {Component, input, OnInit, signal} from '@angular/core';
   styleUrls: ['./isa.scss', '../edi-viewer.scss']
 })
 export class Isa implements OnInit {
-  data = input<string>('ISA*00*          *00*          *ZZ*87790056      *ZZ*576687090     *251107*1430*U*00501*000000905*0*T*:~');
-  segmentDelimiter = input<string>('~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  interchangeControlNumber = signal(0);
-  valid = false;
+  isaData = input<string>('ISA*00*          *00*          *ZZ*87790056      *ZZ*576687090     *251107*1430*U*00501*000000905*0*T*:~');
+  isaSegmentDelimiter = input<string>('~');
+  isaElementDelimiter = input<string>('*');
+  isaSubElementDelimiter = input<string>(':');
+  isaInterchangeControlNumber = signal(0);
+  isaValid = false;
   isa: string[] | undefined;
 
   ngOnInit() {
-    this.valid = this.data().length === 104;
-    this.isa = this.data().substring(0,103).split(this.elementDelimiter());
-    this.interchangeControlNumber.set(Number(this.isa[13]));
+    const isaSegmentLength = this.isaData().length;
+    this.isa = this.isaData().substring(0,isaSegmentLength).split(this.isaElementDelimiter());
+    this.isaInterchangeControlNumber.set(Number(this.isa[13]));
+    this.isaValid = this.isaData().length === 104;
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getIsaElementDelimiter() {
+    return this.isaElementDelimiter();
   }
 
   getIsaLength() {
