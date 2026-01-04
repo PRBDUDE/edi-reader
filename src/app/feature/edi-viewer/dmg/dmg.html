@@ -1,8 +1,38 @@
-@for (element of dmg; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getDmgLength() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getDmgElementDelimiter() }}</span>
+<div class="prb-x12-segment">
+  @for (element of dmg; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getDmgLength() - 1)) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getDmgElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>DMG Elements</h5>
+    <prb-element-description
+      [element]="'DMG01'"
+      [data]=getDmgElement(1)
+      [description]="'demographic information code'"
+    />
+    <prb-element-description
+      [element]="'DMG02'"
+      [data]=getDmgElement(2)
+      [description]="'DOB (YYYYMMDD)'"
+    />
+    <prb-element-description
+      [element]="'DMG03'"
+      [data]=getDmgElement(3)
+      [description]="'gender code'"
+    />
+    <prb-element-description
+      [element]="'DMG04'"
+      [data]=getDmgElement(4)
+      [description]="'race code'"
+    />
+    <prb-element-description
+      [element]="'DMG05'"
+      [data]=getDmgElement(5)
+      [description]="'marital status code'"
+    />
+  </div>
+</div>

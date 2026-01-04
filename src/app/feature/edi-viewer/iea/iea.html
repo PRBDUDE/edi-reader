@@ -1,8 +1,23 @@
-@for (element of iea; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == getIeaLength() - 1) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getIeaElementDelimiter() }}</span>
+<div class="prb-x12-isa">
+  @for (element of iea; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == getIeaLength() - 1) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getIeaElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>IEA Elements</h5>
+    <prb-element-description
+      [element]="'ISE01'"
+      [data]=getIeaElement(1)
+      [description]="'number of groups'"
+    />
+    <prb-element-description
+      [element]="'ISE02'"
+      [data]=getIeaElement(2)
+      [description]="'interchange control number (must match ISA13)'"
+    />
+  </div>
+</div>

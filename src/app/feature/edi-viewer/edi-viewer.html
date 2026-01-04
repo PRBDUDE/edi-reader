@@ -8,41 +8,33 @@
         [isaSubElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('GS')) {
-      <div class="prb-x12-group">
-        <prb-gs
-          [gsData]="segment"
-          [gsSegmentDelimiter]="segmentDelimiter"
-          [gsElementDelimiter]="elementDelimiter"
-          [gsSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-gs
+        [gsData]="segment"
+        [gsSegmentDelimiter]="segmentDelimiter"
+        [gsElementDelimiter]="elementDelimiter"
+        [gsSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('ST')) {
-      <div class="prb-x12-segment">
-        <prb-st
-          [stData]="segment"
-          [stSegmentDelimiter]="segmentDelimiter"
-          [stElementDelimiter]="elementDelimiter"
-          [stSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-st
+        [stData]="segment"
+        [stSegmentDelimiter]="segmentDelimiter"
+        [stElementDelimiter]="elementDelimiter"
+        [stSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('SE')) {
-      <div class="prb-x12-segment">
-        <prb-se
-          [seData]="segment"
-          [seSegmentDelimiter]="segmentDelimiter"
-          [seElementDelimiter]="elementDelimiter"
-          [seSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-se
+        [seData]="segment"
+        [seSegmentDelimiter]="segmentDelimiter"
+        [seElementDelimiter]="elementDelimiter"
+        [seSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('GE')) {
-      <div class="prb-x12-group">
-        <prb-ge
-          [geData]="segment"
-          [geSegmentDelimiter]="segmentDelimiter"
-          [geElementDelimiter]="elementDelimiter"
-          [geSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-ge
+        [geData]="segment"
+        [geSegmentDelimiter]="segmentDelimiter"
+        [geElementDelimiter]="elementDelimiter"
+        [geSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('IEA')) {
       <prb-iea
         [ieaData]="segment"
@@ -51,104 +43,82 @@
         [ieaSubElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('BGN')) {
-      <div class="prb-x12-segment">
-        <prb-bgn
-          [bgnData]="segment"
-          [bgnSegmentDelimiter]="segmentDelimiter"
-          [bgnElementDelimiter]="elementDelimiter"
-          [bgnSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-bgn
+        [bgnData]="segment"
+        [bgnSegmentDelimiter]="segmentDelimiter"
+        [bgnElementDelimiter]="elementDelimiter"
+        [bgnSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('REF')) {
-      <div class="prb-x12-segment">
-        <prb-ref
-          [refData]="segment"
-          [refSegmentDelimiter]="segmentDelimiter"
-          [refElementDelimiter]="elementDelimiter"
-          [refSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-ref
+        [refData]="segment"
+        [refSegmentDelimiter]="segmentDelimiter"
+        [refElementDelimiter]="elementDelimiter"
+        [refSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('DTP')) {
-      <div class="prb-x12-segment">
-        <prb-dtp
-          [dtpData]="segment"
-          [dtpSegmentDelimiter]="segmentDelimiter"
-          [dtpElementDelimiter]="elementDelimiter"
-          [dtpSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-dtp
+        [dtpData]="segment"
+        [dtpSegmentDelimiter]="segmentDelimiter"
+        [dtpElementDelimiter]="elementDelimiter"
+        [dtpSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('N1')) {
-      <div class="prb-x12-segment">
-        <prb-n1
-          [n1Data]="segment"
-          [n1SegmentDelimiter]="segmentDelimiter"
-          [n1ElementDelimiter]="elementDelimiter"
-          [n1SubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-n1
+        [n1Data]="segment"
+        [n1SegmentDelimiter]="segmentDelimiter"
+        [n1ElementDelimiter]="elementDelimiter"
+        [n1SubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('N3')) {
-      <div class="prb-x12-segment">
-        <prb-n3
-          [n3Data]="segment"
-          [n3SegmentDelimiter]="segmentDelimiter"
-          [n3ElementDelimiter]="elementDelimiter"
-          [n3SubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-n3
+        [n3Data]="segment"
+        [n3SegmentDelimiter]="segmentDelimiter"
+        [n3ElementDelimiter]="elementDelimiter"
+        [n3SubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('N4')) {
-      <div class="prb-x12-segment">
-        <prb-n4
-          [n4Data]="segment"
-          [n4SegmentDelimiter]="segmentDelimiter"
-          [n4ElementDelimiter]="elementDelimiter"
-          [n4SubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-n4
+        [n4Data]="segment"
+        [n4SegmentDelimiter]="segmentDelimiter"
+        [n4ElementDelimiter]="elementDelimiter"
+        [n4SubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('INS')) {
-      <div class="prb-x12-segment">
-        <prb-ins
-          [insData]="segment"
-          [insSegmentDelimiter]="segmentDelimiter"
-          [insElementDelimiter]="elementDelimiter"
-          [insSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-ins
+        [insData]="segment"
+        [insSegmentDelimiter]="segmentDelimiter"
+        [insElementDelimiter]="elementDelimiter"
+        [insSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('NM1')) {
-      <div class="prb-x12-segment">
-        <prb-nm1
-          [nm1Data]="segment"
-          [nm1SegmentDelimiter]="segmentDelimiter"
-          [nm1ElementDelimiter]="elementDelimiter"
-          [nm1SubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-nm1
+        [nm1Data]="segment"
+        [nm1SegmentDelimiter]="segmentDelimiter"
+        [nm1ElementDelimiter]="elementDelimiter"
+        [nm1SubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('PER')) {
-      <div class="prb-x12-segment">
-        <prb-per
-          [data]="segment"
-          [segmentDelimiter]="segmentDelimiter"
-          [elementDelimiter]="elementDelimiter"
-          [subElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-per
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('DMG')) {
-      <div class="prb-x12-segment">
-        <prb-dmg
-          [dmgData]="segment"
-          [dmgSegmentDelimiter]="segmentDelimiter"
-          [dmgElementDelimiter]="elementDelimiter"
-          [dmgSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-dmg
+        [dmgData]="segment"
+        [dmgSegmentDelimiter]="segmentDelimiter"
+        [dmgElementDelimiter]="elementDelimiter"
+        [dmgSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('HD')) {
-      <div class="prb-x12-segment">
-        <prb-hd
-          [hdData]="segment"
-          [hdSegmentDelimiter]="segmentDelimiter"
-          [hdElementDelimiter]="elementDelimiter"
-          [hdSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-hd
+        [hdData]="segment"
+        [hdSegmentDelimiter]="segmentDelimiter"
+        [hdElementDelimiter]="elementDelimiter"
+        [hdSubElementDelimiter]="subElementDelimiter"
+      />
     } @else {
       <div class="prb-x12-segment">
         {{ segment }}

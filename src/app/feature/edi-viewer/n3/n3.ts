@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-n3',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './n3.html',
   styleUrls: ['./n3.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class N3 implements OnInit {
   getN3Length() {
     if (!this.n3) return 0;
     return this.n3.length;
+  }
+
+  getN3Element(index: number) {
+    return this.n3![index];
   }
 }

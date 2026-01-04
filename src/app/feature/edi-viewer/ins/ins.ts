@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-ins',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './ins.html',
   styleUrls: ['./ins.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class Ins implements OnInit {
   getInsLength() {
     if (!this.ins) return 0;
     return this.ins.length;
+  }
+
+  getInsElement(index: number) {
+    return this.ins![index];
   }
 }

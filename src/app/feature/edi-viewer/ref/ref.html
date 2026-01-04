@@ -1,8 +1,28 @@
-@for (element of ref; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getRefLength() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getRefElementDelimiter() }}</span>
+<div class="prb-x12-segment">
+  @for (element of ref; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getRefLength() - 1)) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getRefElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>REF Elements</h5>
+    <prb-element-description
+      [element]="'REF01'"
+      [data]="getRefElement(1)"
+      [description]="'reference identification qualifier'"
+    />
+    <prb-element-description
+      [element]="'REF02'"
+      [data]="getRefElement(2)"
+      [description]="'reference identification'"
+    />
+    <prb-element-description
+      [element]="'REF03'"
+      [data]="getRefElement(3)"
+      [description]="'description'"
+    />
+  </div>
+</div>

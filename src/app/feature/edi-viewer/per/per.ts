@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-per',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './per.html',
   styleUrls: ['./per.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class Per implements OnInit {
   getPerLength() {
     if (!this.per) return 0;
     return this.per.length;
+  }
+
+  getPerElement(index: number) {
+    return this.per![index];
   }
 }

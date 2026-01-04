@@ -1,8 +1,23 @@
-@for (element of se; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getSeLength() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getSeElementDelimiter() }}</span>
+<div class="prb-x12-transaction-set">
+  @for (element of se; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getSeLength() - 1)) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getSeElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>SE Segments</h5>
+    <prb-element-description
+      [element]="'SE01'"
+      [data]=this.getSeElement(1)
+      [description]="'segment count from ST-SE including ST & SE lines'"
+    />
+    <prb-element-description
+      [element]="'SE02'"
+      [data]=this.getSeElement(2)
+      [description]="'transaction set control number'"
+    />
+  </div>
+</div>

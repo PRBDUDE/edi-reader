@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-ge',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './ge.html',
   styleUrls: ['./ge.scss', '../edi-viewer.scss']
 })
@@ -30,5 +33,9 @@ export class Ge implements OnInit {
 
   getGeElementDelimiter() {
     return this.geElementDelimiter();
+  }
+
+  getGeElement(index: number) {
+    return this.ge![index];
   }
 }

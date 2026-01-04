@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-ref',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './ref.html',
   styleUrls: ['./ref.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class Ref implements OnInit {
   getRefLength() {
     if (!this.ref) return 0;
     return this.ref.length;
+  }
+
+  getRefElement(index: number) {
+    return this.ref![index];
   }
 }

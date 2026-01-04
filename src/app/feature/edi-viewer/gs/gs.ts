@@ -30,4 +30,8 @@ export class Gs implements OnInit {
     if (!this.gs) return 0;
     return this.gs.length;
   }
+
+  getGsElement(index: number){
+    return this.gs![ index];
+  }
 }

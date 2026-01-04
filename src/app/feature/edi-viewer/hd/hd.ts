@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-hd',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './hd.html',
   styleUrls: ['./hd.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class Hd implements OnInit {
   getHdLength() {
     if (!this.hd) return 0;
     return this.hd.length;
+  }
+
+  getHdElement(index: number) {
+    return this.hd![index];
   }
 }

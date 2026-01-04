@@ -1,8 +1,73 @@
-@for (element of per; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getPerLength() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+<div class="prb-x12-segment">
+  @for (element of per; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getPerLength() - 1)) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>PER Elements</h5>
+    <prb-element-description
+      [element]="'PER01'"
+      [data]="getPerElement(1)"
+      [description]="'contact function code'"
+    />
+    <prb-element-description
+      [element]="'PER02'"
+      [data]="getPerElement(2)"
+      [description]="'name'"
+    />
+    <prb-element-description
+      [element]="'PER03'"
+      [data]="getPerElement(3)"
+      [description]="'identification code qualifier'"
+    />
+    <prb-element-description
+      [element]="'PER04'"
+      [data]="getPerElement(4)"
+      [description]="'identification code'"
+    />
+    <prb-element-description
+      [element]="'PER05'"
+      [data]="getPerElement(5)"
+      [description]="'address information'"
+    />
+    <prb-element-description
+      [element]="'PER06'"
+      [data]="getPerElement(6)"
+      [description]="'contact information'"
+    />
+    <prb-element-description
+      [element]="'PER07'"
+      [data]="getPerElement(7)"
+      [description]="'exception code'"
+    />
+    <prb-element-description
+      [element]="'PER08'"
+      [data]="getPerElement(8)"
+      [description]="'reference identifier'"
+    />
+    <prb-element-description
+      [element]="'PER09'"
+      [data]="getPerElement(9)"
+      [description]="'yes/no condition or response code'"
+    />
+    <prb-element-description
+      [element]="'PER10'"
+      [data]="getPerElement(10)"
+      [description]="'date'"
+    />
+    <prb-element-description
+      [element]="'PER11'"
+      [data]="getPerElement(11)"
+      [description]="'time'"
+    />
+    <prb-element-description
+      [element]="'PER12'"
+      [data]="getPerElement(12)"
+      [description]="'free-form message text'"
+    />
+  </div>
+</div>

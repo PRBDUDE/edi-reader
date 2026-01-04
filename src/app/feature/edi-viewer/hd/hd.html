@@ -1,8 +1,47 @@
-@for (element of hd; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getHdLength() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getHdElementDelimiter() }}</span>
+<div class="prb-x12-segment">
+  @for (element of hd; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getHdLength() - 1)) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getHdElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>HD Elements</h5>
+    <prb-element-description
+      [element]="'HD01'"
+      [data]=getHdElement(1)
+      [description]="'enrollment type code'"
+    />
+    <prb-element-description
+      [element]="'HD03'"
+      [data]=getHdElement(3)
+      [description]="'plan type code'"
+    />
+    <prb-element-description
+      [element]="'HD04'"
+      [data]=getHdElement(4)
+      [description]="'plan level code'"
+    />
+    <prb-element-description
+      [element]="'HD05'"
+      [data]=getHdElement(5)
+      [description]="'page control ID'"
+    />
+    <prb-element-description
+      [element]="'HD06'"
+      [data]=getHdElement(6)
+      [description]="'primary key value'"
+    />
+    <prb-element-description
+      [element]="'HD07'"
+      [data]=getHdElement(7)
+      [description]="'group control number'"
+    />
+    <prb-element-description
+      [element]="'HD08'"
+      [data]=getHdElement(8)
+    />
+  </div>
+</div>

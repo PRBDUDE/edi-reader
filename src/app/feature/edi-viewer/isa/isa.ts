@@ -30,4 +30,8 @@ export class Isa implements OnInit {
     if (!this.isa) return 0;
     return this.isa.length;
   }
+
+  getIsaElement(index: number){
+    return this.isa![ index];
+  }
 }

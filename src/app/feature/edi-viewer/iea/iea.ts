@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-iea',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './iea.html',
   styleUrls: ['./iea.scss', '../edi-viewer.scss']
 })
@@ -28,5 +31,9 @@ export class Iea implements OnInit {
   getIeaLength() {
     if (!this.iea) return 0;
     return this.iea.length;
+  }
+
+  getIeaElement(index: number) {
+    return this.iea![index];
   }
 }

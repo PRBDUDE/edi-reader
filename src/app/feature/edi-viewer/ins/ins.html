@@ -1,8 +1,72 @@
-@for (element of ins; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getInsLength() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getInsElementDelimiter() }}</span>
-  }
-}
+<div class="prb-x12-segment">
+  <div class="prb-x12-ins">
+    @for (element of ins; track $index) {
+      <span>{{ element }}</span>
+      @if ($index == (getInsLength() - 1)) {
+        <span class="prb-segment-delimiter">~</span>
+      } @else {
+        <span class="prb-element-delimiter">{{ this.getInsElementDelimiter() }}</span>
+      }
+    }
+  </div>
+  <div class="prb-info">
+    <h5>INS Elements</h5>
+    <prb-element-description
+      [element]="'INS01'"
+      [data]=this.getInsElement(1)
+      [description]="'subscriber relationship code (Y Subscriber, N Dependent)'"
+    />
+    <prb-element-description
+      [element]="'INS02'"
+      [data]=this.getInsElement(2)
+      [description]="'relationship code'"
+    />
+    <prb-element-description
+      [element]="'INS03'"
+      [data]=this.getInsElement(3)
+      [description]="'maintenance type code'"
+    />
+    <prb-element-description
+      [element]="'INS04'"
+      [data]=this.getInsElement(4)
+      [description]="'maintenance reason code'"
+    />
+    <prb-element-description
+      [element]="'INS05'"
+      [data]=this.getInsElement(5)
+      [description]="'benefit status code; A - active, T - terminated'"
+    />
+    <prb-element-description
+      [element]="'INS06'"
+      [data]=this.getInsElement(6)
+      [description]="'date/time period over which maintenance is provided'"
+    />
+    <prb-element-description
+      [element]="'INS07'"
+      [data]=this.getInsElement(7)
+      [description]="'COBRA related events'"
+    />
+    <prb-element-description
+      [element]="'INS08'"
+      [data]=this.getInsElement(8)
+      [description]="'employment status code'"
+    />
+    <prb-element-description
+      [element]="'INS09'"
+      [data]=this.getInsElement(9)
+    />
+    <prb-element-description
+      [element]="'INS10'"
+      [data]=this.getInsElement(10)
+    />
+    <prb-element-description
+      [element]="'INS11'"
+      [data]=this.getInsElement(11)
+    />
+    <prb-element-description
+      [element]="'INS12'"
+      [data]=this.getInsElement(12)
+      [description]="'relative dates'"
+    />
+  </div>
+</div>

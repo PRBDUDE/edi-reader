@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-dmg',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './dmg.html',
   styleUrls: ['./dmg.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class Dmg implements OnInit {
   getDmgLength() {
     if (!this.dmg) return 0;
     return this.dmg.length;
+  }
+
+  getDmgElement(index: number) {
+    return this.dmg![index];
   }
 }

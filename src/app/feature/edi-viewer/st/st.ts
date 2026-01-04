@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-st',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './st.html',
   styleUrls: ['./st.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class St implements OnInit {
   getStLength() {
     if (!this.st) return 0;
     return this.st.length;
+  }
+
+  getStElement(index: number) {
+    return this.st![index];
   }
 }

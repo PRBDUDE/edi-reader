@@ -33,6 +33,6 @@ export class Bgn implements OnInit {
   }
 
   getBgnElement(index: number) {
-    return this.bgn[index];
+    return this.bgn![index];
   }
 }

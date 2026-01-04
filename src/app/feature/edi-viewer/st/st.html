@@ -1,24 +1,29 @@
-@for (element of st; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getStLength() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+<div class="prb-x12-transaction-set">
+  @for (element of st; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getStLength() - 1)) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+    }
   }
-}
 
-<!--<div class="prb-info">-->
-<!--  <h3>ST Segments</h3>-->
-<!--  <div>ST01:-->
-<!--    <span class="prb-element-data">{{ getStElement(1) }}</span>-->
-<!--    <span class="prb-element-desc">transaction set identifier code</span>-->
-<!--  </div>-->
-<!--  <div>ST02:-->
-<!--    <span class="prb-element-data">{{ getStElement(2) }}</span>-->
-<!--    <span class="prb-element-desc">transaction set control number</span>-->
-<!--  </div>-->
-<!--  <div>ST03:-->
-<!--    <span class="prb-element-data">{{ getStElement(3) }}</span>-->
-<!--    <span class="prb-element-desc">implementation convention reference</span>-->
-<!--  </div>-->
-<!--</div>-->
+  <div class="prb-info">
+    <h5>ST Segments</h5>
+    <prb-element-description
+      [element]="'ST01'"
+      [data]=this.getStElement(1)
+      [description]="'transaction set identifier code'"
+    />
+    <prb-element-description
+      [element]="'ST02'"
+      [data]=this.getStElement(2)
+      [description]="'transaction set control number'"
+    />
+    <prb-element-description
+      [element]="'ST03'"
+      [data]=this.getStElement(3)
+      [description]="'implementation convention reference'"
+    />
+  </div>
+</div>

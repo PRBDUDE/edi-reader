@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-dtp',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './dtp.html',
   styleUrls: ['./dtp.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class Dtp implements OnInit {
 
   getDtpElementDelimiter() {
     return this.dtpElementDelimiter();
+  }
+
+  getDtpElement(index: number) {
+    return this.dtp![index];
   }
 }

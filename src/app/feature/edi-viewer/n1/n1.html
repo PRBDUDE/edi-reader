@@ -1,8 +1,43 @@
-@for (element of n1; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getN1Length() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getN1ElementDelimiter() }}</span>
+<div class="prb-x12-segment">
+  @for (element of n1; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getN1Length() - 1)) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getN1ElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>N1 Elements</h5>
+    <prb-element-description
+      [element]="'N101'"
+      [data]=this.getN1Element(1)
+      [description]="'entity identifier code'"
+    />
+    <prb-element-description
+      [element]="'N102'"
+      [data]=this.getN1Element(2)
+      [description]="'identification code qualifier'"
+    />
+    <prb-element-description
+      [element]="'N103'"
+      [data]=this.getN1Element(3)
+      [description]="'identification code (conditional)'"
+    />
+    <prb-element-description
+      [element]="'N104'"
+      [data]=this.getN1Element(4)
+      [description]="'entity name (conditional)'"
+    />
+    <prb-element-description
+      [element]="'N105'"
+      [data]=this.getN1Element(5)
+      [description]="'identification code qualifier (optional)'"
+    />
+    <prb-element-description
+      [element]="'N106'"
+      [data]=this.getN1Element(6)
+      [description]="'identification code (optional)'"
+    />
+  </div>
+</div>

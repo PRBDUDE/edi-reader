@@ -1,8 +1,23 @@
-@for (element of ge; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == getGeLength() - 1) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getGeElementDelimiter() }}</span>
+<div class="prb-x12-group">
+  @for (element of ge; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == getGeLength() - 1) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getGeElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>GE Grouping Segments</h5>
+    <prb-element-description
+      [element]="'GE01'"
+      [data]=getGeElement(1)
+      [description]="'number of transaction sets'"
+    />
+    <prb-element-description
+      [element]="'GE02'"
+      [data]=getGeElement(2)
+      [description]="'control group number (must match GS06)'"
+    />
+  </div>
+</div>

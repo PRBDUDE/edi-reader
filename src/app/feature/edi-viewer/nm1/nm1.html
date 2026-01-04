@@ -1,8 +1,58 @@
-@for (element of nm1; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getNm1Length() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getNm1ElementDelimiter() }}</span>
+<div class="prb-x12-segment">
+  @for (element of nm1; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getNm1Length() - 1)) {
+      <span class="prb-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-element-delimiter">{{ this.getNm1ElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>NM1 Elements</h5>
+    <prb-element-description
+      [element]="'NM101'"
+      [data]="getNm1Element(1)"
+      [description]="'relationship code'"
+    />
+    <prb-element-description
+      [element]="'NM102'"
+      [data]="getNm1Element(2)"
+      [description]="'entity identifier code'"
+    />
+    <prb-element-description
+      [element]="'NM103'"
+      [data]="getNm1Element(3)"
+      [description]="'first name'"
+    />
+    <prb-element-description
+      [element]="'NM104'"
+      [data]="getNm1Element(4)"
+      [description]="'last name'"
+    />
+    <prb-element-description
+      [element]="'NM105'"
+      [data]="getNm1Element(5)"
+      [description]="'identification code qualifier'"
+    />
+    <prb-element-description
+      [element]="'NM106'"
+      [data]="getNm1Element(6)"
+      [description]="'identification code'"
+    />
+    <prb-element-description
+      [element]="'NM107'"
+      [data]="getNm1Element(7)"
+      [description]="'entity type'"
+    />
+    <prb-element-description
+      [element]="'NM108'"
+      [data]="getNm1Element(8)"
+      [description]="'identification code qualifier'"
+    />
+    <prb-element-description
+      [element]="'NM109'"
+      [data]="getNm1Element(9)"
+      [description]="'identification code'"
+    />
+  </div>
+</div>
