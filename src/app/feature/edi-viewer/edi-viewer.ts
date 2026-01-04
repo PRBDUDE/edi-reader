@@ -63,16 +63,15 @@ export class EdiViewer {
     'REF*1L*SUBPLAN01~' +
     'INS*N*01*021*XN*A*E~' +
     'REF*0F*123456789~' +
-    'DTP*336*D8*20251101~' +
     'NM1*IL*1*JOE*JANE****34*123456789~' +
     'PER*IP*JANE DOE*HP*5551234567~' +
     'N3*100 MAIN ST~' +
     'N4*ANYTOWN*CA*90210~' +
-    'DMG*D8*19860115*M~' +
+    'DMG*D8*20210115*F~' +
     'HD*030**HLT*PLAN123~' +
     'DTP*348*D8*20251101~' +
     'REF*1L*SUBPLAN01~' +
-    'SE*18*0001~' +
+    'SE*17*0001~' +
     'GE*1*1~' +
     'IEA*1*000000905~'
   elementDelimiter = this.ediData.charAt(101);
