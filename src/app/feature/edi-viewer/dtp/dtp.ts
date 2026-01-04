@@ -16,6 +16,20 @@ export class Dtp implements OnInit {
   dtpSegmentDelimiter = input<string>('~');
   dtpValid = false;
   dtp: string[] | undefined;
+  dtp01DateType = [
+    { code: '001', description: 'cancel after date' },
+    { code: '007', description: 'effective date' },
+    { code: '011', description: 'ship date' },
+    { code: '336', description: 'employment begin date' },
+    { code: '346', description: 'plan issue date' },
+    { code: '348', description: 'benefit start date' },
+    { code: '349', description: 'benefit end date' },
+  ]
+  dtp02Format = [
+    { code: 'D6', description: 'YYMMDD' },
+    { code: 'D8', description: 'YYYYMMDD' },
+    { code: 'DT', description: 'YYYYMMDDHHMM' },
+  ]
 
   ngOnInit() {
     const dtpSegmentLength = this.dtpData().length;
@@ -34,5 +48,13 @@ export class Dtp implements OnInit {
 
   getDtpElement(index: number) {
     return this.dtp![index];
+  }
+
+  getDtpDateType(code: string) {
+    return this.dtp01DateType.find(x => x.code === code);
+  }
+
+  getDtpFormat(code: string) {
+    return this.dtp02Format.find(x => x.code === code);
   }
 }

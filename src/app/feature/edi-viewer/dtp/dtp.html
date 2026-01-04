@@ -12,12 +12,12 @@
     <prb-element-description
       [element]="'DTP01'"
       [data]=this.getDtpElement(1)
-      [description]="'date/time qualifier'"
+      [description]="getDtpDateType(this.getDtpElement(1))?.description || 'date/time qualifier'"
     />
     <prb-element-description
       [element]="'DTP02'"
       [data]=this.getDtpElement(2)
-      [description]="'date/time format qualifier'"
+      [description]="getDtpFormat(this.getDtpElement(2))?.description || 'date/time format qualifier'"
     />
     <prb-element-description
       [element]="'DTP03'"
