@@ -61,10 +61,10 @@ export class EdiViewer {
     'HD*030**HLT*PLAN123****EMP~' +
     'DTP*348*D8*20251101~' +
     'REF*1L*SUBPLAN01~' +
-    'INS*N*01*021*XN*A*E**FT~' +
+    'INS*N*01*021*XN*A*E~' +
     'REF*0F*123456789~' +
     'DTP*336*D8*20251101~' +
-    'NM1*IL*1*JANE*JOHN****34*123456789~' +
+    'NM1*IL*1*JOE*JANE****34*123456789~' +
     'PER*IP*JANE DOE*HP*5551234567~' +
     'N3*100 MAIN ST~' +
     'N4*ANYTOWN*CA*90210~' +
