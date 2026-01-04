@@ -10,69 +10,85 @@
 
   <div class="prb-info">
     <h5>ISA Segments</h5>
-    <div>ISA01:
-      <span class="prb-element-data">{{ getIsaElement(1) }}</span>
-      <span class="prb-element-desc">type of authorization</span>
-    </div>
-    <div>ISA02:
-      <span class="prb-element-data">{{ getIsaElement(2) }}</span>
-      <span class="prb-element-desc">actual authorization info</span>
-    </div>
-    <div>ISA03:
-      <span class="prb-element-data">{{ getIsaElement(3) }}</span>
-      <span class="prb-element-desc">type of security info</span>
-    </div>
-    <div>ISA04:
-      <span class="prb-element-data">{{ getIsaElement(4) }}</span>
-      <span class="prb-element-desc">actual security info</span>
-    </div>
-    <div>ISA05:
-      <span class="prb-element-data">{{ getIsaElement(5) }}</span>
-      <span class="prb-element-desc">code identifying the sender's ID type</span>
-    </div>
-    <div>ISA06:
-      <span class="prb-element-data">{{ getIsaElement(6) }}</span>
-      <span class="prb-element-desc">sender's ID</span>
-    </div>
-    <div>ISA07:
-      <span class="prb-element-data">{{ getIsaElement(7) }}</span>
-      <span class="prb-element-desc">code identifying the receiver's ID type</span>
-    </div>
-    <div>ISA08:
-      <span class="prb-element-data">{{ getIsaElement(8) }}</span>
-      <span class="prb-element-desc">receiver's ID</span>
-    </div>
-    <div>ISA09:
-      <span class="prb-element-data">{{ getIsaElement(9) }}</span>
-      <span class="prb-element-desc">date in YYMMDD format</span>
-    </div>
-    <div>ISA010:
-      <span class="prb-element-data">{{ getIsaElement(10) }}</span>
-      <span class="prb-element-desc">time in HHMM format</span>
-    </div>
-    <div>ISA011:
-      <span class="prb-element-data">{{ getIsaElement(11) }}</span>
-      <span class="prb-element-desc">control standards ID</span>
-    </div>
-    <div>ISA012:
-      <span class="prb-element-data">{{ getIsaElement(12) }}</span>
-      <span class="prb-element-desc">interchange control version number</span>
-    </div>
-    <div>ISA013:
-      <span class="prb-element-data">{{ getIsaElement(13) }}</span>
-      <span class="prb-element-desc">interchange control number</span>
-    </div>
-    <div>ISA014:
-      <span class="prb-element-data">{{ getIsaElement(14) }}</span>
-      <span class="prb-element-desc">acknowledgement requested</span>
-    </div>
-    <div>ISA015:
-      <span class="prb-element-data">{{ getIsaElement(15) }}</span>
-      <span class="prb-element-desc">usage indicator (P for Production; T for Test)</span>
-    </div>
-    <div>ISA016:
-      <span class="prb-element-data">{{ getIsaElement(16) }}</span>
-      <span class="prb-element-desc">component element separator</span>
-    </div>
+    <prb-element-description
+      [element]="'ISA01'"
+      [data]=getIsaElement(1)
+      [description]="'type of authorization'"
+    />
+    <prb-element-description
+      [element]="'ISA02'"
+      [data]=getIsaElement(2)
+      [description]="'actual authorization info'"
+    />
+    <prb-element-description
+      [element]="'ISA03'"
+      [data]=getIsaElement(3)
+      [description]="'type of security info'"
+    />
+    <prb-element-description
+      [element]="'ISA04'"
+      [data]=getIsaElement(4)
+      [description]="'actual security info'"
+    />
+    <prb-element-description
+      [element]="'ISA05'"
+      [data]=getIsaElement(5)
+      [description]="'code identifying the sender\'s ID type'"
+    />
+    <prb-element-description
+      [element]="'ISA06'"
+      [data]=getIsaElement(6)
+      [description]="'sender\'s ID'"
+    />
+    <prb-element-description
+      [element]="'ISA07'"
+      [data]=getIsaElement(7)
+      [description]="'code identifying the receiver\'s ID type'"
+    />
+    <prb-element-description
+      [element]="'ISA08'"
+      [data]=getIsaElement(8)
+      [description]="'receiver\'s ID'"
+    />
+    <prb-element-description
+      [element]="'ISA09'"
+      [data]=getIsaElement(9)
+      [description]="'date in YYMMDD format'"
+    />
+    <prb-element-description
+      [element]="'ISA10'"
+      [data]=getIsaElement(10)
+      [description]="'time in HHMM format'"
+    />
+    <prb-element-description
+      [element]="'ISA11'"
+      [data]=getIsaElement(11)
+      [description]="'control standards ID'"
+    />
+    <prb-element-description
+      [element]="'ISA12'"
+      [data]=getIsaElement(12)
+      [description]="'interchange control version number'"
+      />
+    <prb-element-description
+      [element]="'ISA13'"
+      [data]=getIsaElement(13)
+      [description]="'interchange control number'"
+    />
+    <prb-element-description
+      [element]="'ISA14'"
+      [data]=getIsaElement(14)
+      [description]="'acknowledgement requested'"
+    />
+    <prb-element-description
+      [element]="'ISA15'"
+      [data]=getIsaElement(15)
+      [description]="'usage indicator (P for Production; T for Test)'"
+    />
+    <prb-element-description
+      [element]="'ISA16'"
+      [data]=getIsaElement(16)
+      [description]="'component element separator'"
+    />
   </div>
 </div>

@@ -1,8 +1,11 @@
 import {Component, input, OnInit, signal} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-isa',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './isa.html',
   styleUrls: ['./isa.scss', '../edi-viewer.scss']
 })
