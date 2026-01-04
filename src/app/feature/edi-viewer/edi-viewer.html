@@ -1,14 +1,12 @@
 <div class="prb-x12-container">
   @for (segment of segments; track segment) {
     @if (segment.startsWith('ISA')) {
-      <div>
-        <prb-isa
-          [isaData]="segment"
-          [isaSegmentDelimiter]="segmentDelimiter"
-          [isaElementDelimiter]="elementDelimiter"
-          [isaSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-isa
+        [isaData]="segment"
+        [isaSegmentDelimiter]="segmentDelimiter"
+        [isaElementDelimiter]="elementDelimiter"
+        [isaSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('GS')) {
       <div class="prb-x12-group">
         <prb-gs
@@ -19,7 +17,7 @@
         />
       </div>
     } @else if (segment.startsWith('ST')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-st
           [stData]="segment"
           [stSegmentDelimiter]="segmentDelimiter"
@@ -28,7 +26,7 @@
         />
       </div>
     } @else if (segment.startsWith('SE')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-se
           [seData]="segment"
           [seSegmentDelimiter]="segmentDelimiter"
@@ -46,16 +44,14 @@
         />
       </div>
     } @else if (segment.startsWith('IEA')) {
-      <div>
-        <prb-iea
-          [ieaData]="segment"
-          [ieaSegmentDelimiter]="segmentDelimiter"
-          [ieaElementDelimiter]="elementDelimiter"
-          [ieaSubElementDelimiter]="subElementDelimiter"
-        />
-      </div>
+      <prb-iea
+        [ieaData]="segment"
+        [ieaSegmentDelimiter]="segmentDelimiter"
+        [ieaElementDelimiter]="elementDelimiter"
+        [ieaSubElementDelimiter]="subElementDelimiter"
+      />
     } @else if (segment.startsWith('BGN')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-bgn
           [bgnData]="segment"
           [bgnSegmentDelimiter]="segmentDelimiter"
@@ -64,7 +60,7 @@
         />
       </div>
     } @else if (segment.startsWith('REF')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-ref
           [refData]="segment"
           [refSegmentDelimiter]="segmentDelimiter"
@@ -73,7 +69,7 @@
         />
       </div>
     } @else if (segment.startsWith('DTP')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-dtp
           [dtpData]="segment"
           [dtpSegmentDelimiter]="segmentDelimiter"
@@ -82,7 +78,7 @@
         />
       </div>
     } @else if (segment.startsWith('N1')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-n1
           [n1Data]="segment"
           [n1SegmentDelimiter]="segmentDelimiter"
@@ -91,7 +87,7 @@
         />
       </div>
     } @else if (segment.startsWith('N3')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-n3
           [n3Data]="segment"
           [n3SegmentDelimiter]="segmentDelimiter"
@@ -100,7 +96,7 @@
         />
       </div>
     } @else if (segment.startsWith('N4')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-n4
           [n4Data]="segment"
           [n4SegmentDelimiter]="segmentDelimiter"
@@ -109,7 +105,7 @@
         />
       </div>
     } @else if (segment.startsWith('INS')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-ins
           [insData]="segment"
           [insSegmentDelimiter]="segmentDelimiter"
@@ -118,7 +114,7 @@
         />
       </div>
     } @else if (segment.startsWith('NM1')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-nm1
           [nm1Data]="segment"
           [nm1SegmentDelimiter]="segmentDelimiter"
@@ -127,7 +123,7 @@
         />
       </div>
     } @else if (segment.startsWith('PER')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-per
           [data]="segment"
           [segmentDelimiter]="segmentDelimiter"
@@ -136,7 +132,7 @@
         />
       </div>
     } @else if (segment.startsWith('DMG')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-dmg
           [dmgData]="segment"
           [dmgSegmentDelimiter]="segmentDelimiter"
@@ -145,7 +141,7 @@
         />
       </div>
     } @else if (segment.startsWith('HD')) {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         <prb-hd
           [hdData]="segment"
           [hdSegmentDelimiter]="segmentDelimiter"
@@ -154,7 +150,7 @@
         />
       </div>
     } @else {
-      <div class="prb-x12-transactions">
+      <div class="prb-x12-segment">
         {{ segment }}
       </div>
     }

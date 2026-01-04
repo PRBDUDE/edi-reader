@@ -1,8 +1,11 @@
 import {Component, input, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-bgn',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './bgn.html',
   styleUrls: ['./bgn.scss', '../edi-viewer.scss']
 })
@@ -27,5 +30,9 @@ export class Bgn implements OnInit {
 
   getBgnElementDelimiter() {
     return this.bgnElementDelimiter();
+  }
+
+  getBgnElement(index: number) {
+    return this.bgn[index];
   }
 }
