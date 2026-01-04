@@ -12,12 +12,12 @@
     <prb-element-description
       [element]="'REF01'"
       [data]="getRefElement(1)"
-      [description]="'reference identification qualifier'"
+      [description]="'reference identifier qualifier'"
     />
     <prb-element-description
       [element]="'REF02'"
       [data]="getRefElement(2)"
-      [description]="'reference identification'"
+      [description]="getRefCodeDescription(getRefElement(1))?.description || 'reference identification'"
     />
     <prb-element-description
       [element]="'REF03'"

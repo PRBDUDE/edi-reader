@@ -16,6 +16,10 @@ export class Ref implements OnInit {
   refSegmentDelimiter = input<string>('~');
   refValid = false;
   ref: string[] | undefined;
+  refCodeDescription = [
+    { code: '0F', description: 'Contract Number' },
+    { code: '38', description: 'Group ID' },
+  ]
 
   ngOnInit() {
     const refSegmentLength = this.refData().length;
@@ -34,5 +38,9 @@ export class Ref implements OnInit {
 
   getRefElement(index: number) {
     return this.ref![index];
+  }
+
+  getRefCodeDescription(code: string) {
+    return this.refCodeDescription.find(x => x.code === code);
   }
 }
