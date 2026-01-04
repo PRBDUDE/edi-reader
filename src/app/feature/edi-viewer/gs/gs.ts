@@ -1,8 +1,11 @@
 import {Component, input, OnInit, signal} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
 
 @Component({
   selector: 'prb-gs',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './gs.html',
   styleUrls: ['./gs.scss', '../edi-viewer.scss']
 })
