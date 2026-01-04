@@ -14,27 +14,27 @@
     <prb-element-description
       [element]="'INS01'"
       [data]=this.getInsElement(1)
-      [description]="'subscriber relationship code (Y Subscriber, N Dependent)'"
+      [description]="getIns01Description(this.getInsElement(1))?.description || 'subscriber relationship code (Y Subscriber, N Dependent)'"
     />
     <prb-element-description
       [element]="'INS02'"
       [data]=this.getInsElement(2)
-      [description]="'relationship code'"
+      [description]="getIns02Relationship(this.getInsElement(2))?.description || 'relationship code'"
     />
     <prb-element-description
       [element]="'INS03'"
       [data]=this.getInsElement(3)
-      [description]="'maintenance type code'"
+      [description]="getIns03TransactionTypeCode(this.getInsElement(3))?.description || 'maintenance type code'"
     />
     <prb-element-description
       [element]="'INS04'"
       [data]=this.getInsElement(4)
-      [description]="'maintenance reason code'"
+      [description]="getIns04MaintenaceReasonCode(this.getInsElement(4))?.description || 'maintenance reason code'"
     />
     <prb-element-description
       [element]="'INS05'"
       [data]=this.getInsElement(5)
-      [description]="'benefit status code; A - active, T - terminated'"
+      [description]="getIns05BenefitStatusCode(this.getInsElement(5))?.description || 'benefit status code; A - active, T - terminated'"
     />
     <prb-element-description
       [element]="'INS06'"
