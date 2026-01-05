@@ -21,7 +21,7 @@ describe('Bgn', () => {
   });
 
   describe('BGN*00*345678*20251210*1440~', () => {
-    const testData = 'BGN*00*345678*20251210*1440~'
+    const testData = 'BGN*00*345678*20251210*1440~';
 
     beforeEach(() => {
       fixture.componentRef.setInput('bgnData', testData);
@@ -57,7 +57,7 @@ describe('Bgn', () => {
         compiled = fixture.nativeElement as HTMLElement;
         spans = compiled.querySelectorAll('span') as unknown as HTMLCollectionOf<HTMLElement>;
         console.log(compiled.innerHTML);
-      })
+      });
 
       it('should contain class \'prb-x12-segment\'', () => {
         expect(compiled.querySelector('div')?.className).toContain('prb-x12-segment');
