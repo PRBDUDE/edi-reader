@@ -1,5 +1,5 @@
 <div class="prb-x12-segment">
-  @for (element of bgn; track $index) {
+  @for (element of this.bgn; track $index) {
     <span>{{ element }}</span>
     @if ($index == (getBgnLength() - 1)) {
       <span class="prb-segment-delimiter">~</span>

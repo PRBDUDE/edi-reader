@@ -1,4 +1,4 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {PhoneNumberPipe} from '../../../core/pipes/phone-number-pipe';
 
@@ -11,7 +11,7 @@ import {PhoneNumberPipe} from '../../../core/pipes/phone-number-pipe';
   templateUrl: './per.html',
   styleUrls: ['./per.scss', '../edi-viewer.scss']
 })
-export class Per implements OnInit {
+export class Per implements OnInit, OnChanges {
   data = input<string>('PER*IP*JOHN DOE*HP*5551234567~');
   elementDelimiter = input<string>('*');
   subElementDelimiter = input<string>(':');
@@ -27,6 +27,16 @@ export class Per implements OnInit {
   ];
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.data()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const segmentLength = this.data().length;
     this.per = this.data().substring(0, segmentLength).split(this.elementDelimiter());
     this.valid = true;

@@ -1,4 +1,4 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnChanges, OnInit, signal} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 
 @Component({
@@ -9,7 +9,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './isa.html',
   styleUrls: ['./isa.scss', '../edi-viewer.scss']
 })
-export class Isa implements OnInit {
+export class Isa implements OnInit, OnChanges {
   isaData = input<string>('ISA*00*          *00*          *ZZ*87790056      *ZZ*576687090     *251107*1430*U*00501*000000905*0*T*:~');
   isaSegmentDelimiter = input<string>('~');
   isaElementDelimiter = input<string>('*');
@@ -19,6 +19,16 @@ export class Isa implements OnInit {
   isa: string[] | undefined;
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.isaData()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const isaSegmentLength = this.isaData().length;
     this.isa = this.isaData().substring(0,isaSegmentLength).split(this.isaElementDelimiter());
     this.isaInterchangeControlNumber.set(Number(this.isa[13]));

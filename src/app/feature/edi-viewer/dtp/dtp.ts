@@ -1,4 +1,4 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {D8DatePipe} from '../../../core/pipes/d8-date-pipe';
 
@@ -11,7 +11,7 @@ import {D8DatePipe} from '../../../core/pipes/d8-date-pipe';
   templateUrl: './dtp.html',
   styleUrls: ['./dtp.scss', '../edi-viewer.scss']
 })
-export class Dtp implements OnInit {
+export class Dtp implements OnInit, OnChanges {
   dtpData = input<string>('DTP*007*D8*20251101~');
   dtpElementDelimiter = input<string>('*');
   dtpSubElementDelimiter = input<string>(':');
@@ -34,6 +34,16 @@ export class Dtp implements OnInit {
   ]
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.dtpData()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const dtpSegmentLength = this.dtpData().length;
     this.dtp = this.dtpData().substring(0, dtpSegmentLength).split(this.dtpElementDelimiter());
     this.dtpValid = true;

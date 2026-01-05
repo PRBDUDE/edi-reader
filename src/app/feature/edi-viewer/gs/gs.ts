@@ -1,4 +1,4 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnChanges, OnInit, signal} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 
 @Component({
@@ -9,7 +9,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './gs.html',
   styleUrls: ['./gs.scss', '../edi-viewer.scss']
 })
-export class Gs implements OnInit {
+export class Gs implements OnInit, OnChanges {
   gsData = input<string>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
   gsElementDelimiter = input<string>('*');
   gsSubElementDelimiter = input<string>(':');
@@ -19,6 +19,16 @@ export class Gs implements OnInit {
   gs: string[] | undefined;
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.gsData()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const gsSegmentLength = this.gsData().length;
     this.gs = this.gsData().substring(0, gsSegmentLength).split(this.gsElementDelimiter());
     this.gsGroupControlNumber.set(Number(this.gs[6]));

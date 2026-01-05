@@ -1,4 +1,4 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 
 @Component({
@@ -9,7 +9,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './ref.html',
   styleUrls: ['./ref.scss', '../edi-viewer.scss']
 })
-export class Ref implements OnInit {
+export class Ref implements OnInit, OnChanges {
   refData = input<string>('REF*38*GROUP123~');
   refElementDelimiter = input<string>('*');
   refSubElementDelimiter = input<string>(':');
@@ -22,6 +22,16 @@ export class Ref implements OnInit {
   ]
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.refData()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const refSegmentLength = this.refData().length;
     this.ref = this.refData().substring(0, refSegmentLength).split(this.refElementDelimiter());
     this.refValid = true;

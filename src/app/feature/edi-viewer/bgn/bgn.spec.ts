@@ -1,23 +1,106 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { Bgn } from './bgn';
+import {Bgn} from './bgn';
 
 describe('Bgn', () => {
   let component: Bgn;
   let fixture: ComponentFixture<Bgn>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       imports: [Bgn]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Bgn);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('BGN*00*345678*20251110*1440~', () => {
+    const testData = 'BGN*00*345678*20251110*1440~'
+
+    beforeEach(() => {
+      fixture.componentRef.setInput('bgnData', testData);
+      fixture.componentRef.setInput('bgnSegmentDelimiter', '~');
+      fixture.componentRef.setInput('bgnElementDelimiter', '*');
+      fixture.componentRef.setInput('bgnSubElementDelimiter', ':');
+      fixture.componentRef.changeDetectorRef.detectChanges();
+      fixture.detectChanges();
+      console.log('DATA: ' + fixture.componentRef.instance.bgnData());
+    });
+
+    it('should contain data', () => {
+      expect(component.bgnData()).toEqual(testData);
+    });
+
+    it('should contain segment delimiter', () => {
+      expect(component.bgnSegmentDelimiter()).toEqual('~');
+    });
+
+    it('should contain element delimiter', () => {
+      expect(component.bgnElementDelimiter()).toEqual('*');
+    });
+
+    it('should contain sub element delimiter', () => {
+      expect(component.bgnSubElementDelimiter()).toEqual(':');
+    });
+
+    describe('check contents of html tag', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+
+      beforeEach(() => {
+        compiled = fixture.nativeElement as HTMLElement;
+        spans = compiled.querySelectorAll('span') as unknown as HTMLCollectionOf<HTMLElement>;
+        console.log(compiled.innerHTML);
+      })
+
+      it('should contain class \'prb-x12-segment\'', () => {
+        expect(compiled.querySelector('div')?.className).toContain('prb-x12-segment');
+      });
+
+      it('should contain span[0] with \'BGN\'', () => {
+        expect(spans[0].innerHTML).toContain('BGN');
+      });
+
+      it('should contain span[1] with \'*\' and class \'prb-element-delimiter\'', () => {
+        expect(spans[1].innerHTML).toContain('*');
+        expect(spans[1].className).toContain('prb-element-delimiter');
+      });
+
+      it('should contain span[2] with \'00\'', () => {
+        expect(spans[2].innerHTML).toContain('00');
+      });
+
+      it('should contain span[3] with \'*\' and class \'prb-element-delimiter\'', () => {
+        expect(spans[3].innerHTML).toContain('*');
+        expect(spans[3].className).toContain('prb-element-delimiter');
+      });
+
+      it('should contain span[4] with \'345678\'', () => {
+        expect(spans[4].innerHTML).toContain('345678');
+      });
+
+      it('should contain span[5] with \'*\' and class \'prb-element-delimiter\'', () => {
+        expect(spans[5].innerHTML).toContain('*');
+        expect(spans[5].className).toContain('prb-element-delimiter');
+      });
+
+      it('should contain span[6] with \'20251110\'', () => {
+        expect(spans[6].innerHTML).toContain('20251110');
+      });
+      it('should contain span[7] with \'*\' and class \'prb-element-delimiter\'', () => {
+        expect(spans[7].innerHTML).toContain('*');
+        expect(spans[7].className).toContain('prb-element-delimiter');
+      });
+
+      it('should contain span[8] with \'1440\'', () => {
+        expect(spans[8].innerHTML).toContain('1440');
+      });
+    });
   });
 });

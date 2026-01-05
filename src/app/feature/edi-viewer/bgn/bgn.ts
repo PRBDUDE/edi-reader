@@ -1,4 +1,4 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 
 @Component({
@@ -9,7 +9,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './bgn.html',
   styleUrls: ['./bgn.scss', '../edi-viewer.scss']
 })
-export class Bgn implements OnInit {
+export class Bgn implements OnInit, OnChanges {
   bgnData = input<string>('BGN*00*123456*20251107*1430~');
   bgnElementDelimiter = input<string>('*');
   bgnSubElementDelimiter = input<string>(':');
@@ -18,6 +18,16 @@ export class Bgn implements OnInit {
   bgn: string[] | undefined;
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.bgnData()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const bgnSegmentLength = this.bgnData().length;
     this.bgn = this.bgnData().substring(0, bgnSegmentLength).split(this.bgnElementDelimiter());
     this.bgnValid = true;

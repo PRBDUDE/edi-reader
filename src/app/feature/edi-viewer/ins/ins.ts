@@ -1,4 +1,4 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 
 @Component({
@@ -9,7 +9,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './ins.html',
   styleUrls: ['./ins.scss', '../edi-viewer.scss']
 })
-export class Ins implements OnInit {
+export class Ins implements OnInit, OnChanges {
   insData = input<string>('INS*Y*18*021*XN*A*E**FT~');
   insElementDelimiter = input<string>('*');
   insSubElementDelimiter = input<string>(':');
@@ -65,6 +65,16 @@ export class Ins implements OnInit {
   ]
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.insData()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const insSegmentLength = this.insData().length;
     this.ins = this.insData().substring(0, insSegmentLength).split(this.insElementDelimiter());
     this.insValid = true;

@@ -1,4 +1,4 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 
 @Component({
@@ -9,7 +9,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './hd.html',
   styleUrls: ['./hd.scss', '../edi-viewer.scss']
 })
-export class Hd implements OnInit {
+export class Hd implements OnInit, OnChanges {
   hdData = input<string>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
   hdElementDelimiter = input<string>('*');
   hdSubElementDelimiter = input<string>(':');
@@ -18,6 +18,16 @@ export class Hd implements OnInit {
   hd: string[] | undefined;
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.hdData()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const hdSegmentLength = this.hdData().length;
     this.hd = this.hdData().substring(0, hdSegmentLength).split(this.hdElementDelimiter());
     this.hdValid = true;

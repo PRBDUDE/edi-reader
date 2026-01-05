@@ -1,4 +1,4 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 
 @Component({
@@ -9,7 +9,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './se.html',
   styleUrls: ['./se.scss', '../edi-viewer.scss']
 })
-export class Se implements OnInit {
+export class Se implements OnInit, OnChanges {
   seData = input<string>('SE*18*0001~');
   seElementDelimiter = input<string>('*');
   seSubElementDelimiter = input<string>(':');
@@ -18,6 +18,16 @@ export class Se implements OnInit {
   se: string[] | undefined;
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.seData()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const seSegmentLength = this.seData().length;
     this.se = this.seData().substring(0, seSegmentLength).split(this.seElementDelimiter());
     this.seValid = true;

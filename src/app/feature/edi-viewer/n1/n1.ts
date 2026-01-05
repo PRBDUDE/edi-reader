@@ -1,4 +1,4 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 
 @Component({
@@ -9,7 +9,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './n1.html',
   styleUrls: ['./n1.scss', '../edi-viewer.scss']
 })
-export class N1 implements OnInit {
+export class N1 implements OnInit, OnChanges {
   n1Data = input<string>('N1*P5*ACME EMPLOYER~');
   n1ElementDelimiter = input<string>('*');
   n1SubElementDelimiter = input<string>(':');
@@ -18,6 +18,16 @@ export class N1 implements OnInit {
   n1: string[] | undefined;
 
   ngOnInit() {
+    this.init();
+  }
+
+  ngOnChanges() {
+    if (this.n1Data()) {
+      this.init();
+    }
+  }
+
+  private init() {
     const n1SegmentLength = this.n1Data().length;
     this.n1 = this.n1Data().substring(0, n1SegmentLength).split(this.n1ElementDelimiter());
     this.n1Valid = true;
