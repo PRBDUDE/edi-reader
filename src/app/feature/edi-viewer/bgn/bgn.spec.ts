@@ -20,8 +20,8 @@ describe('Bgn', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('BGN*00*345678*20251110*1440~', () => {
-    const testData = 'BGN*00*345678*20251110*1440~'
+  describe('BGN*00*345678*20251210*1440~', () => {
+    const testData = 'BGN*00*345678*20251210*1440~'
 
     beforeEach(() => {
       fixture.componentRef.setInput('bgnData', testData);
@@ -90,8 +90,8 @@ describe('Bgn', () => {
         expect(spans[5].className).toContain('prb-element-delimiter');
       });
 
-      it('should contain span[6] with \'20251110\'', () => {
-        expect(spans[6].innerHTML).toContain('20251110');
+      it('should contain span[6] with \'20251210\'', () => {
+        expect(spans[6].innerHTML).toContain('20251210');
       });
       it('should contain span[7] with \'*\' and class \'prb-element-delimiter\'', () => {
         expect(spans[7].innerHTML).toContain('*');
