@@ -1,10 +1,12 @@
 import {Component, input, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
+import {D8DatePipe} from '../../../core/pipes/d8-date-pipe';
 
 @Component({
   selector: 'prb-dmg',
   imports: [
-    ElementDescription
+    ElementDescription,
+    D8DatePipe
   ],
   templateUrl: './dmg.html',
   styleUrls: ['./dmg.scss', '../edi-viewer.scss']

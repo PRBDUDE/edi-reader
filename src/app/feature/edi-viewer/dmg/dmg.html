@@ -14,11 +14,19 @@
       [data]=getDmgElement(1)
       [description]="'demographic information code'"
     />
-    <prb-element-description
-      [element]="'DMG02'"
-      [data]=getDmgElement(2)
-      [description]="'DOB (YYYYMMDD)'"
-    />
+    @if (getDmgElement(1) == 'D8') {
+      <prb-element-description
+        [element]="'DMG02'"
+        [data]="getDmgElement(2) | d8Date"
+        [description]="'DOB'"
+      />
+    } @else {
+      <prb-element-description
+        [element]="'DMG02'"
+        [data]=getDmgElement(2)
+        [description]="'DOB (YYYYMMDD)'"
+      />
+    }
     <prb-element-description
       [element]="'DMG03'"
       [data]=getDmgElement(3)
