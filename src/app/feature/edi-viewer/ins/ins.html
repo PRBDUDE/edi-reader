@@ -39,17 +39,17 @@
     <prb-element-description
       [element]="'INS06'"
       [data]=this.getInsElement(6)
-      [description]="'date/time period over which maintenance is provided'"
+      [description]="getIns06PlanTypeCode(this.getInsElement(6))?.description || 'date/time period over which maintenance is provided'"
     />
     <prb-element-description
       [element]="'INS07'"
       [data]=this.getInsElement(7)
-      [description]="'COBRA related events'"
+      [description]="getIns07QualifyingStatusCode(this.getInsElement(7))?.description || 'COBRA related events'"
     />
     <prb-element-description
       [element]="'INS08'"
       [data]=this.getInsElement(8)
-      [description]="'employment status code'"
+      [description]="getIns08EmploymentStatusCode(this.getInsElement(8))?.description || 'employment status code'"
     />
     <prb-element-description
       [element]="'INS09'"
@@ -58,6 +58,7 @@
     <prb-element-description
       [element]="'INS10'"
       [data]=this.getInsElement(10)
+      [description]="getIns10DisabledStatusCode(this.getInsElement(10))?.description || 'disabled status code'"
     />
     <prb-element-description
       [element]="'INS11'"
@@ -67,6 +68,11 @@
       [element]="'INS12'"
       [data]=this.getInsElement(12)
       [description]="'relative dates'"
+    />
+    <prb-element-description
+      [element]="'INS17'"
+      [data]=this.getInsElement(17)
+      [description]="'birth sequence number'"
     />
   </div>
 </div>

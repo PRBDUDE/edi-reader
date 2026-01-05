@@ -31,8 +31,11 @@ export class Ins implements OnInit {
     { code: '18', description: 'self' }
   ];
   ins03TransactionTypeCode = [
+    { code: '001', description: 'change' },
     { code: '021', description: 'add' },
-    { code: '024', description: 'cancellation' }
+    { code: '024', description: 'terminate' },
+    { code: '025', description: 'reinstate' },
+    { code: '030', description: 'replace' }
   ];
   ins04MaintenanceReasonCode = [
     { code: 'XN', description: 'new enrollment' }
@@ -40,6 +43,25 @@ export class Ins implements OnInit {
   ins05BenefitStatusCode = [
     { code: 'A', description: 'active' },
     { code: 'T', description: 'terminated' }
+  ]
+  ins06PlanTypeCode = [
+    { code: 'A', description: 'medicare A' },
+    { code: 'B', description: 'medicare B' },
+    { code: 'C', description: 'medicare C' }
+  ]
+  ins07QualifyingStatusCode = [
+    { code: 'A', description: 'active' },
+    { code: 'C', description: 'COBRA' },
+    { code: 'S', description: 'surviving spouse' },
+  ]
+  ins08EmploymentStatusCode = [
+    { code: 'EMP', description: 'employed' },
+    { code: 'AC', description: 'active' },
+    { code: 'RT', description: 'retired' },
+    { code: 'LI', description: 'leave of absence' },
+  ]
+  ins10DisabledStatusCode = [
+    { code: 'Y', description: 'disabled' }
   ]
 
   ngOnInit() {
@@ -79,5 +101,21 @@ export class Ins implements OnInit {
 
   getIns05BenefitStatusCode(code: string) {
     return this.ins05BenefitStatusCode.find(x => x.code === code);
+  }
+
+  getIns06PlanTypeCode(code: string) {
+    return this.ins06PlanTypeCode.find(x => x.code === code);
+  }
+
+  getIns07QualifyingStatusCode(code: string) {
+    return this.ins07QualifyingStatusCode.find(x => x.code === code);
+  }
+
+  getIns08EmploymentStatusCode(code: string) {
+    return this.ins08EmploymentStatusCode.find(x => x.code === code);
+  }
+
+  getIns10DisabledStatusCode(code: string) {
+    return this.ins10DisabledStatusCode.find(x => x.code === code);
   }
 }
