@@ -1,21 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { Isa } from './isa';
+import {Isa} from './isa';
 
 describe('Isa', () => {
   let component: Isa;
   let fixture: ComponentFixture<Isa>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       imports: [Isa]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Isa);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();

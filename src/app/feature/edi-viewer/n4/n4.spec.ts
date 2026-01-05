@@ -1,21 +1,20 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import { N4 } from './n4';
+import {N4} from './n4';
 
 describe('N4', () => {
   let component: N4;
   let fixture: ComponentFixture<N4>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
       imports: [N4]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(N4);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
+  }));
 
   it('should create', () => {
     expect(component).toBeTruthy();
