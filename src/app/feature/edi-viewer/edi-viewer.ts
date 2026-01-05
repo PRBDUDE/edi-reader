@@ -50,6 +50,19 @@ export class EdiViewer {
     'DTP*007*D8*20251101~' +
     'N1*P5*ACME EMPLOYER~' +
     'N1*IN*ALPHA HEALTH PLAN~' +
+
+    'INS*Y*18*001**A*B**RT~' +
+    'REF*0F*234567891~' +
+    'DTP*336*D8*20251101~' +
+    'NM1*IL*1*DOE*PAUL****34*234567891~' +
+    'PER*IP*JOHN DOE*HP*5741234567*CP*5743442256*EM*PDOE23@DEMO.COM~' +
+    'N3*100 MAIN ST~' +
+    'N4*ANYTOWN*CA*90210~' +
+    'DMG*D8*19550115*M~' +
+    'HD*030**HLT*PLAN123~' +
+    'DTP*348*D8*20251101~' +
+    'REF*1L*SUBPLAN01~' +
+
     'INS*Y*18*021*XN*A*E**FT~' +
     'REF*0F*123456789~' +
     'DTP*336*D8*20251101~' +
@@ -61,6 +74,7 @@ export class EdiViewer {
     'HD*030**HLT*PLAN123****EMP~' +
     'DTP*348*D8*20251101~' +
     'REF*1L*SUBPLAN01~' +
+
     'INS*N*01*021*XN*A*E~' +
     'REF*0F*123456789~' +
     'NM1*IL*1*JOE*JANE****34*123456789~' +
@@ -71,7 +85,8 @@ export class EdiViewer {
     'HD*030**HLT*PLAN123~' +
     'DTP*348*D8*20251101~' +
     'REF*1L*SUBPLAN01~' +
-    'SE*17*0001~' +
+
+    'SE*39*0001~' +
     'GE*1*1~' +
     'IEA*1*000000905~'
   elementDelimiter = this.ediData.charAt(101);
