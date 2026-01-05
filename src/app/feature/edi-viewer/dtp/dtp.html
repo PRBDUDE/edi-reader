@@ -19,10 +19,18 @@
       [data]=this.getDtpElement(2)
       [description]="getDtpFormat(this.getDtpElement(2))?.description || 'date/time format qualifier'"
     />
-    <prb-element-description
-      [element]="'DTP03'"
-      [data]=this.getDtpElement(3)
-      [description]="'date/time'"
-    />
+    @if (getDtpElement(2) == 'D8') {
+      <prb-element-description
+        [element]="'DTP03'"
+        [data]="this.getDtpElement(3) | d8Date"
+        [description]="'date/time'"
+      />
+    } @else {
+      <prb-element-description
+        [element]="'DTP03'"
+        [data]=this.getDtpElement(3)
+        [description]="'date/time'"
+      />
+    }
   </div>
 </div>
