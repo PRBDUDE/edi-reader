@@ -19,4 +19,79 @@ describe('Dtp', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('DTP*007*D8*20241205~', () => {
+    const testData = 'DTP*007*D8*20241205~'
+
+    beforeEach(() => {
+      fixture.componentRef.setInput('dtpData', testData);
+      fixture.componentRef.setInput('dtpSegmentDelimiter', '~');
+      fixture.componentRef.setInput('dtpElementDelimiter', '*');
+      fixture.componentRef.setInput('dtpSubElementDelimiter', ':');
+      fixture.detectChanges();
+      console.log('DATA: ' + fixture.componentRef.instance.dtpData());
+    });
+
+    it('should contain data', () => {
+      expect(component.dtpData()).toContain(testData);
+    });
+
+    it('should contain segment delimiter', () => {
+      expect(component.dtpSegmentDelimiter()).toEqual('~');
+    });
+
+    it('should contain element delimiter', () => {
+      expect(component.dtpElementDelimiter()).toEqual('*');
+    });
+
+    it('should contain sub element delimiter', () => {
+      expect(component.dtpSubElementDelimiter()).toEqual(':');
+    });
+
+    describe('check contents of html tag', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+
+      beforeEach(() => {
+        compiled = fixture.nativeElement;
+        spans = compiled.getElementsByTagName('span');
+        console.log(compiled.innerHTML);
+      });
+
+      it('should contain class \'prb-x12-segment\'', () => {
+        expect(compiled.querySelector('div')?.className).toContain('prb-x12-segment');
+      });
+
+      it('should contain span[0] with \'DTP\'', () => {
+        expect(spans[0].innerHTML).toContain('DTP');
+      });
+
+      it('should contain span[1] with \'*\' and class \'prb-element-delimiter\'', () => {
+        expect(spans[1].innerHTML).toContain('*');
+        expect(spans[1].className).toContain('prb-element-delimiter');
+      });
+
+      it('should contain span[2] with \'007\'', () => {
+        expect(spans[2].innerHTML).toContain('007');
+      });
+
+      it('should contain span[3] with \'*\' and class \'prb-element-delimiter\'', () => {
+        expect(spans[3].innerHTML).toContain('*');
+        expect(spans[3].className).toContain('prb-element-delimiter');
+      });
+
+      it('should contain span[4] with \'D8\'', () => {
+        expect(spans[4].innerHTML).toContain('D8');
+      })
+
+      it('should contain span[5] with \'*\' and class \'prb-element-delimiter\'', () => {
+        expect(spans[5].innerHTML).toContain('*');
+        expect(spans[5].className).toContain('prb-element-delimiter');
+      });
+
+      it('should contain span[6] with \'20241205\'', () => {
+        expect(spans[6].innerHTML).toContain('20241205');
+      });
+    });
+  });
 });
