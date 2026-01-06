@@ -1,6 +1,8 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import {Gs} from './gs';
+import {By} from '@angular/platform-browser';
+import {DebugElement} from '@angular/core';
 
 describe('Gs', () => {
   let component: Gs;
@@ -135,6 +137,60 @@ describe('Gs', () => {
 
       it('should contain span[16] with \'005010X220A1\'', () => {
         expect(spans[16].innerHTML).toContain('005010X220A1');
+      });
+    });
+
+    describe('check contents of html tag on hover', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+      let debugElement: DebugElement;
+      let descriptions: NodeListOf<HTMLElement>;
+
+      beforeEach(fakeAsync(() => {
+        debugElement = fixture.debugElement.query(By.css('.prb-info'));
+        debugElement.triggerEventHandler('mouseenter', {});
+        tick();
+        fixture.detectChanges();
+        compiled = fixture.nativeElement as HTMLElement;
+        spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
+        descriptions = compiled.querySelectorAll('prb-element-description');
+        console.log(compiled.innerHTML);
+      }));
+
+      it('should contain \'GS Segments\'', () => {
+        const tag = compiled.querySelectorAll('h3');
+        console.log('TAG: ' + tag[0].innerHTML);
+        expect(tag[0].innerHTML).toEqual('GS Segments');
+      })
+
+      it('should contain description of each field', () => {
+        descriptions.forEach(element => {
+          if (element.innerHTML.includes('GS01')) {
+            expect(element.innerHTML).toContain('BE');
+            expect(element.innerHTML).toContain('functional identifier code');
+          } else if (element.innerHTML.includes('GS02')) {
+            expect(element.innerHTML).toContain('87790056');
+            expect(element.innerHTML).toContain('application senders code');
+          } else if (element.innerHTML.includes('GS03')) {
+            expect(element.innerHTML).toContain('576687090');
+            expect(element.innerHTML).toContain('application receivers code');
+          } else if (element.innerHTML.includes('GS04')) {
+            expect(element.innerHTML).toContain('20251107');
+            expect(element.innerHTML).toContain('date');
+          } else if (element.innerHTML.includes('GS05')) {
+            expect(element.innerHTML).toContain('1430');
+            expect(element.innerHTML).toContain('time');
+          } else if (element.innerHTML.includes('GS06')) {
+            expect(element.innerHTML).toContain('1');
+            expect(element.innerHTML).toContain('control number');
+          } else if (element.innerHTML.includes('GS07')) {
+            expect(element.innerHTML).toContain('X');
+            expect(element.innerHTML).toContain('responsible agency code');
+          } else if (element.innerHTML.includes('GS08')) {
+            expect(element.innerHTML).toContain('005010X220A1');
+            expect(element.innerHTML).toContain('version release / inquiry');
+          }
+        });
       });
     });
   });
