@@ -1,6 +1,6 @@
 import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
-import {D8DatePipe} from '../../../core/pipes/d8-date-pipe';
+import {D8DatePipe} from '@pipes/d8-date-pipe';
 
 @Component({
   selector: 'prb-dmg',

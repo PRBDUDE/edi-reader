@@ -1,10 +1,12 @@
 import {Component, input, OnChanges, OnInit, signal} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
+import {D8DatePipe} from '@pipes/d8-date-pipe';
 
 @Component({
   selector: 'prb-gs',
   imports: [
-    ElementDescription
+    ElementDescription,
+    D8DatePipe
   ],
   templateUrl: './gs.html',
   styleUrls: ['./gs.scss', '../edi-viewer.scss']
@@ -44,7 +46,7 @@ export class Gs implements OnInit, OnChanges {
     return this.gs.length;
   }
 
-  getGsElement(index: number){
-    return this.gs![ index];
+  getGsElement(index: number) {
+    return this.gs![index];
   }
 }
