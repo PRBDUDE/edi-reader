@@ -1,6 +1,8 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import {Hd} from './hd';
+import {DebugElement} from '@angular/core';
+import {By} from '@angular/platform-browser';
 
 describe('Hd', () => {
   let component: Hd;
@@ -97,5 +99,46 @@ describe('Hd', () => {
         expect(spans[8].innerHTML).toContain('PLAN34');
       })
     });
+
+    describe('check contents of html tag on hover', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+      let debugElement: DebugElement;
+      let descriptions: NodeListOf<HTMLElement>;
+
+      beforeEach(fakeAsync(() => {
+        debugElement = fixture.debugElement.query(By.css('.prb-info'));
+        debugElement.triggerEventHandler('mouseenter', null);
+        tick();
+        fixture.detectChanges();
+        compiled = fixture.nativeElement as HTMLElement;
+        spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
+        descriptions = compiled.querySelectorAll('prb-element-description');
+      }));
+
+      it('should contain \'HD Elements\'', () => {
+        const tag = compiled.querySelectorAll('h5');
+        console.log('TAG: ' + tag[0].innerHTML);
+        expect(tag[0].innerHTML).toEqual('HD Elements');
+      });
+
+      it('should contain value and description for \'HD01\'', () => {
+        expect(descriptions[0].textContent).toContain('HD01:');
+        expect(descriptions[0].textContent).toContain('030');
+        expect(descriptions[0].textContent).toContain('enrollment type code');
+      });
+
+      it('should contain value and description for \'HD03\'', () => {
+        expect(descriptions[1].textContent).toContain('HD03:');
+        expect(descriptions[1].textContent).toContain('HLT');
+        expect(descriptions[1].textContent).toContain('plan type code');
+      });
+
+      it('should contain value and description for \'HD04\'', () => {
+        expect(descriptions[2].textContent).toContain('HD04');
+        expect(descriptions[2].textContent).toContain('PLAN34');
+        expect(descriptions[2].textContent).toContain('plan level code');
+      });
+    })
   });
 });
