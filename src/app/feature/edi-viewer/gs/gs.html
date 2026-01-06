@@ -27,8 +27,8 @@
     />
     <prb-element-description
       [element]="'GS04'"
-      [data]=this.getGsElement(4)
-      [description]="'date the group was built (YYMMDD)'"
+      [data]='this.getGsElement(4) | d8Date'
+      [description]="'date the group was built (YYYYMMDD)'"
     />
     <prb-element-description
       [element]="'GS05'"
