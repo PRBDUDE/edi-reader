@@ -98,7 +98,6 @@ describe('Dtp', () => {
 
     describe('check contents of html on hover', () => {
       let compiled: HTMLElement;
-      let spans: HTMLCollectionOf<HTMLElement>;
       let debugElement: DebugElement;
       let descriptions: NodeListOf<HTMLElement>;
 
@@ -108,7 +107,6 @@ describe('Dtp', () => {
         tick();
         fixture.detectChanges();
         compiled = fixture.nativeElement;
-        spans = compiled.getElementsByTagName('span');
         descriptions = compiled.querySelectorAll('prb-element-description');
         console.log(compiled.innerHTML);
       }));

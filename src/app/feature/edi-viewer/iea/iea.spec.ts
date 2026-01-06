@@ -88,7 +88,6 @@ describe('Iea', () => {
 
     describe('check contents of html tag on hover', () => {
       let compiled: HTMLElement;
-      let spans: HTMLCollectionOf<HTMLElement>;
       let debugElement: DebugElement;
       let descriptions: NodeListOf<HTMLElement>;
 
@@ -98,7 +97,6 @@ describe('Iea', () => {
         tick();
         fixture.detectChanges();
         compiled = fixture.nativeElement as HTMLElement;
-        spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
         descriptions = compiled.querySelectorAll('prb-element-description');
       }));
 
