@@ -22,8 +22,8 @@ describe('Bgn', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('BGN*00*345678*20251210*1440~', () => {
-    const testData = 'BGN*00*345678*20251210*1440~';
+  describe('BGN*00*345678*20251210*1440', () => {
+    const testData = 'BGN*00*345678*20251210*1440';
 
     beforeEach(() => {
       fixture.componentRef.setInput('bgnData', testData);
