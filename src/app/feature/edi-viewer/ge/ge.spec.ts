@@ -111,11 +111,13 @@ describe('Ge', () => {
       });
 
       it('should contain value and description for \'GE01\'', () => {
+        expect(descriptions[0].textContent).toContain('GE01:');
         expect(descriptions[0].textContent).toContain('2');
         expect(descriptions[0].textContent).toContain('number of transaction sets');
       });
 
       it('should contain value and description for \'GE02\'', () => {
+        expect(descriptions[1].textContent).toContain('GE02:');
         expect(descriptions[1].textContent).toContain('1');
         expect(descriptions[1].textContent).toContain('control group number');
       });
