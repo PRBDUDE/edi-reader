@@ -1,6 +1,8 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import {Bgn} from './bgn';
+import {DebugElement} from '@angular/core';
+import {By} from '@angular/platform-browser';
 
 describe('Bgn', () => {
   let component: Bgn;
@@ -93,6 +95,7 @@ describe('Bgn', () => {
       it('should contain span[6] with \'20251210\'', () => {
         expect(spans[6].innerHTML).toContain('20251210');
       });
+
       it('should contain span[7] with \'*\' and class \'prb-element-delimiter\'', () => {
         expect(spans[7].innerHTML).toContain('*');
         expect(spans[7].className).toContain('prb-element-delimiter');
@@ -100,6 +103,50 @@ describe('Bgn', () => {
 
       it('should contain span[8] with \'1440\'', () => {
         expect(spans[8].innerHTML).toContain('1440');
+      });
+    });
+
+    describe('check contents of html tag on hover', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+      let debugElement: DebugElement;
+      let descriptions: NodeListOf<HTMLElement>;
+
+      beforeEach(fakeAsync(() => {
+        debugElement = fixture.debugElement.query(By.css('.prb-info'));
+        debugElement.triggerEventHandler('mouseenter', null);
+        tick();
+        fixture.detectChanges();
+        compiled = fixture.nativeElement as HTMLElement;
+        spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
+        descriptions = compiled.querySelectorAll('prb-element-description');
+        console.log(compiled.innerHTML);
+      }));
+
+      it('should contain \'BGN Elements\'', () => {
+        const tag = compiled.querySelectorAll('h5');
+        console.log('TAG: ' + tag[0].innerHTML);
+        expect(tag[0].innerHTML).toEqual('BGN Elements');
+      });
+
+      it('should contain value and description for \'BGN01\'', () => {
+        expect(descriptions[0].textContent).toContain('00');
+        expect(descriptions[0].textContent).toContain('transaction set purpose code');
+      });
+
+      it('should contain value and description for \'BGN02\'', () => {
+        expect(descriptions[1].textContent).toContain('345678');
+        expect(descriptions[1].textContent).toContain('control number for the transaction set');
+      });
+
+      it('should contain value and description for \'BGN03\'', () => {
+        expect(descriptions[2].textContent).toContain('12/10/2025');
+        expect(descriptions[2].textContent).toContain('transaction set creation date');
+      });
+
+      it('should contain value and description for \'BGN04\'', () => {
+        expect(descriptions[3].textContent).toContain('1440');
+        expect(descriptions[3].textContent).toContain('transaction set creation time');
       });
     });
   });
