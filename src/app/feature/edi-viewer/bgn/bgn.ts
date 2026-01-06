@@ -1,10 +1,12 @@
 import {Component, input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
+import {D8DatePipe} from '@pipes/d8-date-pipe';
 
 @Component({
   selector: 'prb-bgn',
   imports: [
-    ElementDescription
+    ElementDescription,
+    D8DatePipe
   ],
   templateUrl: './bgn.html',
   styleUrls: ['./bgn.scss', '../edi-viewer.scss']

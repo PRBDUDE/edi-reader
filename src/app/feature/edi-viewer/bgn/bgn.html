@@ -10,7 +10,7 @@
   <div class="prb-info">
     <h5>BGN Elements</h5>
     <prb-element-description
-      [element]="'BGN'"
+      [element]="'BGN01'"
       [data]=this.getBgnElement(1)
       [description]="'transaction set purpose code'"
     />
@@ -21,7 +21,7 @@
     />
     <prb-element-description
       [element]="'BGN03'"
-      [data]=this.getBgnElement(3)
+      [data]='this.getBgnElement(3) | d8Date'
       [description]="'transaction set creation date (YYYYMMDD)'"
     />
     <prb-element-description
