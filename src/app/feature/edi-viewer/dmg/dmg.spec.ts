@@ -29,7 +29,7 @@ describe('Dmg', () => {
       fixture.componentRef.setInput('dmgElementDelimiter', '*');
       fixture.componentRef.setInput('dmgSubElementDelimiter', ':');
       fixture.detectChanges();
-      console.log('DATA: ' + fixture.componentRef.instance.dmgData());
+      console.log('DATA: ' + component.dmgData());
     });
 
     it('should contain data', () => {
