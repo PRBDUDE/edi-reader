@@ -22,8 +22,8 @@ describe('Gs', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~', () => {
-    const testData = 'GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~';
+  describe('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1', () => {
+    const testData = 'GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1';
 
     beforeEach(() => {
       fixture.componentRef.setInput('gsData', testData);
