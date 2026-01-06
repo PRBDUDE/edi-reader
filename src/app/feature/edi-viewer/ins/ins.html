@@ -3,9 +3,9 @@
     @for (element of ins; track $index) {
       <span>{{ element }}</span>
       @if ($index == (getInsLength() - 1)) {
-        <span class="prb-segment-delimiter">~</span>
+        <span class="prb-x12-segment-delimiter">~</span>
       } @else {
-        <span class="prb-element-delimiter">{{ this.getInsElementDelimiter() }}</span>
+        <span class="prb-12-element-delimiter">{{ this.getInsElementDelimiter() }}</span>
       }
     }
   </div>

@@ -2,9 +2,9 @@
   @for (element of ref; track $index) {
     <span>{{ element }}</span>
     @if ($index == (getRefLength() - 1)) {
-      <span class="prb-segment-delimiter">~</span>
+      <span class="prb-x12-segment-delimiter">~</span>
     } @else {
-      <span class="prb-element-delimiter">{{ this.getRefElementDelimiter() }}</span>
+      <span class="prb-12-element-delimiter">{{ this.getRefElementDelimiter() }}</span>
     }
   }
   <div class="prb-info">

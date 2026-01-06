@@ -66,27 +66,27 @@ describe('Dtp', () => {
         expect(spans[0].innerHTML).toContain('DTP');
       });
 
-      it('should contain span[1] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[1] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[1].innerHTML).toContain('*');
-        expect(spans[1].className).toContain('prb-element-delimiter');
+        expect(spans[1].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[2] with \'007\'', () => {
         expect(spans[2].innerHTML).toContain('007');
       });
 
-      it('should contain span[3] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[3] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[3].innerHTML).toContain('*');
-        expect(spans[3].className).toContain('prb-element-delimiter');
+        expect(spans[3].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[4] with \'D8\'', () => {
         expect(spans[4].innerHTML).toContain('D8');
       })
 
-      it('should contain span[5] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[5] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[5].innerHTML).toContain('*');
-        expect(spans[5].className).toContain('prb-element-delimiter');
+        expect(spans[5].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[6] with \'20241205\'', () => {

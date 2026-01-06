@@ -65,9 +65,9 @@ describe('Dmg', () => {
         expect(spans[0].innerHTML).toContain('DMG');
       });
 
-      it('should contain span[1] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[1] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[1].innerHTML).toContain('*');
-        expect(spans[1].className).toContain('prb-element-delimiter');
+        expect(spans[1].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[2] with \'D8\'', () => {
@@ -76,7 +76,7 @@ describe('Dmg', () => {
 
       it('should contain span[3] with \'*\'', () => {
         expect(spans[3].innerHTML).toContain('*');
-        expect(spans[3].className).toContain('prb-element-delimiter');
+        expect(spans[3].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[4] with \'19850507\'', () => {
@@ -85,7 +85,7 @@ describe('Dmg', () => {
 
       it('should contain span[5] with \'*\'', () => {
         expect(spans[5].innerHTML).toContain('*');
-        expect(spans[5].className).toContain('prb-element-delimiter');
+        expect(spans[5].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[6] with \'F\'', () => {

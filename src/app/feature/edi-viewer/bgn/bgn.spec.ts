@@ -69,36 +69,36 @@ describe('Bgn', () => {
         expect(spans[0].innerHTML).toContain('BGN');
       });
 
-      it('should contain span[1] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[1] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[1].innerHTML).toContain('*');
-        expect(spans[1].className).toContain('prb-element-delimiter');
+        expect(spans[1].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[2] with \'00\'', () => {
         expect(spans[2].innerHTML).toContain('00');
       });
 
-      it('should contain span[3] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[3] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[3].innerHTML).toContain('*');
-        expect(spans[3].className).toContain('prb-element-delimiter');
+        expect(spans[3].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[4] with \'345678\'', () => {
         expect(spans[4].innerHTML).toContain('345678');
       });
 
-      it('should contain span[5] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[5] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[5].innerHTML).toContain('*');
-        expect(spans[5].className).toContain('prb-element-delimiter');
+        expect(spans[5].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[6] with \'20251210\'', () => {
         expect(spans[6].innerHTML).toContain('20251210');
       });
 
-      it('should contain span[7] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[7] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[7].innerHTML).toContain('*');
-        expect(spans[7].className).toContain('prb-element-delimiter');
+        expect(spans[7].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[8] with \'1440\'', () => {

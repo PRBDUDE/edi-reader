@@ -66,18 +66,18 @@ describe('Ge', () => {
         expect(spans[0].innerHTML).toContain('GE');
       });
 
-      it('should contain span[1] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[1] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[1].innerHTML).toContain('*');
-        expect(spans[1].className).toContain('prb-element-delimiter');
+        expect(spans[1].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[2] with \'2\'', () => {
         expect(spans[2].innerHTML).toContain('2');
       });
 
-      it('should contain span[3] with \'*\' and class \'prb-element-delimiter\'', () => {
+      it('should contain span[3] with \'*\' and class \'prb-12-element-delimiter\'', () => {
         expect(spans[3].innerHTML).toContain('*');
-        expect(spans[3].className).toContain('prb-element-delimiter');
+        expect(spans[3].className).toContain('prb-12-element-delimiter');
       });
 
       it('should contain span[4] with \'1\'', () => {

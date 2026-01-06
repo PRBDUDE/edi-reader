@@ -2,9 +2,9 @@
   @for (element of isa; track $index) {
     <span>{{ element.replaceAll(' ', '&nbsp;') }}</span>
     @if ($index == (getIsaLength() - 1)) {
-      <span class="prb-segment-delimiter">~</span>
+      <span class="prb-x12-segment-delimiter">~</span>
     } @else {
-      <span class="prb-element-delimiter">{{ this.getIsaElementDelimiter() }}</span>
+      <span class="prb-12-element-delimiter">{{ this.getIsaElementDelimiter() }}</span>
     }
   }
 

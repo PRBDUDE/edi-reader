@@ -2,9 +2,9 @@
   @for (element of n3; track $index) {
     <span>{{ element }}</span>
     @if ($index == (getN3Length() - 1)) {
-      <span class="prb-segment-delimiter">~</span>
+      <span class="prb-x12-segment-delimiter">~</span>
     } @else {
-      <span class="prb-element-delimiter">{{ this.getN3ElementDelimiter() }}</span>
+      <span class="prb-12-element-delimiter">{{ this.getN3ElementDelimiter() }}</span>
     }
   }
   <div class="prb-info">

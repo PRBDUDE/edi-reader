@@ -2,9 +2,9 @@
   @for (element of dtp; track $index) {
     <span>{{ element }}</span>
     @if ($index == (getDtpLength() - 1)) {
-      <span class="prb-segment-delimiter">~</span>
+      <span class="prb-x12-segment-delimiter">~</span>
     } @else {
-      <span class="prb-element-delimiter">{{ this.getDtpElementDelimiter() }}</span>
+      <span class="prb-12-element-delimiter">{{ this.getDtpElementDelimiter() }}</span>
     }
   }
   <div class="prb-info">
