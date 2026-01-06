@@ -1,6 +1,8 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import {Dmg} from './dmg';
+import {DebugElement} from '@angular/core';
+import {By} from '@angular/platform-browser';
 
 describe('Dmg', () => {
   let component: Dmg;
@@ -92,5 +94,46 @@ describe('Dmg', () => {
         expect(spans[6].innerHTML).toContain('F');
       });
     });
+
+    describe('check contents of html tag on hover', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+      let debugElement: DebugElement;
+      let descriptions: NodeListOf<HTMLElement>;
+
+      beforeEach(fakeAsync(() => {
+        debugElement = fixture.debugElement.query(By.css('.prb-info'));
+        debugElement.triggerEventHandler('mouseenter', null);
+        tick();
+        fixture.detectChanges();
+        compiled = fixture.nativeElement as HTMLElement;
+        spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
+        descriptions = compiled.querySelectorAll('prb-element-description');
+      }));
+
+      it('should contain \'DMG Elements\'', () => {
+        const tag = compiled.querySelectorAll('h5');
+        console.log('TAG: ' + tag[0].innerHTML);
+        expect(tag[0].innerHTML).toEqual('DMG Elements');
+      });
+
+      it('should contain value and description for \'DMG01\'', () => {
+        expect(descriptions[0].textContent).toContain('DMG01:');
+        expect(descriptions[0].textContent).toContain('D8');
+        expect(descriptions[0].textContent).toContain('demographic information code');
+      });
+
+      it('should contain value and description for \'DMG02\'', () => {
+        expect(descriptions[1].textContent).toContain('DMG02:');
+        expect(descriptions[1].textContent).toContain('05/07/1985');
+        expect(descriptions[1].textContent).toContain('DOB');
+      });
+
+      it('should contain value and description for \'DMG03\'', () => {
+        expect(descriptions[2].textContent).toContain('DMG03:');
+        expect(descriptions[2].textContent).toContain('F');
+        expect(descriptions[2].textContent).toContain('gender code');
+      })
+    })
   })
 });
