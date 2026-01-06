@@ -1,6 +1,6 @@
 import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
-import {PhoneNumberPipe} from '../../../core/pipes/phone-number-pipe';
+import {PhoneNumberPipe} from '@pipes/phone-number-pipe';
 
 @Component({
   selector: 'prb-per',
