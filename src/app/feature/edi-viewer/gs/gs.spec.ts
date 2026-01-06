@@ -94,6 +94,7 @@ describe('Gs', () => {
       it('should contain span[6] with \'576687090\'', () => {
         expect(spans[6].innerHTML).toContain('576687090');
       });
+
       it('should contain span[7] with \'*\' and class \'prb-element-delimiter\'', () => {
         expect(spans[7].innerHTML).toContain('*');
         expect(spans[7].className).toContain('prb-element-delimiter');
@@ -157,11 +158,11 @@ describe('Gs', () => {
         console.log(compiled.innerHTML);
       }));
 
-      it('should contain \'GS Segments\'', () => {
+      it('should contain \'GS Elements\'', () => {
         const tag = compiled.querySelectorAll('h3');
         console.log('TAG: ' + tag[0].innerHTML);
-        expect(tag[0].innerHTML).toEqual('GS Segments');
-      })
+        expect(tag[0].innerHTML).toEqual('GS Elements');
+      });
 
       it('should contain value and description for \'GS01\'', () => {
         expect(descriptions[0].textContent).toContain('BE');
