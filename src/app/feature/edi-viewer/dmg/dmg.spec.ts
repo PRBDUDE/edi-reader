@@ -20,8 +20,8 @@ describe('Dmg', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('DMG*D8*19850507*F~', () => {
-    const testData = 'DMG*D8*19850507*F~'
+  describe('DMG*D8*19850507*F', () => {
+    const testData = 'DMG*D8*19850507*F'
 
     beforeEach(() => {
       fixture.componentRef.setInput('dmgData', testData);
