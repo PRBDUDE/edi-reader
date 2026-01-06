@@ -19,4 +19,83 @@ describe('Hd', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('HD*030**HLT*PLAN34', () => {
+    const testData = 'HD*030**HLT*PLAN34';
+
+    beforeEach(() => {
+      fixture.componentRef.setInput('hdData', testData);
+      fixture.componentRef.setInput('hdSegmentDelimiter', '~');
+      fixture.componentRef.setInput('hdElementDelimiter', '*');
+      fixture.componentRef.setInput('hdSubElementDelimiter', ':');
+      fixture.detectChanges();
+      console.log('DATA: ' + component.hdData());
+    });
+
+    it('should contain data', () => {
+      expect(component.hdData()).toEqual(testData);
+    });
+
+    it('should contain segment delimiter', () => {
+      expect(component.hdSegmentDelimiter()).toEqual('~');
+    });
+
+    it('should contain element delimiter', () => {
+      expect(component.hdElementDelimiter()).toEqual('*');
+    });
+
+    it('should contain sub element delimiter', () => {
+      expect(component.hdSubElementDelimiter()).toEqual(':');
+    });
+
+    describe('check contents of html tag', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+
+      beforeEach(() => {
+        compiled = fixture.nativeElement as HTMLElement;
+        spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
+      });
+
+      it('should contain class \'prb-x12-segment\'', () => {
+        expect(compiled.querySelector('div')?.className).toContain('prb-x12-segment');
+      });
+
+      it('should contain span[0] with \'HD\'', () => {
+        expect(spans[0].innerHTML).toContain('HD');
+      });
+
+      it('should contain span[1] with \'*\' and class \'prb-12-element-delimiter\'', () => {
+        expect(spans[1].innerHTML).toContain('*');
+        expect(spans[1].className).toContain('prb-12-element-delimiter');
+      });
+
+      it('should contain span[2] with \'030\'', () => {
+        expect(spans[2].innerHTML).toContain('030');
+      });
+
+      it('should contain span[3] with \'*\' and class \'prb-12-element-delimiter\'', () => {
+        expect(spans[3].innerHTML).toContain('*');
+        expect(spans[3].className).toContain('prb-12-element-delimiter');
+      });
+
+      it('should contain span[5] with \'*\' and class \'prb-12-element-delimiter\'', () => {
+        expect(spans[5].innerHTML).toContain('*');
+        expect(spans[5].className).toContain('prb-12-element-delimiter');
+      });
+
+      it('should contain span[6] with \'HLT\'', () => {
+        expect(spans[6].innerHTML).toContain('HLT');
+      });
+
+      it('should contain span[7] with \'*\' and class \'prb-12-element-delimiter\'', () => {
+        expect(spans[7].innerHTML).toContain('*');
+        expect(spans[7].className).toContain('prb-12-element-delimiter');
+      });
+
+      it('should contain span[8] with \'PLAN34\'', () => {
+        expect(spans[8].innerHTML).toContain('PLAN34');
+      })
+    });
+  });
 });
