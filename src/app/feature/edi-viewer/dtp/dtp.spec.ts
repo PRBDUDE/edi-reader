@@ -120,16 +120,19 @@ describe('Dtp', () => {
       });
 
       it('should contain value and description for \'DTP01\'', () => {
+        expect(descriptions[0].textContent).toContain('DTP01:');
         expect(descriptions[0].textContent).toContain('007');
         expect(descriptions[0].textContent).toContain('effective date');
       });
 
       it('should contain value and description for \'DTP02\'', () => {
+        expect(descriptions[1].textContent).toContain('DTP02:');
         expect(descriptions[1].textContent).toContain('D8');
         expect(descriptions[1].textContent).toContain('YYYYMMDD');
       });
 
       it('should contain value and description for \'DTP03\'', () => {
+        expect(descriptions[2].textContent).toContain('DTP03:');
         expect(descriptions[2].textContent).toContain('12/05/2024');
         expect(descriptions[2].textContent).toContain('date');
       });
