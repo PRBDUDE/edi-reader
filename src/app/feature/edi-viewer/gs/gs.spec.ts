@@ -159,7 +159,7 @@ describe('Gs', () => {
       }));
 
       it('should contain \'GS Elements\'', () => {
-        const tag = compiled.querySelectorAll('h3');
+        const tag = compiled.querySelectorAll('h5');
         console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('GS Elements');
       });
