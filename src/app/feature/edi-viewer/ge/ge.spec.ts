@@ -1,6 +1,8 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import {Ge} from './ge';
+import {DebugElement} from '@angular/core';
+import {By} from '@angular/platform-browser';
 
 describe('Ge', () => {
   let component: Ge;
@@ -82,6 +84,40 @@ describe('Ge', () => {
 
       it('should contain span[4] with \'1\'', () => {
         expect(spans[4].innerHTML).toContain('1');
+      });
+    })
+
+    describe('check contents of html tag on hover', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+      let debugElement: DebugElement;
+      let descriptions: NodeListOf<HTMLElement>;
+
+      beforeEach(fakeAsync(() => {
+        debugElement = fixture.debugElement.query(By.css('.prb-info'));
+        debugElement.triggerEventHandler('mouseenter', null);
+        tick();
+        fixture.detectChanges();
+        compiled = fixture.nativeElement as HTMLElement;
+        spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
+        descriptions = compiled.querySelectorAll('prb-element-description');
+        console.log(compiled.innerHTML);
+      }));
+
+      it('should contain \'GE Elements\'', () => {
+        const tag = compiled.querySelectorAll('h5');
+        console.log('TAG: ' + tag[0].innerHTML);
+        expect(tag[0].innerHTML).toEqual('GE Elements');
+      });
+
+      it('should contain value and description for \'GE01\'', () => {
+        expect(descriptions[0].textContent).toContain('2');
+        expect(descriptions[0].textContent).toContain('number of transaction sets');
+      });
+
+      it('should contain value and description for \'GE02\'', () => {
+        expect(descriptions[1].textContent).toContain('1');
+        expect(descriptions[1].textContent).toContain('control group number');
       });
     })
   });
