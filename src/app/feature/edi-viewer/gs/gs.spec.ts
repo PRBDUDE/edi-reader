@@ -163,35 +163,45 @@ describe('Gs', () => {
         expect(tag[0].innerHTML).toEqual('GS Segments');
       })
 
-      it('should contain description of each field', () => {
-        descriptions.forEach(element => {
-          if (element.innerHTML.includes('GS01')) {
-            expect(element.innerHTML).toContain('BE');
-            expect(element.innerHTML).toContain('functional identifier code');
-          } else if (element.innerHTML.includes('GS02')) {
-            expect(element.innerHTML).toContain('87790056');
-            expect(element.innerHTML).toContain('application senders code');
-          } else if (element.innerHTML.includes('GS03')) {
-            expect(element.innerHTML).toContain('576687090');
-            expect(element.innerHTML).toContain('application receivers code');
-          } else if (element.innerHTML.includes('GS04')) {
-            expect(element.innerHTML).toContain('20251107');
-            expect(element.innerHTML).toContain('date');
-          } else if (element.innerHTML.includes('GS05')) {
-            expect(element.innerHTML).toContain('1430');
-            expect(element.innerHTML).toContain('time');
-          } else if (element.innerHTML.includes('GS06')) {
-            expect(element.innerHTML).toContain('1');
-            expect(element.innerHTML).toContain('control number');
-          } else if (element.innerHTML.includes('GS07')) {
-            expect(element.innerHTML).toContain('X');
-            expect(element.innerHTML).toContain('responsible agency code');
-          } else if (element.innerHTML.includes('GS08')) {
-            expect(element.innerHTML).toContain('005010X220A1');
-            expect(element.innerHTML).toContain('version release / inquiry');
-          }
-        });
-      });
+      it('should contain value and description for \'GS01\'', () => {
+        expect(descriptions[0].textContent).toContain('BE');
+        expect(descriptions[0].textContent).toContain('functional identifier code');
+      })
+
+      it('should contain value and description for \'GS02\'', () => {
+        expect(descriptions[1].textContent).toContain('87790056');
+        expect(descriptions[1].textContent).toContain('application senders code');
+      })
+
+      it('should contain value and description for \'GS03\'', () => {
+        expect(descriptions[2].textContent).toContain('576687090');
+        expect(descriptions[2].textContent).toContain('application receivers code');
+      })
+
+      it('should contain value and description for \'GS04\'', () => {
+        expect(descriptions[3].textContent).toContain('11/07/2025');
+        expect(descriptions[3].textContent).toContain('date the group was built');
+      })
+
+      it('should contain value and description for \'GS05\'', () => {
+        expect(descriptions[4].textContent).toContain('1430');
+        expect(descriptions[4].textContent).toContain('time the group was built');
+      })
+
+      it('should contain value and description for \'GS06\'', () => {
+        expect(descriptions[5].textContent).toContain('1');
+        expect(descriptions[5].textContent).toContain('control number');
+      })
+
+      it('should contain value and description for \'GS07\'', () => {
+        expect(descriptions[6].textContent).toContain('X');
+        expect(descriptions[6].textContent).toContain('responsible agency code');
+      })
+
+      it('should contain value and description for \'GS08\'', () => {
+        expect(descriptions[7].textContent).toContain('005010X220A1');
+        expect(descriptions[7].textContent).toContain('version release / inquiry');
+      })
     });
   });
 });
