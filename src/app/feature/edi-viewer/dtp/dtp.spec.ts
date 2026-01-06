@@ -1,6 +1,8 @@
-import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
+import {ComponentFixture, fakeAsync, TestBed, tick, waitForAsync} from '@angular/core/testing';
 
 import {Dtp} from './dtp';
+import {DebugElement} from '@angular/core';
+import {By} from '@angular/platform-browser';
 
 describe('Dtp', () => {
   let component: Dtp;
@@ -20,8 +22,8 @@ describe('Dtp', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('DTP*007*D8*20241205~', () => {
-    const testData = 'DTP*007*D8*20241205~'
+  describe('DTP*007*D8*20241205', () => {
+    const testData = 'DTP*007*D8*20241205'
 
     beforeEach(() => {
       fixture.componentRef.setInput('dtpData', testData);
@@ -91,6 +93,45 @@ describe('Dtp', () => {
 
       it('should contain span[6] with \'20241205\'', () => {
         expect(spans[6].innerHTML).toContain('20241205');
+      });
+    });
+
+    describe('check contents of html on hover', () => {
+      let compiled: HTMLElement;
+      let spans: HTMLCollectionOf<HTMLElement>;
+      let debugElement: DebugElement;
+      let descriptions: NodeListOf<HTMLElement>;
+
+      beforeEach(fakeAsync(() => {
+        debugElement = fixture.debugElement.query(By.css('.prb-info'));
+        debugElement.triggerEventHandler('mouseenter', null);
+        tick();
+        fixture.detectChanges();
+        compiled = fixture.nativeElement;
+        spans = compiled.getElementsByTagName('span');
+        descriptions = compiled.querySelectorAll('prb-element-description');
+        console.log(compiled.innerHTML);
+      }));
+
+      it('should contain \'DTP Elements\'', () => {
+        const tag = compiled.querySelectorAll('h5');
+        console.log('TAG: ' + tag[0].innerHTML);
+        expect(tag[0].innerHTML).toEqual('DTP Elements');
+      });
+
+      it('should contain value and description for \'DTP01\'', () => {
+        expect(descriptions[0].textContent).toContain('007');
+        expect(descriptions[0].textContent).toContain('effective date');
+      });
+
+      it('should contain value and description for \'DTP02\'', () => {
+        expect(descriptions[1].textContent).toContain('D8');
+        expect(descriptions[1].textContent).toContain('YYYYMMDD');
+      });
+
+      it('should contain value and description for \'DTP03\'', () => {
+        expect(descriptions[2].textContent).toContain('12/05/2024');
+        expect(descriptions[2].textContent).toContain('date');
       });
     });
   });
