@@ -114,10 +114,10 @@
       />
     } @else if (segment.startsWith('HD')) {
       <prb-hd
-        [hdData]="segment"
-        [hdSegmentDelimiter]="segmentDelimiter"
-        [hdElementDelimiter]="elementDelimiter"
-        [hdSubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else {
       <div class="prb-x12-segment">

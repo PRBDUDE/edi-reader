@@ -26,28 +26,28 @@ describe('Hd', () => {
     const testData = 'HD*030**HLT*PLAN34';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('hdData', testData);
-      fixture.componentRef.setInput('hdSegmentDelimiter', '~');
-      fixture.componentRef.setInput('hdElementDelimiter', '*');
-      fixture.componentRef.setInput('hdSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.detectChanges();
-      console.log('DATA: ' + component.hdData());
+      console.log('DATA: ' + component.data());
     });
 
     it('should contain data', () => {
-      expect(component.hdData()).toEqual(testData);
+      expect(component.data()).toEqual(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.hdSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.hdElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.hdSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
