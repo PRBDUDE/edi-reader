@@ -37,10 +37,10 @@
       />
     } @else if (segment.startsWith('IEA')) {
       <prb-iea
-        [ieaData]="segment"
-        [ieaSegmentDelimiter]="segmentDelimiter"
-        [ieaElementDelimiter]="elementDelimiter"
-        [ieaSubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('BGN')) {
       <prb-bgn

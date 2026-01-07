@@ -26,27 +26,27 @@ describe('Iea', () => {
     const testData = 'IEA*1*000000937';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('ieaData', testData);
-      fixture.componentRef.setInput('ieaSegmentDelimiter', '~');
-      fixture.componentRef.setInput('ieaElementDelimiter', '*');
-      fixture.componentRef.setInput('ieaSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.ieaData()).toEqual(testData);
+      expect(component.data()).toEqual(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.ieaSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.ieaElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.ieaSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
