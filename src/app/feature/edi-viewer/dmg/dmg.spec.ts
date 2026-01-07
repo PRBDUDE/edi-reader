@@ -26,10 +26,10 @@ describe('Dmg', () => {
     const testData = 'DMG*D8*19850507*F'
 
     beforeEach(() => {
-      fixture.componentRef.setInput('dmgData', testData);
-      fixture.componentRef.setInput('dmgSegmentDelimiter', '~');
-      fixture.componentRef.setInput('dmgElementDelimiter', '*');
-      fixture.componentRef.setInput('dmgSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.detectChanges();
       console.log('DATA: ' + component.data());
     });

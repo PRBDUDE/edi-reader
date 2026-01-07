@@ -1,34 +1,34 @@
 <div class="prb-x12-segment">
-  @for (element of dtp; track $index) {
+  @for (element of this.parsedElements; track $index) {
     <span>{{ element }}</span>
-    @if ($index == (getDtpLength() - 1)) {
+    @if ($index == (getLength() - 1)) {
       <span class="prb-x12-segment-delimiter">~</span>
     } @else {
-      <span class="prb-12-element-delimiter">{{ this.getDtpElementDelimiter() }}</span>
+      <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
     }
   }
   <div class="prb-info">
     <h5>DTP Elements</h5>
     <prb-element-description
       [element]="'DTP01'"
-      [data]=this.getDtpElement(1)
-      [description]="getDtpDateType(this.getDtpElement(1))?.description || 'date/time qualifier'"
+      [data]=this.getElement(1)
+      [description]="getDtpDateType(this.getElement(1))?.description || 'date/time qualifier'"
     />
     <prb-element-description
       [element]="'DTP02'"
-      [data]=this.getDtpElement(2)
-      [description]="getDtpFormat(this.getDtpElement(2))?.description || 'date/time format qualifier'"
+      [data]=this.getElement(2)
+      [description]="getDtpFormat(this.getElement(2))?.description || 'date/time format qualifier'"
     />
-    @if (getDtpElement(2) == 'D8') {
+    @if (getElement(2) == 'D8') {
       <prb-element-description
         [element]="'DTP03'"
-        [data]="this.getDtpElement(3) | d8Date"
+        [data]="this.getElement(3) | d8Date"
         [description]="'date'"
       />
     } @else {
       <prb-element-description
         [element]="'DTP03'"
-        [data]=this.getDtpElement(3)
+        [data]=this.getElement(3)
         [description]="'date'"
       />
     }

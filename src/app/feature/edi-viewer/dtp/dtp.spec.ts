@@ -26,28 +26,28 @@ describe('Dtp', () => {
     const testData = 'DTP*007*D8*20241205'
 
     beforeEach(() => {
-      fixture.componentRef.setInput('dtpData', testData);
-      fixture.componentRef.setInput('dtpSegmentDelimiter', '~');
-      fixture.componentRef.setInput('dtpElementDelimiter', '*');
-      fixture.componentRef.setInput('dtpSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.detectChanges();
-      console.log('DATA: ' + fixture.componentRef.instance.dtpData());
+      console.log('DATA: ' + fixture.componentRef.instance.data());
     });
 
     it('should contain data', () => {
-      expect(component.dtpData()).toContain(testData);
+      expect(component.data()).toContain(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.dtpSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.dtpElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.dtpSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {

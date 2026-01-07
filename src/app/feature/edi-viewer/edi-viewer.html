@@ -58,10 +58,10 @@
       />
     } @else if (segment.startsWith('DTP')) {
       <prb-dtp
-        [dtpData]="segment"
-        [dtpSegmentDelimiter]="segmentDelimiter"
-        [dtpElementDelimiter]="elementDelimiter"
-        [dtpSubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('N1')) {
       <prb-n1
