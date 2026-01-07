@@ -26,29 +26,29 @@ describe('Bgn', () => {
     const testData = 'BGN*00*345678*20251210*1440';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('bgnData', testData);
-      fixture.componentRef.setInput('bgnSegmentDelimiter', '~');
-      fixture.componentRef.setInput('bgnElementDelimiter', '*');
-      fixture.componentRef.setInput('bgnSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
-      console.log('DATA: ' + fixture.componentRef.instance.bgnData());
+      console.log('DATA: ' + fixture.componentRef.instance.data());
     });
 
     it('should contain data', () => {
-      expect(component.bgnData()).toEqual(testData);
+      expect(component.data()).toEqual(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.bgnSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.bgnElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.bgnSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
