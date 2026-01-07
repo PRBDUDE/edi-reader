@@ -1,6 +1,6 @@
 import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
 
-import { Ins } from './ins';
+import {Ins} from './ins';
 import {DebugElement} from '@angular/core';
 import {By} from '@angular/platform-browser';
 
@@ -11,8 +11,7 @@ describe('Ins', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [Ins]
-    })
-    .compileComponents();
+    }).compileComponents();
 
     fixture = TestBed.createComponent(Ins);
     component = fixture.componentInstance;
@@ -27,28 +26,28 @@ describe('Ins', () => {
     const testData = 'INS*Y*18*001**A*B**RT';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('insData', testData);
-      fixture.componentRef.setInput('insSegmentDelimiter', '~');
-      fixture.componentRef.setInput('insElementDelimiter', '*');
-      fixture.componentRef.setInput('insSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.insData()).toEqual(testData);
+      expect(component.data()).toEqual(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.insSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.insElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.insSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {

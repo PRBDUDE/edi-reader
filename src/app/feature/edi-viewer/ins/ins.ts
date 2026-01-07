@@ -1,5 +1,6 @@
 import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-ins',
@@ -9,13 +10,7 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './ins.html',
   styleUrls: ['./ins.scss', '../edi-viewer.scss']
 })
-export class Ins implements OnInit, OnChanges {
-  insData = input<string>('INS*Y*18*021*XN*A*E**FT~');
-  insElementDelimiter = input<string>('*');
-  insSubElementDelimiter = input<string>(':');
-  insSegmentDelimiter = input<string>('~');
-  insValid = false;
-  ins: string[] | undefined;
+export class Ins extends Segment {
   ins01Description = [
     { code: 'Y', description: 'subscriber' },
     { code: 'N', description: 'dependent' }
@@ -64,33 +59,13 @@ export class Ins implements OnInit, OnChanges {
     { code: 'Y', description: 'disabled' }
   ]
 
-  ngOnInit() {
-    this.init();
+  constructor() {
+    super();
   }
 
-  ngOnChanges() {
-    if (this.insData()) {
-      this.init();
-    }
-  }
-
-  private init() {
-    const insSegmentLength = this.insData().length;
-    this.ins = this.insData().substring(0, insSegmentLength).split(this.insElementDelimiter());
-    this.insValid = true;
-  }
-
-  getInsElementDelimiter() {
-    return this.insElementDelimiter();
-  }
-
-  getInsLength() {
-    if (!this.ins) return 0;
-    return this.ins.length;
-  }
-
-  getInsElement(index: number) {
-    return this.ins![index];
+  override init() {
+    super.init();
+    this.valid = true;
   }
 
   getIns01Description(code: string) {
