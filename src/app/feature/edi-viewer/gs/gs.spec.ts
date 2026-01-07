@@ -26,28 +26,28 @@ describe('Gs', () => {
     const testData = 'GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('gsData', testData);
-      fixture.componentRef.setInput('gsSegmentDelimiter', '~');
-      fixture.componentRef.setInput('gsElementDelimiter', '*');
-      fixture.componentRef.setInput('gsSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.gsData()).toEqual(testData);
+      expect(component.data()).toEqual(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.gsSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.gsElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.gsSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {

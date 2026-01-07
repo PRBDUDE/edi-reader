@@ -1,6 +1,7 @@
-import {Component, input, OnChanges, OnInit, signal} from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {D8DatePipe} from '@pipes/d8-date-pipe';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-gs',
@@ -11,42 +12,16 @@ import {D8DatePipe} from '@pipes/d8-date-pipe';
   templateUrl: './gs.html',
   styleUrls: ['./gs.scss', '../edi-viewer.scss']
 })
-export class Gs implements OnInit, OnChanges {
-  gsData = input<string>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
-  gsElementDelimiter = input<string>('*');
-  gsSubElementDelimiter = input<string>(':');
-  gsSegmentDelimiter = input<string>('~');
+export class Gs extends Segment {
   gsGroupControlNumber = signal<number>(0);
-  gsValid = false;
-  gs: string[] | undefined;
 
-  ngOnInit() {
-    this.init();
+  constructor() {
+    super();
   }
 
-  ngOnChanges() {
-    if (this.gsData()) {
-      this.init();
-    }
-  }
-
-  private init() {
-    const gsSegmentLength = this.gsData().length;
-    this.gs = this.gsData().substring(0, gsSegmentLength).split(this.gsElementDelimiter());
-    this.gsGroupControlNumber.set(Number(this.gs[6]));
-    this.gsValid = true;
-  }
-
-  getGsElementDelimiter() {
-    return this.gsElementDelimiter();
-  }
-
-  getGsLength() {
-    if (!this.gs) return 0;
-    return this.gs.length;
-  }
-
-  getGsElement(index: number) {
-    return this.gs![index];
+  override init() {
+    super.init();
+    this.gsGroupControlNumber.set(Number(this.getElement(6)));
+    this.valid = true;
   }
 }

@@ -9,10 +9,10 @@
       />
     } @else if (segment.startsWith('GS')) {
       <prb-gs
-        [gsData]="segment"
-        [gsSegmentDelimiter]="segmentDelimiter"
-        [gsElementDelimiter]="elementDelimiter"
-        [gsSubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('ST')) {
       <prb-st
