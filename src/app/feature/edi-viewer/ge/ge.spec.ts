@@ -26,28 +26,28 @@ describe('Ge', () => {
     const testData = 'GE*2*1~';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('geData', testData);
-      fixture.componentRef.setInput('geSegmentDelimiter', '~');
-      fixture.componentRef.setInput('geElementDelimiter', '*');
-      fixture.componentRef.setInput('geSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.geData()).toEqual(testData);
+      expect(component.data()).toEqual(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.geSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.geElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.geSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
