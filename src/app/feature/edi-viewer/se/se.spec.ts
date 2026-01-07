@@ -110,9 +110,9 @@ describe('Se', () => {
       it('should contain value and description for \'SE01\'', () => {
         expect(descriptions[0].textContent).toContain('SE01:');
         expect(descriptions[0].textContent).toContain('39');
-        expect(descriptions[0].textContent).toContain('number of included segments');
+        expect(descriptions[0].textContent).toContain('segment count from ST-SE including ST & SE lines');
       });
-
+      
       it('should contain value and description for \'SE02\'', () => {
         expect(descriptions[1].textContent).toContain('SE02:');
         expect(descriptions[1].textContent).toContain('0001');
