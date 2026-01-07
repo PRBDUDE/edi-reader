@@ -31,23 +31,23 @@ describe('Dmg', () => {
       fixture.componentRef.setInput('dmgElementDelimiter', '*');
       fixture.componentRef.setInput('dmgSubElementDelimiter', ':');
       fixture.detectChanges();
-      console.log('DATA: ' + component.dmgData());
+      console.log('DATA: ' + component.data());
     });
 
     it('should contain data', () => {
-      expect(component.dmgData()).toEqual(testData);
+      expect(component.data()).toEqual(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.dmgSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.dmgElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.dmgSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
