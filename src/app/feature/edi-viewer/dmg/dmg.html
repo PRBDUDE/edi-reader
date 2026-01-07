@@ -1,45 +1,45 @@
 <div class="prb-x12-segment">
-  @for (element of dmg; track $index) {
+  @for (element of this.parsedElements; track $index) {
     <span>{{ element }}</span>
-    @if ($index == (getDmgLength() - 1)) {
+    @if ($index == (getLength() - 1)) {
       <span class="prb-x12-segment-delimiter">~</span>
     } @else {
-      <span class="prb-12-element-delimiter">{{ this.getDmgElementDelimiter() }}</span>
+      <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
     }
   }
   <div class="prb-info">
     <h5>DMG Elements</h5>
     <prb-element-description
       [element]="'DMG01'"
-      [data]=getDmgElement(1)
+      [data]=getElement(1)
       [description]="'demographic information code'"
     />
-    @if (getDmgElement(1) == 'D8') {
+    @if (getElement(1) == 'D8') {
       <prb-element-description
         [element]="'DMG02'"
-        [data]="getDmgElement(2) | d8Date"
+        [data]="getElement(2) | d8Date"
         [description]="'DOB'"
       />
     } @else {
       <prb-element-description
         [element]="'DMG02'"
-        [data]=getDmgElement(2)
+        [data]=getElement(2)
         [description]="'DOB (YYYYMMDD)'"
       />
     }
     <prb-element-description
       [element]="'DMG03'"
-      [data]=getDmgElement(3)
+      [data]=getElement(3)
       [description]="'gender code'"
     />
     <prb-element-description
       [element]="'DMG04'"
-      [data]=getDmgElement(4)
+      [data]=getElement(4)
       [description]="'race code'"
     />
     <prb-element-description
       [element]="'DMG05'"
-      [data]=getDmgElement(5)
+      [data]=getElement(5)
       [description]="'marital status code'"
     />
   </div>
