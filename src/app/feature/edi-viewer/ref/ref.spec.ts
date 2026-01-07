@@ -116,7 +116,7 @@ describe('Ref', () => {
       it('should contain value and description for \'REF02\'', () => {
         expect(descriptions[1].textContent).toContain('REF02:');
         expect(descriptions[1].textContent).toContain('SUBPLAN01');
-        expect(descriptions[1].textContent).toContain('reference identifier');
+        expect(descriptions[1].textContent).toContain('reference identification');
       });
     })
   });
