@@ -1,4 +1,4 @@
-import {Component, input, OnChanges, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {D8DatePipe} from '@pipes/d8-date-pipe';
 import {Segment} from '../segment/segment';
