@@ -44,10 +44,10 @@
       />
     } @else if (segment.startsWith('BGN')) {
       <prb-bgn
-        [bgnData]="segment"
-        [bgnSegmentDelimiter]="segmentDelimiter"
-        [bgnElementDelimiter]="elementDelimiter"
-        [bgnSubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('REF')) {
       <prb-ref
