@@ -1,4 +1,4 @@
-import {Component, input, OnChanges, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {Segment} from '../segment/segment';
 
@@ -12,51 +12,51 @@ import {Segment} from '../segment/segment';
 })
 export class Ins extends Segment {
   ins01Description = [
-    { code: 'Y', description: 'subscriber' },
-    { code: 'N', description: 'dependent' }
+    {code: 'Y', description: 'subscriber'},
+    {code: 'N', description: 'dependent'}
   ];
   ins02Relationship = [
-    { code: '01', description: 'child' },
-    { code: '02', description: 'spouse' },
-    { code: '03', description: 'dependent' },
-    { code: '04', description: 'parent' },
-    { code: '05', description: 'grandparent' },
-    { code: '06', description: 'sibling' },
-    { code: '07', description: 'other family member' },
-    { code: '18', description: 'self' }
+    {code: '01', description: 'child'},
+    {code: '02', description: 'spouse'},
+    {code: '03', description: 'dependent'},
+    {code: '04', description: 'parent'},
+    {code: '05', description: 'grandparent'},
+    {code: '06', description: 'sibling'},
+    {code: '07', description: 'other family member'},
+    {code: '18', description: 'self'}
   ];
   ins03TransactionTypeCode = [
-    { code: '001', description: 'change' },
-    { code: '021', description: 'add' },
-    { code: '024', description: 'terminate' },
-    { code: '025', description: 'reinstate' },
-    { code: '030', description: 'replace' }
+    {code: '001', description: 'change'},
+    {code: '021', description: 'add'},
+    {code: '024', description: 'terminate'},
+    {code: '025', description: 'reinstate'},
+    {code: '030', description: 'replace'}
   ];
   ins04MaintenanceReasonCode = [
-    { code: 'XN', description: 'new enrollment' }
+    {code: 'XN', description: 'new enrollment'}
   ];
   ins05BenefitStatusCode = [
-    { code: 'A', description: 'active' },
-    { code: 'T', description: 'terminated' }
+    {code: 'A', description: 'active'},
+    {code: 'T', description: 'terminated'}
   ]
   ins06PlanTypeCode = [
-    { code: 'A', description: 'medicare A' },
-    { code: 'B', description: 'medicare B' },
-    { code: 'C', description: 'medicare C' }
+    {code: 'A', description: 'medicare A'},
+    {code: 'B', description: 'medicare B'},
+    {code: 'C', description: 'medicare C'}
   ]
   ins07QualifyingStatusCode = [
-    { code: 'A', description: 'active' },
-    { code: 'C', description: 'COBRA' },
-    { code: 'S', description: 'surviving spouse' },
+    {code: 'A', description: 'active'},
+    {code: 'C', description: 'COBRA'},
+    {code: 'S', description: 'surviving spouse'},
   ]
   ins08EmploymentStatusCode = [
-    { code: 'EMP', description: 'employed' },
-    { code: 'AC', description: 'active' },
-    { code: 'RT', description: 'retired' },
-    { code: 'LI', description: 'leave of absence' },
+    {code: 'EMP', description: 'employed'},
+    {code: 'AC', description: 'active'},
+    {code: 'RT', description: 'retired'},
+    {code: 'LI', description: 'leave of absence'},
   ]
   ins10DisabledStatusCode = [
-    { code: 'Y', description: 'disabled' }
+    {code: 'Y', description: 'disabled'}
   ]
 
   constructor() {
