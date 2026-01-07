@@ -12,11 +12,11 @@ import {PhoneNumberPipe} from '@pipes/phone-number-pipe';
   styleUrls: ['./per.scss', '../edi-viewer.scss']
 })
 export class Per implements OnInit, OnChanges {
-  data = input<string>('PER*IP*JOHN DOE*HP*5551234567~');
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
+  perData = input<string>('PER*IP*JOHN DOE*HP*5551234567~');
+  perElementDelimiter = input<string>('*');
+  perSubElementDelimiter = input<string>(':');
+  perSegmentDelimiter = input<string>('~');
+  perValid = false;
   per: string[] | undefined;
   perCommunicationQualifier = [
     { code: 'AP', description: 'alternate phone' },
@@ -31,19 +31,19 @@ export class Per implements OnInit, OnChanges {
   }
 
   ngOnChanges() {
-    if (this.data()) {
+    if (this.perData()) {
       this.init();
     }
   }
 
   private init() {
-    const segmentLength = this.data().length;
-    this.per = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = true;
+    const segmentLength = this.perData().length;
+    this.per = this.perData().substring(0, segmentLength).split(this.perElementDelimiter());
+    this.perValid = true;
   }
 
   getElementDelimiter() {
-    return this.elementDelimiter();
+    return this.perElementDelimiter();
   }
 
   getPerLength() {
