@@ -26,28 +26,28 @@ describe('Isa', () => {
     const testData = 'ISA*00*          *00*          *ZZ*87790056      *ZZ*576687090     *251107*1430*^*00501*000000905*0*T*:';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('isaData', testData);
-      fixture.componentRef.setInput('isaSegmentDelimiter', '~');
-      fixture.componentRef.setInput('isaElementDelimiter', '*');
-      fixture.componentRef.setInput('isaSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.isaData()).toEqual(testData);
+      expect(component.data()).toEqual(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.isaSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.isaElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.isaSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {

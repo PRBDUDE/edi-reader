@@ -2,10 +2,10 @@
   @for (segment of segments; track segment) {
     @if (segment.startsWith('ISA')) {
       <prb-isa
-        [isaData]="segment"
-        [isaSegmentDelimiter]="segmentDelimiter"
-        [isaElementDelimiter]="elementDelimiter"
-        [isaSubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('GS')) {
       <prb-gs
