@@ -26,28 +26,28 @@ describe('N4', () => {
     const testData = 'N4*ANYTOWN*CA*90210';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('n4Data', testData);
-      fixture.componentRef.setInput('n4SegmentDelimiter', '~');
-      fixture.componentRef.setInput('n4ElementDelimiter', '*');
-      fixture.componentRef.setInput('n4SubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.n4Data()).toContain(testData);
+      expect(component.data()).toContain(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.n4SegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.n4ElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.n4SubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
