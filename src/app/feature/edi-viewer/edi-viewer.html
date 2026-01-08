@@ -51,10 +51,10 @@
       />
     } @else if (segment.startsWith('REF')) {
       <prb-ref
-        [refData]="segment"
-        [refSegmentDelimiter]="segmentDelimiter"
-        [refElementDelimiter]="elementDelimiter"
-        [refSubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('DTP')) {
       <prb-dtp

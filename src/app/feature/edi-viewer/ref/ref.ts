@@ -1,5 +1,6 @@
-import {Component, input, OnChanges, OnInit} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-ref',
@@ -9,45 +10,19 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './ref.html',
   styleUrls: ['./ref.scss', '../edi-viewer.scss']
 })
-export class Ref implements OnInit, OnChanges {
-  refData = input<string>('REF*38*GROUP123~');
-  refElementDelimiter = input<string>('*');
-  refSubElementDelimiter = input<string>(':');
-  refSegmentDelimiter = input<string>('~');
-  refValid = false;
-  ref: string[] | undefined;
+export class Ref extends Segment {
   refCodeDescription = [
-    { code: '0F', description: 'Contract Number' },
-    { code: '38', description: 'Group ID' },
+    {code: '0F', description: 'Contract Number'},
+    {code: '38', description: 'Group ID'},
   ]
 
-  ngOnInit() {
-    this.init();
+  constructor() {
+    super();
   }
 
-  ngOnChanges() {
-    if (this.refData()) {
-      this.init();
-    }
-  }
-
-  private init() {
-    const refSegmentLength = this.refData().length;
-    this.ref = this.refData().substring(0, refSegmentLength).split(this.refElementDelimiter());
-    this.refValid = true;
-  }
-
-  getRefElementDelimiter() {
-    return this.refElementDelimiter();
-  }
-
-  getRefLength() {
-    if (!this.ref) return 0;
-    return this.ref.length;
-  }
-
-  getRefElement(index: number) {
-    return this.ref![index];
+  override init() {
+    super.init();
+    this.valid = true;
   }
 
   getRefCodeDescription(code: string) {

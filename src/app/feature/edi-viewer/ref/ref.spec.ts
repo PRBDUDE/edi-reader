@@ -26,28 +26,28 @@ describe('Ref', () => {
     const testData = 'REF*1L*SUBPLAN01';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('refData', testData);
-      fixture.componentRef.setInput('refSegmentDelimiter', '~');
-      fixture.componentRef.setInput('refElementDelimiter', '*');
-      fixture.componentRef.setInput('refSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.refData()).toContain(testData);
+      expect(component.data()).toContain(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.refSegmentDelimiter()).toContain('~');
+      expect(component.segmentDelimiter()).toContain('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.refElementDelimiter()).toContain('*');
+      expect(component.elementDelimiter()).toContain('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.refSubElementDelimiter()).toContain(':');
+      expect(component.subElementDelimiter()).toContain(':');
     });
 
     describe('check contents of html tag', () => {
