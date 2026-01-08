@@ -65,10 +65,10 @@
       />
     } @else if (segment.startsWith('N1')) {
       <prb-n1
-        [n1Data]="segment"
-        [n1SegmentDelimiter]="segmentDelimiter"
-        [n1ElementDelimiter]="elementDelimiter"
-        [n1SubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('N3')) {
       <prb-n3

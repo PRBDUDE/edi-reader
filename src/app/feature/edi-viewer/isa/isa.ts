@@ -1,4 +1,4 @@
-import {Component, input, OnChanges, OnInit, signal} from '@angular/core';
+import {Component, signal} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {Segment} from '../segment/segment';
 
