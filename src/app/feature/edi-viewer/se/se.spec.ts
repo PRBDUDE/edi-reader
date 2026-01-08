@@ -26,28 +26,28 @@ describe('Se', () => {
     const testData = 'SE*39*0001';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('seData', testData);
-      fixture.componentRef.setInput('seSegmentDelimiter', '~');
-      fixture.componentRef.setInput('seElementDelimiter', '*');
-      fixture.componentRef.setInput('seSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.seData()).toContain(testData);
+      expect(component.data()).toContain(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.seSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.seElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.seSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
@@ -112,7 +112,7 @@ describe('Se', () => {
         expect(descriptions[0].textContent).toContain('39');
         expect(descriptions[0].textContent).toContain('segment count from ST-SE including ST & SE lines');
       });
-      
+
       it('should contain value and description for \'SE02\'', () => {
         expect(descriptions[1].textContent).toContain('SE02:');
         expect(descriptions[1].textContent).toContain('0001');

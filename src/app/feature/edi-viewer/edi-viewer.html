@@ -23,10 +23,10 @@
       />
     } @else if (segment.startsWith('SE')) {
       <prb-se
-        [seData]="segment"
-        [seSegmentDelimiter]="segmentDelimiter"
-        [seElementDelimiter]="elementDelimiter"
-        [seSubElementDelimiter]="subElementDelimiter"
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
       />
     } @else if (segment.startsWith('GE')) {
       <prb-ge

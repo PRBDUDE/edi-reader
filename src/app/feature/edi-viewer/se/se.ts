@@ -1,5 +1,6 @@
-import {Component, input, OnChanges, OnInit} from '@angular/core';
+import {Component, input} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-se',
@@ -9,40 +10,14 @@ import {ElementDescription} from '../element-description/element-description';
   templateUrl: './se.html',
   styleUrls: ['./se.scss', '../edi-viewer.scss']
 })
-export class Se implements OnInit, OnChanges {
-  seData = input<string>('SE*18*0001~');
-  seElementDelimiter = input<string>('*');
-  seSubElementDelimiter = input<string>(':');
-  seSegmentDelimiter = input<string>('~');
-  seValid = false;
-  se: string[] | undefined;
+export class Se extends Segment {
 
-  ngOnInit() {
-    this.init();
+  constructor() {
+    super();
   }
 
-  ngOnChanges() {
-    if (this.seData()) {
-      this.init();
-    }
-  }
-
-  private init() {
-    const seSegmentLength = this.seData().length;
-    this.se = this.seData().substring(0, seSegmentLength).split(this.seElementDelimiter());
-    this.seValid = true;
-  }
-
-  getSeElementDelimiter() {
-    return this.seElementDelimiter();
-  }
-
-  getSeLength() {
-    if (!this.se) return 0;
-    return this.se.length;
-  }
-
-  getSeElement(index: number) {
-    return this.se![index];
+  override init() {
+    super.init();
+    this.valid = true;
   }
 }
