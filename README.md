@@ -2,6 +2,13 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
 
+## Disclaimer
+
+> This project is not affiliated with the EdiReader company.
+
+> The EDI data used in this project is for demonstration purposes only and contains many errors.
+This is intentional to demonstrate the capabilities of the EdiReader in future revisions.
+
 ## Development server
 
 To start a local development server, run:
