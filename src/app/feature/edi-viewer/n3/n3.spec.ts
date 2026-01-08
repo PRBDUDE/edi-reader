@@ -26,28 +26,28 @@ describe('N3', () => {
     const testData = 'N3*100 MAIN ST';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('n3Data', testData);
-      fixture.componentRef.setInput('n3SegmentDelimiter', '~');
-      fixture.componentRef.setInput('n3ElementDelimiter', '*');
-      fixture.componentRef.setInput('n3SubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.n3Data()).toContain(testData);
+      expect(component.data()).toContain(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.n3SegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.n3ElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.n3SubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
