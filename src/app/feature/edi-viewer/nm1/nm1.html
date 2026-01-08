@@ -1,57 +1,57 @@
 <div class="prb-x12-segment">
-  @for (element of nm1; track $index) {
+  @for (element of this.parsedElements; track $index) {
     <span>{{ element }}</span>
-    @if ($index == (getNm1Length() - 1)) {
+    @if ($index == (getLength() - 1)) {
       <span class="prb-x12-segment-delimiter">~</span>
     } @else {
-      <span class="prb-12-element-delimiter">{{ this.getNm1ElementDelimiter() }}</span>
+      <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
     }
   }
   <div class="prb-info">
     <h5>NM1 Elements</h5>
     <prb-element-description
       [element]="'NM101'"
-      [data]="getNm1Element(1)"
+      [data]="getElement(1)"
       [description]="'relationship code'"
     />
     <prb-element-description
       [element]="'NM102'"
-      [data]="getNm1Element(2)"
+      [data]="getElement(2)"
       [description]="'entity identifier code'"
     />
     <prb-element-description
       [element]="'NM103'"
-      [data]="getNm1Element(3)"
+      [data]="getElement(3)"
       [description]="'last name'"
     />
     <prb-element-description
       [element]="'NM104'"
-      [data]="getNm1Element(4)"
+      [data]="getElement(4)"
       [description]="'first name'"
     />
     <prb-element-description
       [element]="'NM105'"
-      [data]="getNm1Element(5)"
+      [data]="getElement(5)"
       [description]="'middle initial or name'"
     />
     <prb-element-description
       [element]="'NM106'"
-      [data]="getNm1Element(6)"
+      [data]="getElement(6)"
       [description]="'identification code'"
     />
     <prb-element-description
       [element]="'NM107'"
-      [data]="getNm1Element(7)"
+      [data]="getElement(7)"
       [description]="'entity type'"
     />
     <prb-element-description
       [element]="'NM108'"
-      [data]="getNm1Element(8)"
+      [data]="getElement(8)"
       [description]="'identification code qualifier'"
     />
     <prb-element-description
       [element]="'NM109'"
-      [data]="getNm1Element(9)"
+      [data]="getElement(9)"
       [description]="'identification code'"
     />
   </div>

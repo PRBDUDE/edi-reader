@@ -26,28 +26,28 @@ describe('Nm1', () => {
     const testData = 'NM1*IL*1*DOE*JOHN****34*123456789';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('nm1Data', testData);
-      fixture.componentRef.setInput('nm1SegmentDelimiter', '~');
-      fixture.componentRef.setInput('nm1ElementDelimiter', '*');
-      fixture.componentRef.setInput('nm1SubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.nm1Data()).toContain(testData);
+      expect(component.data()).toContain(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.nm1SegmentDelimiter()).toContain('~');
+      expect(component.segmentDelimiter()).toContain('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.nm1ElementDelimiter()).toContain('*');
+      expect(component.elementDelimiter()).toContain('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.nm1SubElementDelimiter()).toContain(':');
+      expect(component.subElementDelimiter()).toContain(':');
     });
 
     describe('check contents of html tag', () => {
