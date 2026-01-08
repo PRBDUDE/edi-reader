@@ -1,6 +1,7 @@
 import {Component, input, OnChanges, OnInit} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {PhoneNumberPipe} from '@pipes/phone-number-pipe';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-per',
@@ -11,13 +12,7 @@ import {PhoneNumberPipe} from '@pipes/phone-number-pipe';
   templateUrl: './per.html',
   styleUrls: ['./per.scss', '../edi-viewer.scss']
 })
-export class Per implements OnInit, OnChanges {
-  perData = input<string>('PER*IP*JOHN DOE*HP*5551234567~');
-  perElementDelimiter = input<string>('*');
-  perSubElementDelimiter = input<string>(':');
-  perSegmentDelimiter = input<string>('~');
-  perValid = false;
-  per: string[] | undefined;
+export class Per extends Segment{
   perCommunicationQualifier = [
     { code: 'AP', description: 'alternate phone' },
     { code: 'CP', description: 'cell phone' },
@@ -26,33 +21,13 @@ export class Per implements OnInit, OnChanges {
     { code: 'TE', description: 'telephone' },
   ];
 
-  ngOnInit() {
-    this.init();
+  constructor() {
+    super();
   }
 
-  ngOnChanges() {
-    if (this.perData()) {
-      this.init();
-    }
-  }
-
-  private init() {
-    const segmentLength = this.perData().length;
-    this.per = this.perData().substring(0, segmentLength).split(this.perElementDelimiter());
-    this.perValid = true;
-  }
-
-  getElementDelimiter() {
-    return this.perElementDelimiter();
-  }
-
-  getPerLength() {
-    if (!this.per) return 0;
-    return this.per.length;
-  }
-
-  getPerElement(index: number) {
-    return this.per![index];
+  override init() {
+    super.init();
+    this.valid = true;
   }
 
   getPerCommunicationQualifier(code: string) {

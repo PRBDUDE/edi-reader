@@ -27,28 +27,28 @@ describe('Per', () => {
     const testData = 'PER*IP*JOHN DOE*HP*5741234567*CP*5743442256*EM*PDOE23@DEMO.COM';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('perData', testData);
-      fixture.componentRef.setInput('perSegmentDelimiter', '~');
-      fixture.componentRef.setInput('perElementDelimiter', '*');
-      fixture.componentRef.setInput('perSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should contain data', () => {
-      expect(component.perData()).toContain(testData);
+      expect(component.data()).toContain(testData);
     });
 
     it('should contain segment delimiter', () => {
-      expect(component.perSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should contain element delimiter', () => {
-      expect(component.perElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should contain sub element delimiter', () => {
-      expect(component.perSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
