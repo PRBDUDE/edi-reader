@@ -1,7 +1,7 @@
 <div class="prb-x12-transaction-set">
-  @for (element of st; track $index) {
+  @for (element of this.parsedElements; track $index) {
     <span>{{ element }}</span>
-    @if ($index == (getStLength() - 1)) {
+    @if ($index == (getLength() - 1)) {
       <span class="prb-x12-segment-delimiter">~</span>
     } @else {
       <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
@@ -12,17 +12,17 @@
     <h5>ST Elements</h5>
     <prb-element-description
       [element]="'ST01'"
-      [data]=this.getStElement(1)
+      [data]=this.getElement(1)
       [description]="'transaction set identifier code'"
     />
     <prb-element-description
       [element]="'ST02'"
-      [data]=this.getStElement(2)
+      [data]=this.getElement(2)
       [description]="'transaction set control number'"
     />
     <prb-element-description
       [element]="'ST03'"
-      [data]=this.getStElement(3)
+      [data]=this.getElement(3)
       [description]="'implementation convention reference'"
     />
   </div>

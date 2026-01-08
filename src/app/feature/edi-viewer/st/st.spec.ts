@@ -24,28 +24,28 @@ describe('St', () => {
     const testData = 'ST*834*0001*005010X220A1';
 
     beforeEach(() => {
-      fixture.componentRef.setInput('stData', testData);
-      fixture.componentRef.setInput('stSegmentDelimiter', '~');
-      fixture.componentRef.setInput('stElementDelimiter', '*');
-      fixture.componentRef.setInput('stSubElementDelimiter', ':');
+      fixture.componentRef.setInput('data', testData);
+      fixture.componentRef.setInput('segmentDelimiter', '~');
+      fixture.componentRef.setInput('elementDelimiter', '*');
+      fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
     });
 
     it('should render the ST segment', () => {
-      expect(component.stData()).toContain(testData);
+      expect(component.data()).toContain(testData);
     });
 
     it('should render the ST segment with the correct segment delimiter', () => {
-      expect(component.stSegmentDelimiter()).toEqual('~');
+      expect(component.segmentDelimiter()).toEqual('~');
     });
 
     it('should render the ST segment with the correct element delimiter', () => {
-      expect(component.stElementDelimiter()).toEqual('*');
+      expect(component.elementDelimiter()).toEqual('*');
     });
 
     it('should render the ST segment with the correct sub element delimiter', () => {
-      expect(component.stSubElementDelimiter()).toEqual(':');
+      expect(component.subElementDelimiter()).toEqual(':');
     });
 
     describe('check contents of html tag', () => {
