@@ -57,7 +57,6 @@ describe('N1', () => {
       beforeEach(() => {
         compiled = fixture.nativeElement;
         spans = compiled.getElementsByTagName('span');
-        console.log(compiled.innerHTML);
       });
 
       it('should contain class \'prb-x12-segment\'', () => {
@@ -99,12 +98,10 @@ describe('N1', () => {
         fixture.detectChanges();
         compiled = fixture.nativeElement;
         descriptions = compiled.querySelectorAll('prb-element-description');
-        console.log(compiled.innerHTML);
       }));
 
       it('should contain \'N1 Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('N1 Elements');
       });
 

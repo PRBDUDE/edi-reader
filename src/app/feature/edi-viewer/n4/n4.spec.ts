@@ -107,12 +107,10 @@ describe('N4', () => {
         fixture.detectChanges();
         compiled = fixture.nativeElement;
         descriptions = compiled.querySelectorAll('prb-element-description');
-        console.log(compiled.innerHTML);
       }));
 
       it('should contain \'N4 Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('N4 Elements');
       });
 

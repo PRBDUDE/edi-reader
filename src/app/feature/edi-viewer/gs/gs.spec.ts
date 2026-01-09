@@ -57,7 +57,6 @@ describe('Gs', () => {
       beforeEach(() => {
         compiled = fixture.nativeElement as HTMLElement;
         spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
-        console.log(compiled.innerHTML);
       });
 
       it('should contain class \'prb-x12-group\'', () => {
@@ -153,12 +152,10 @@ describe('Gs', () => {
         fixture.detectChanges();
         compiled = fixture.nativeElement as HTMLElement;
         descriptions = compiled.querySelectorAll('prb-element-description');
-        console.log(compiled.innerHTML);
       }));
 
       it('should contain \'GS Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('GS Elements');
       });
 

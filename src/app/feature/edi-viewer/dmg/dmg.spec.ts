@@ -31,7 +31,6 @@ describe('Dmg', () => {
       fixture.componentRef.setInput('elementDelimiter', '*');
       fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.detectChanges();
-      console.log('DATA: ' + component.data());
     });
 
     it('should contain data', () => {
@@ -111,7 +110,6 @@ describe('Dmg', () => {
 
       it('should contain \'DMG Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('DMG Elements');
       });
 
