@@ -57,7 +57,6 @@ describe('Isa', () => {
       beforeEach(() => {
         compiled = fixture.nativeElement;
         spans = compiled.getElementsByTagName('span');
-        console.log(compiled.innerHTML);
       });
 
       it('should contain class \'prb-x12-isa\'', () => {
@@ -225,12 +224,10 @@ describe('Isa', () => {
         fixture.detectChanges();
         compiled = fixture.nativeElement;
         descriptions = compiled.querySelectorAll('prb-element-description');
-        console.log()
       }));
 
       it('should contain \'ISA Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toContain('ISA Elements');
       });
 

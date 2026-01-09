@@ -153,12 +153,10 @@ describe('Per', () => {
         fixture.detectChanges();
         compiled = fixture.nativeElement;
         descriptions = compiled.querySelectorAll('prb-element-description');
-        console.log(compiled.innerHTML);
       }));
 
       it('should contain \'PER Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('PER Elements');
       });
 

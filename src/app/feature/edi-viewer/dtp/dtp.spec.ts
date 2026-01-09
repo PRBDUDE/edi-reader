@@ -31,7 +31,6 @@ describe('Dtp', () => {
       fixture.componentRef.setInput('elementDelimiter', '*');
       fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.detectChanges();
-      console.log('DATA: ' + fixture.componentRef.instance.data());
     });
 
     it('should contain data', () => {
@@ -57,7 +56,6 @@ describe('Dtp', () => {
       beforeEach(() => {
         compiled = fixture.nativeElement;
         spans = compiled.getElementsByTagName('span');
-        console.log(compiled.innerHTML);
       });
 
       it('should contain class \'prb-x12-segment\'', () => {
@@ -108,12 +106,10 @@ describe('Dtp', () => {
         fixture.detectChanges();
         compiled = fixture.nativeElement;
         descriptions = compiled.querySelectorAll('prb-element-description');
-        console.log(compiled.innerHTML);
       }));
 
       it('should contain \'DTP Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('DTP Elements');
       });
 

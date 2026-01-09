@@ -57,7 +57,6 @@ describe('Ins', () => {
       beforeEach(() => {
         compiled = fixture.nativeElement as HTMLElement;
         spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
-        console.log(compiled.innerHTML);
       });
 
       it('should contain class \'prb-x12-segment\'', () => {
@@ -144,7 +143,6 @@ describe('Ins', () => {
 
       it('should contain \'INS Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('INS Elements');
       });
 

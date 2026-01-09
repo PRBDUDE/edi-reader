@@ -32,7 +32,6 @@ describe('Bgn', () => {
       fixture.componentRef.setInput('subElementDelimiter', ':');
       fixture.componentRef.changeDetectorRef.detectChanges();
       fixture.detectChanges();
-      console.log('DATA: ' + fixture.componentRef.instance.data());
     });
 
     it('should contain data', () => {
@@ -58,7 +57,6 @@ describe('Bgn', () => {
       beforeEach(() => {
         compiled = fixture.nativeElement as HTMLElement;
         spans = compiled.querySelectorAll('span') as unknown as HTMLCollectionOf<HTMLElement>;
-        console.log(compiled.innerHTML);
       });
 
       it('should contain class \'prb-x12-segment\'', () => {
@@ -118,12 +116,10 @@ describe('Bgn', () => {
         fixture.detectChanges();
         compiled = fixture.nativeElement as HTMLElement;
         descriptions = compiled.querySelectorAll('prb-element-description');
-        console.log(compiled.innerHTML);
       }));
 
       it('should contain \'BGN Elements\'', () => {
         const tag = compiled.querySelectorAll('h5');
-        console.log('TAG: ' + tag[0].innerHTML);
         expect(tag[0].innerHTML).toEqual('BGN Elements');
       });
 

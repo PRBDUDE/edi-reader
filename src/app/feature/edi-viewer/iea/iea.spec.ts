@@ -56,7 +56,6 @@ describe('Iea', () => {
       beforeEach(() => {
         compiled = fixture.nativeElement as HTMLElement;
         spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
-        console.log(compiled.innerHTML);
       });
 
       it('should contain class \'prb-x12-isa\'', () => {
@@ -106,14 +105,12 @@ describe('Iea', () => {
       });
 
       it('should contain value and description for \'IEA01\'', () => {
-        console.log(descriptions[0].textContent);
         expect(descriptions[0].textContent).toContain('IEA01:');
         expect(descriptions[0].textContent).toContain('1');
         expect(descriptions[0].textContent).toContain('number of groups');
       });
 
       it('should contain value and description for \'IEA02\'', () => {
-        console.log(descriptions[1].textContent);
         expect(descriptions[1].textContent).toContain('IEA02:');
         expect(descriptions[1].textContent).toContain('000000937');
         expect(descriptions[1].textContent).toContain('interchange control number');
