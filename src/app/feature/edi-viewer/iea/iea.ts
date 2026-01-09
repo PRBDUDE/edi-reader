@@ -1,27 +1,24 @@
-import {Component, input, OnInit} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-iea',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './iea.html',
   styleUrls: ['./iea.scss', '../edi-viewer.scss']
 })
-export class Iea implements OnInit {
-  data = input<String>('IEA*1*000000905~');
-  interchangeControlNumber = input<number>(0);
-  elementDelimiter = input<string>('*');
-  subElementDelimiter = input<string>(':');
-  segmentDelimiter = input<string>('~');
-  valid = false;
-  iea: String[] | undefined;
+export class Iea extends Segment {
+  ieaInterchangeControlNumber = input<number>(0);
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.iea = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = Number(this.iea[2]) == this.interchangeControlNumber();
+  constructor() {
+    super();
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  override init() {
+    super.init();
+    this.valid = Number(this.getElement(2)) == this.ieaInterchangeControlNumber();
   }
 }

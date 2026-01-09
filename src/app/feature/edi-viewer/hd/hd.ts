@@ -1,31 +1,23 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-hd',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './hd.html',
-  styleUrls: ['./hd.scss','../edi-viewer.scss']
+  styleUrls: ['./hd.scss', '../edi-viewer.scss']
 })
-export class Hd implements OnInit {
-  data = input<String>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
-  valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  hd: String[] | undefined;
+export class Hd extends Segment {
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.hd = this.data().substring(0, segmentLength).split(this.elementDelimiter());
+  constructor() {
+    super();
+  }
+
+  override init() {
+    super.init();
     this.valid = true;
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
-  }
-
-  getHdLength() {
-    if (!this.hd) return 0;
-    return this.hd.length;
   }
 }

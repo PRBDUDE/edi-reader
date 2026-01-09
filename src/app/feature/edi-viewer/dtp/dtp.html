@@ -1,8 +1,36 @@
-@for (element of dtp; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getDtpLength() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+<div class="prb-x12-segment">
+  @for (element of this.parsedElements; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getLength() - 1)) {
+      <span class="prb-x12-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>DTP Elements</h5>
+    <prb-element-description
+      [element]="'DTP01'"
+      [data]=this.getElement(1)
+      [description]="getDtpDateType(this.getElement(1))?.description || 'date/time qualifier'"
+    />
+    <prb-element-description
+      [element]="'DTP02'"
+      [data]=this.getElement(2)
+      [description]="getDtpFormat(this.getElement(2))?.description || 'date/time format qualifier'"
+    />
+    @if (getElement(2) == 'D8') {
+      <prb-element-description
+        [element]="'DTP03'"
+        [data]="this.getElement(3) | d8Date"
+        [description]="'date'"
+      />
+    } @else {
+      <prb-element-description
+        [element]="'DTP03'"
+        [data]=this.getElement(3)
+        [description]="'date'"
+      />
+    }
+  </div>
+</div>

@@ -1,35 +1,23 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-se',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './se.html',
-  styleUrls: ['./se.scss','../edi-viewer.scss']
+  styleUrls: ['./se.scss', '../edi-viewer.scss']
 })
-export class Se implements OnInit {
-  data = input<String>('SE*18*0001~');
-  valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  se: String[] | undefined;
+export class Se extends Segment {
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.se = this.data().substring(0, segmentLength).split(this.elementDelimiter());
+  constructor() {
+    super();
+  }
+
+  override init() {
+    super.init();
     this.valid = true;
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
-  }
-
-  getSeLength() {
-    if (!this.se) return 0;
-    return this.se.length;
-  }
-
-  getSeElement(number: number) {
-    return this.se?.[number];
   }
 }

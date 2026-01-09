@@ -1,35 +1,23 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnChanges, OnInit} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-st',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './st.html',
   styleUrls: ['./st.scss', '../edi-viewer.scss']
 })
-export class St implements OnInit {
-  data = input<String>('ST*834*0001*005010X220A1~');
-  valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  st: String[] | undefined;
+export class St extends Segment {
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.st = this.data().substring(0, segmentLength).split(this.elementDelimiter());
+  constructor() {
+    super();
+  }
+
+  override init() {
+    super.init();
     this.valid = true;
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
-  }
-
-  getStLength() {
-    if (!this.st) return 0;
-    return this.st.length;
-  }
-
-  getStElement(number: number) {
-    return this.st?.[number];
   }
 }

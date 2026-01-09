@@ -1,0 +1,8 @@
+@if (this.data()) {
+  <div>{{ this.element() }}:
+    <span class="prb-x12-element-data">{{ this.data() }}</span>
+    @if (this.description()) {
+      <span class="prb-x12-element-desc">{{ this.description() }}</span>
+    }
+  </div>
+}

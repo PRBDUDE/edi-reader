@@ -1,8 +1,43 @@
-@for (element of n4; track $index) {
-  <span>{{ element }}</span>
-  @if ($index == (getN4Length() - 1)) {
-    <span class="prb-segment-delimiter">~</span>
-  } @else {
-    <span class="prb-element-delimiter">{{ this.getElementDelimiter() }}</span>
+<div class="prb-x12-segment">
+  @for (element of this.parsedElements; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getLength() - 1)) {
+      <span class="prb-x12-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
+    }
   }
-}
+  <div class="prb-info">
+    <h5>N4 Elements</h5>
+    <prb-element-description
+      [element]="'N401'"
+      [data]=getElement(1)
+      [description]="'city name'"
+    />
+    <prb-element-description
+      [element]="'N402'"
+      [data]=getElement(2)
+      [description]="'state or province code'"
+    />
+    <prb-element-description
+      [element]="'N403'"
+      [data]=getElement(3)
+      [description]="'zip code or postal code'"
+    />
+    <prb-element-description
+      [element]="'N404'"
+      [data]=getElement(4)
+      [description]="'country code'"
+    />
+    <prb-element-description
+      [element]="'N405'"
+      [data]=getElement(5)
+      [description]="'location qualifier'"
+    />
+    <prb-element-description
+      [element]="'N406'"
+      [data]=getElement(6)
+      [description]="'location identifier'"
+    />
+  </div>
+</div>

@@ -1,31 +1,25 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {D8DatePipe} from '@pipes/d8-date-pipe';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-bgn',
-  imports: [],
+  imports: [
+    ElementDescription,
+    D8DatePipe
+  ],
   templateUrl: './bgn.html',
-  styleUrls: ['./bgn.scss','../edi-viewer.scss']
+  styleUrls: ['./bgn.scss', '../edi-viewer.scss']
 })
-export class Bgn implements OnInit {
-  data = input<String>('BGN*00*123456*20251107*1430~');
-  valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  bgn: String[] | undefined;
+export class Bgn extends Segment {
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.bgn = this.data().substring(0, segmentLength).split(this.elementDelimiter());
+  constructor() {
+    super();
+  }
+
+  override init() {
+    super.init();
     this.valid = true;
-  }
-
-  getBgnLength() {
-    if (!this.bgn) return 0;
-    return this.bgn.length;
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
   }
 }

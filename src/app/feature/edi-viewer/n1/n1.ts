@@ -1,31 +1,23 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-n1',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './n1.html',
-  styleUrls: ['./n1.scss','../edi-viewer.scss']
+  styleUrls: ['./n1.scss', '../edi-viewer.scss']
 })
-export class N1 implements OnInit {
-  data = input<String>('N1*P5*ACME EMPLOYER~');
-  valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  n1: String[] | undefined;
+export class N1 extends Segment {
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.n1 = this.data().substring(0, segmentLength).split(this.elementDelimiter());
+  constructor() {
+    super();
+  }
+
+  override init() {
+    super.init();
     this.valid = true;
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
-  }
-
-  getN1Length() {
-    if (!this.n1) return 0;
-    return this.n1.length;
   }
 }

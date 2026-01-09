@@ -1,35 +1,47 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {D8DatePipe} from '@pipes/d8-date-pipe';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-dtp',
-  imports: [],
+  imports: [
+    ElementDescription,
+    D8DatePipe
+  ],
   templateUrl: './dtp.html',
-  styleUrls: ['./dtp.scss','../edi-viewer.scss']
+  styleUrls: ['./dtp.scss', '../edi-viewer.scss']
 })
-export class Dtp implements OnInit {
-  data = input<String>('DTP*007*D8*20251101~');
-  valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  dtp: String[] | undefined;
+export class Dtp extends Segment {
+  dtp01DateType = [
+    {code: '001', description: 'cancel after date'},
+    {code: '007', description: 'effective date'},
+    {code: '011', description: 'ship date'},
+    {code: '336', description: 'employment begin date'},
+    {code: '346', description: 'plan issue date'},
+    {code: '348', description: 'benefit start date'},
+    {code: '349', description: 'benefit end date'},
+  ]
+  dtp02Format = [
+    {code: 'D6', description: 'YYMMDD'},
+    {code: 'D8', description: 'YYYYMMDD'},
+    {code: 'DT', description: 'YYYYMMDDHHMM'},
+  ]
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.dtp = this.data().substring(0, segmentLength).split(this.elementDelimiter());
+  constructor() {
+    super();
+  }
+
+  override init() {
+    super.init();
     this.valid = true;
   }
 
-  getDtpLength() {
-    if (!this.dtp) return 0;
-    return this.dtp.length;
+  getDtpDateType(code: string) {
+    return this.dtp01DateType.find(x => x.code === code);
   }
 
-  getDtpElement(number: number) {
-    return this.dtp?.[number];
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  getDtpFormat(code: string) {
+    return this.dtp02Format.find(x => x.code === code);
   }
 }

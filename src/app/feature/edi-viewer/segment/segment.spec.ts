@@ -1,17 +1,17 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {EdiViewer} from './edi-viewer';
+import {Segment} from './segment';
 
-describe('EdiViewer', () => {
-  let component: EdiViewer;
-  let fixture: ComponentFixture<EdiViewer>;
+describe('Segment', () => {
+  let component: Segment;
+  let fixture: ComponentFixture<Segment>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [EdiViewer]
+      imports: [Segment]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EdiViewer);
+    fixture = TestBed.createComponent(Segment);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

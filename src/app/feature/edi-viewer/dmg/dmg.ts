@@ -1,31 +1,25 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {D8DatePipe} from '@pipes/d8-date-pipe';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-dmg',
-  imports: [],
+  imports: [
+    ElementDescription,
+    D8DatePipe
+  ],
   templateUrl: './dmg.html',
-  styleUrls: ['./dmg.scss','../edi-viewer.scss']
+  styleUrls: ['./dmg.scss', '../edi-viewer.scss']
 })
-export class Dmg implements OnInit {
-  data = input<String>('DMG*D8*19860115*M~');
-  valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  dmg: String[] | undefined;
+export class Dmg extends Segment {
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.dmg = this.data().substring(0, segmentLength).split(this.elementDelimiter());
+  constructor() {
+    super();
+  }
+
+  override init() {
+    super.init();
     this.valid = true;
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
-  }
-
-  getDmgLength() {
-    if (!this.dmg) return 0;
-    return this.dmg.length;
   }
 }

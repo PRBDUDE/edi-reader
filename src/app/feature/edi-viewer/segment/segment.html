@@ -1,0 +1,10 @@
+<div class="prb-x12-segment">
+  @for (element of parsedElements; track $index) {
+    <span>{{ element.replaceAll(' ', '&nbsp;') }}</span>
+    @if ($index == (getElementSize() - 1)) {
+      <span class="prb-x12-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-x12-element-delimiter">{{ this.getElementDelimiter() }}</span>
+    }
+  }
+</div>

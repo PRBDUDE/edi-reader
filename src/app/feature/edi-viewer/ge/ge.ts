@@ -1,29 +1,26 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-ge',
-  imports: [],
+  imports: [
+    ElementDescription
+  ],
   templateUrl: './ge.html',
   styleUrls: ['./ge.scss', '../edi-viewer.scss']
 })
-export class Ge implements OnInit {
-  data = input<String>('GE*2*1~');
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  numberOfTransactionSets = input(0);
-  groupControlNumber = input(0);
-  valid = false;
-  ge: String[] | undefined;
+export class Ge extends Segment {
+  geNumberOfTransactionSets = input(0);
+  geGroupControlNumber = input(0);
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.ge = this.data().substring(0, segmentLength).split(this.elementDelimiter());
-    this.valid = (this.groupControlNumber() == Number(this.ge[2])) &&
-      (this.numberOfTransactionSets() == Number(this.ge[1]));
+  constructor() {
+    super();
   }
 
-  getElementDelimiter() {
-    return this.elementDelimiter();
+  override init() {
+    super.init();
+    this.valid = (this.geGroupControlNumber() == Number(this.getElement(2))) &&
+      (this.geNumberOfTransactionSets() == Number(this.getElement(1)));
   }
 }

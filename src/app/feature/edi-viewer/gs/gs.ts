@@ -1,33 +1,27 @@
-import {Component, input, OnInit, signal} from '@angular/core';
+import {Component, signal} from '@angular/core';
+import {ElementDescription} from '../element-description/element-description';
+import {D8DatePipe} from '@pipes/d8-date-pipe';
+import {Segment} from '../segment/segment';
 
 @Component({
   selector: 'prb-gs',
-  imports: [],
+  imports: [
+    ElementDescription,
+    D8DatePipe
+  ],
   templateUrl: './gs.html',
   styleUrls: ['./gs.scss', '../edi-viewer.scss']
 })
-export class Gs implements OnInit {
-  data = input<String>('GS*BE*87790056*576687090*20251107*1430*1*X*005010X220A1~');
-  valid = false;
-  elementDelimiter = signal('*');
-  subElementDelimiter = signal(':');
-  segmentDelimiter = signal('~');
-  groupControlNumber = signal(0);
-  gs: String[] | undefined;
+export class Gs extends Segment {
+  gsGroupControlNumber = signal<number>(0);
 
-  ngOnInit() {
-    const segmentLength = this.data().length;
-    this.gs = this.data().substring(0, segmentLength - 1).split(this.elementDelimiter());
-    this.groupControlNumber.set(Number(this.gs[6]));
+  constructor() {
+    super();
+  }
+
+  override init() {
+    super.init();
+    this.gsGroupControlNumber.set(Number(this.getElement(6)));
     this.valid = true;
-  }
-
-  getElementDelimiter() {
-    return this.elementDelimiter();
-  }
-
-  getGsLength() {
-    if (!this.gs) return 0;
-    return this.gs.length;
   }
 }
