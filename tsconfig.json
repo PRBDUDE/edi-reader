@@ -46,7 +46,7 @@
         "./src/app/core/model/*"
       ],
       "@edi/*": [
-        "./src/app/core/model/edi/*"
+        "./src/app/core/edi/*"
       ],
       "@services/*": [
         "./src/app/core/services/*"
