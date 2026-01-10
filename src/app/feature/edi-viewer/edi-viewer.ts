@@ -88,7 +88,7 @@ export class EdiViewer {
 
     'SE*39*0001~' +
     'GE*1*1~' +
-    'IEA*1*000000905~'
+    'IEA*1*000000905~';
   elementDelimiter = this.ediData.charAt(101);
   subElementDelimiter = this.ediData.charAt(102);
   segmentDelimiter = this.ediData.charAt(103);
