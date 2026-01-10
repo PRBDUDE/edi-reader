@@ -28,6 +28,9 @@ export class Segment {
   }
 
   setDescription(index: number, description: string) {
+    if (index > this._elements?.length - 1) {
+      return;
+    }
     this._elements[index].setDescription(description);
   }
 
@@ -36,6 +39,9 @@ export class Segment {
   }
 
   setSegmentId(index: number, segmentId: string) {
+    if (index > this._elements?.length - 1) {
+      return;
+    }
     this._elements[index].setSegmentId(segmentId);
   }
 
