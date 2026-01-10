@@ -27,9 +27,6 @@ export class Segment implements OnInit, OnChanges {
     this.parsedElements = this.data()
       .substring(0, this.data().length)
       .split(String(this.elementDelimiter()));
-    this.parsedElements.forEach(element => {
-      console.log('ELEMENT: ' + element);
-    })
   }
 
   getElementDelimiter() {

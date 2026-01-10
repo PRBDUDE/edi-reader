@@ -32,30 +32,22 @@ export class CssPropertyValue {
   }
 
   isCalcValue(): boolean {
-    // console.log(this.value());
-    // console.log('isCalcValue: ', this.calcValue.test(this.value()));
     return this.calcValue.test(this.value());
   }
 
   getHexNumber() {
-    // console.log('getHexNumber: ', this.value().replace(/[^0-9a-zA-Z]/g, ''));
     return this.value().replace(/[^0-9a-zA-Z]/g, '');
   }
 
   getNumber() {
-    // console.log('getNumber: ', this.value().replace(/[0-9]*/g, ''));
     return this.value().replace(/[^0-9]/g, '');
   }
 
   getUnit() {
-    // console.log('getUnit: ', this.value().replace(/[0-9]*/g, ''));
     return this.value().replace(/[0-9]/g, '');
   }
 
   getCalcFirstValue() {
-    // console.log('getCalcFirstValue: ', this.value()
-    //   .replace(/calc\((.*)([-+/*])(.*)\)/, '$1')
-    //   .replace(/[^0-9]/g, ''));
     return this.value()
       .replace(/calc\((.*)([-+/*])(.*)\)/, '$1')
       .replace(/[^0-9]/g, '').trim();

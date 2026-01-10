@@ -40,7 +40,6 @@ export class RoadblockHeader implements OnInit {
 
   toggleColorPicker() {
     toggleMode(prbModes.colorPicker);
-    console.log('Color picker clicked');
   }
 
   isDarkTheme(): boolean {
@@ -49,7 +48,6 @@ export class RoadblockHeader implements OnInit {
 
   darkTheme() {
     this.profileService.setDarkThemeProfile(true).subscribe(
-      result => console.log('Dark theme set to: ', result)
     );
     setDarkTheme(true);
   }
