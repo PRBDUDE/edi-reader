@@ -53,6 +53,9 @@
       ],
       "@pipes/*": [
         "./src/app/core/pipes/*"
+      ],
+      "@ediTest/*": [
+        "./src/testing/*"
       ]
     }
   },
