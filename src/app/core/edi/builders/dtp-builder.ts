@@ -9,7 +9,6 @@ export class DtpBuilder extends EdiBuilder {
   override setDescriptions() {
     let dtp01Description = 'date/time qualifier';
     let dtp03Description = 'date';
-    console.log('DTP01: ' + this._segment.getElement(1));
     if (this._segment.getElement(1) === '007') {
       dtp01Description = 'effective date';
       dtp03Description = dtp01Description;
