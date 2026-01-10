@@ -47,8 +47,6 @@ export class ColorPalettePicker implements OnInit, OnDestroy {
       this.profile.primary = profile.primary;
       this.profile.surface = profile.surface;
       this.profile.ripple = profile.ripple;
-      console.log('Loaded profile: ',
-        this.profile)
     });
     this.refreshIsChanged();
     this.refreshIntervalId = window.setInterval(() => this.refreshIsChanged(), this.intervalTime);
@@ -105,7 +103,6 @@ export class ColorPalettePicker implements OnInit, OnDestroy {
       this.profile.primary,
       this.profile.surface,
       this.profile.ripple).subscribe(result => {
-      console.log('Updated palette to: ', result)
       this.refreshIsChanged();
     });
   }
@@ -134,7 +131,6 @@ export class ColorPalettePicker implements OnInit, OnDestroy {
 
   resetAll() {
     this.profileService.resetProfile().subscribe(result => {
-      console.log('Reset to default profile: ', result);
       this.refreshIsChanged();
     });
   }
