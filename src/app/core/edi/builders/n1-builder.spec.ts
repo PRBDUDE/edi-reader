@@ -54,7 +54,7 @@ describe('N1Builder', () => {
 
       it('should display \'entity name\' for N102', () => {
         expect(segment.getSegmentId(2)).toEqual('N102');
-        expect(segment.getDescription(2)).toEqual('entity name');
+        expect(segment.getDescription(2)).toEqual('identification code qualifier');
       });
     });
 
@@ -72,7 +72,7 @@ describe('N1Builder', () => {
 
       it('should display \'entity name\' for N102', () => {
         expect(segment.getSegmentId(2)).toEqual('N102');
-        expect(segment.getDescription(2)).toEqual('entity name');
+        expect(segment.getDescription(2)).toEqual('identification code qualifier');
       })
     });
   });
