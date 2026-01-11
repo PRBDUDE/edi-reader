@@ -22,55 +22,55 @@
     <prb-element-description
       [element]="'PER03'"
       [data]="getElement(3)"
-      [description]="getPerCommunicationQualifier(getElement(3))?.description || 'communication code qualifier'"
+      [description]="getPerCommunicationQualifier(getElement(3)) || 'communication code qualifier'"
     />
     @if (getElement(3) == 'EM') {
       <prb-element-description
         [element]="'PER04'"
         [data]="getElement(4)"
-        [description]="getPerCommunicationQualifier(getElement(3))?.description || 'communication number'"
+        [description]="getPerCommunicationQualifier(getElement(3)) || 'communication number'"
       />
     } @else {
       <prb-element-description
         [element]="'PER04'"
         [data]="getElement(4) | phoneNumber"
-        [description]="getPerCommunicationQualifier(getElement(3))?.description || 'communication number'"
+        [description]="getPerCommunicationQualifier(getElement(3)) || 'communication number'"
       />
     }
     <prb-element-description
       [element]="'PER05'"
       [data]="getElement(5)"
-      [description]="getPerCommunicationQualifier(getElement(5))?.description || 'communication code qualifier'"
+      [description]="getPerCommunicationQualifier(getElement(5)) || 'communication code qualifier'"
     />
     @if (getElement(5) == 'EM') {
       <prb-element-description
         [element]="'PER06'"
         [data]="getElement(6)"
-        [description]="getPerCommunicationQualifier(getElement(5))?.description || 'communication number'"
+        [description]="getPerCommunicationQualifier(getElement(5)) || 'communication number'"
       />
     } @else {
       <prb-element-description
         [element]="'PER06'"
         [data]="getElement(6) | phoneNumber"
-        [description]="getPerCommunicationQualifier(getElement(5))?.description || 'communication number'"
+        [description]="getPerCommunicationQualifier(getElement(5)) || 'communication number'"
       />
     }
     <prb-element-description
       [element]="'PER07'"
       [data]="getElement(7)"
-      [description]="getPerCommunicationQualifier(getElement(7))?.description || 'communication code qualifier'"
+      [description]="getPerCommunicationQualifier(getElement(7)) || 'communication code qualifier'"
     />
     @if (getElement(7) == 'EM') {
       <prb-element-description
         [element]="'PER08'"
         [data]="getElement(8)"
-        [description]="getPerCommunicationQualifier(getElement(7))?.description || 'communication number'"
+        [description]="getPerCommunicationQualifier(getElement(7)) || 'communication number'"
       />
     } @else {
       <prb-element-description
         [element]="'PER08'"
         [data]="getElement(8) | phoneNumber"
-        [description]="getPerCommunicationQualifier(getElement(7))?.description || 'communication number'"
+        [description]="getPerCommunicationQualifier(getElement(7)) || 'communication number'"
       />
     }
   </div>

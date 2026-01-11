@@ -1,7 +1,8 @@
-import {Component, input, OnChanges, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {PhoneNumberPipe} from '@pipes/phone-number-pipe';
 import {Segment} from '../segment/segment';
+import {getPerCommunicationQualifier} from '@edi/builders/code-descriptions/per-descriptions';
 
 @Component({
   selector: 'prb-per',
@@ -12,15 +13,7 @@ import {Segment} from '../segment/segment';
   templateUrl: './per.html',
   styleUrls: ['./per.scss', '../edi-viewer.scss']
 })
-export class Per extends Segment{
-  perCommunicationQualifier = [
-    { code: 'AP', description: 'alternate phone' },
-    { code: 'CP', description: 'cell phone' },
-    { code: 'EM', description: 'electronic mail' },
-    { code: 'HP', description: 'home phone' },
-    { code: 'TE', description: 'telephone' },
-  ];
-
+export class Per extends Segment {
   constructor() {
     super();
   }
@@ -30,7 +23,5 @@ export class Per extends Segment{
     this.valid = true;
   }
 
-  getPerCommunicationQualifier(code: string) {
-    return this.perCommunicationQualifier.find(qualifier => qualifier.code === code);
-  }
+  protected readonly getPerCommunicationQualifier = getPerCommunicationQualifier;
 }
