@@ -12,12 +12,12 @@
     <prb-element-description
       [element]="'DTP01'"
       [data]=this.getElement(1)
-      [description]="getDtpDateType(this.getElement(1))?.description || 'date/time qualifier'"
+      [description]="getDtp01DateType(this.getElement(1))?.description || 'date/time qualifier'"
     />
     <prb-element-description
       [element]="'DTP02'"
       [data]=this.getElement(2)
-      [description]="getDtpFormat(this.getElement(2))?.description || 'date/time format qualifier'"
+      [description]="getDtp02Format(this.getElement(2))?.description || 'date/time format qualifier'"
     />
     @if (getElement(2) == 'D8') {
       <prb-element-description
