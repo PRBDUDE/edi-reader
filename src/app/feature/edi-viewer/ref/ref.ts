@@ -1,6 +1,7 @@
-import {Component, input} from '@angular/core';
+import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {Segment} from '../segment/segment';
+import {getRefCodeDescription} from '@edi/builders/code-descriptions/ref';
 
 @Component({
   selector: 'prb-ref',
@@ -11,11 +12,6 @@ import {Segment} from '../segment/segment';
   styleUrls: ['./ref.scss', '../edi-viewer.scss']
 })
 export class Ref extends Segment {
-  refCodeDescription = [
-    {code: '0F', description: 'Contract Number'},
-    {code: '38', description: 'Group ID'},
-  ]
-
   constructor() {
     super();
   }
@@ -25,7 +21,5 @@ export class Ref extends Segment {
     this.valid = true;
   }
 
-  getRefCodeDescription(code: string) {
-    return this.refCodeDescription.find(x => x.code === code);
-  }
+  protected readonly getRefCodeDescription = getRefCodeDescription;
 }

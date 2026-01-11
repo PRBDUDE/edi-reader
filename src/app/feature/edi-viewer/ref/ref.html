@@ -17,7 +17,7 @@
     <prb-element-description
       [element]="'REF02'"
       [data]="getElement(2)"
-      [description]="getRefCodeDescription(getElement(1))?.description || 'reference identification'"
+      [description]="getRefCodeDescription(getElement(1)) || 'reference identification'"
     />
     <prb-element-description
       [element]="'REF03'"
