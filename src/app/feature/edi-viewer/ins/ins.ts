@@ -1,6 +1,17 @@
 import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {Segment} from '../segment/segment';
+import {
+  getIns01Description,
+  getIns02Relationship,
+  getIns03TransactionTypeCode,
+  getIns04MaintenanceReasonCode,
+  getIns05BenefitStatusCode,
+  getIns06PlanTypeCode,
+  getIns07QualifyingStatusCode,
+  getIns08EmploymentStatusCode,
+  getIns10DisabledStatusCode
+} from '@edi/builders/code-descriptions/ins';
 
 @Component({
   selector: 'prb-ins',
@@ -11,54 +22,6 @@ import {Segment} from '../segment/segment';
   styleUrls: ['./ins.scss', '../edi-viewer.scss']
 })
 export class Ins extends Segment {
-  ins01Description = [
-    {code: 'Y', description: 'subscriber'},
-    {code: 'N', description: 'dependent'}
-  ];
-  ins02Relationship = [
-    {code: '01', description: 'child'},
-    {code: '02', description: 'spouse'},
-    {code: '03', description: 'dependent'},
-    {code: '04', description: 'parent'},
-    {code: '05', description: 'grandparent'},
-    {code: '06', description: 'sibling'},
-    {code: '07', description: 'other family member'},
-    {code: '18', description: 'self'}
-  ];
-  ins03TransactionTypeCode = [
-    {code: '001', description: 'change'},
-    {code: '021', description: 'add'},
-    {code: '024', description: 'terminate'},
-    {code: '025', description: 'reinstate'},
-    {code: '030', description: 'replace'}
-  ];
-  ins04MaintenanceReasonCode = [
-    {code: 'XN', description: 'new enrollment'}
-  ];
-  ins05BenefitStatusCode = [
-    {code: 'A', description: 'active'},
-    {code: 'T', description: 'terminated'}
-  ]
-  ins06PlanTypeCode = [
-    {code: 'A', description: 'medicare A'},
-    {code: 'B', description: 'medicare B'},
-    {code: 'C', description: 'medicare C'}
-  ]
-  ins07QualifyingStatusCode = [
-    {code: 'A', description: 'active'},
-    {code: 'C', description: 'COBRA'},
-    {code: 'S', description: 'surviving spouse'},
-  ]
-  ins08EmploymentStatusCode = [
-    {code: 'EMP', description: 'employed'},
-    {code: 'AC', description: 'active'},
-    {code: 'RT', description: 'retired'},
-    {code: 'LI', description: 'leave of absence'},
-  ]
-  ins10DisabledStatusCode = [
-    {code: 'Y', description: 'disabled'}
-  ]
-
   constructor() {
     super();
   }
@@ -68,39 +31,13 @@ export class Ins extends Segment {
     this.valid = true;
   }
 
-  getIns01Description(code: string) {
-    return this.ins01Description.find(x => x.code === code);
-  }
-
-  getIns02Relationship(code: string) {
-    return this.ins02Relationship.find(x => x.code === code);
-  }
-
-  getIns03TransactionTypeCode(code: string) {
-    return this.ins03TransactionTypeCode.find(x => x.code === code);
-  }
-
-  getIns04MaintenanceReasonCode(code: string) {
-    return this.ins04MaintenanceReasonCode.find(x => x.code === code);
-  }
-
-  getIns05BenefitStatusCode(code: string) {
-    return this.ins05BenefitStatusCode.find(x => x.code === code);
-  }
-
-  getIns06PlanTypeCode(code: string) {
-    return this.ins06PlanTypeCode.find(x => x.code === code);
-  }
-
-  getIns07QualifyingStatusCode(code: string) {
-    return this.ins07QualifyingStatusCode.find(x => x.code === code);
-  }
-
-  getIns08EmploymentStatusCode(code: string) {
-    return this.ins08EmploymentStatusCode.find(x => x.code === code);
-  }
-
-  getIns10DisabledStatusCode(code: string) {
-    return this.ins10DisabledStatusCode.find(x => x.code === code);
-  }
+  protected readonly getIns01Description = getIns01Description;
+  protected readonly getIns02Relationship = getIns02Relationship;
+  protected readonly getIns03TransactionTypeCode = getIns03TransactionTypeCode;
+  protected readonly getIns04MaintenanceReasonCode = getIns04MaintenanceReasonCode;
+  protected readonly getIns05BenefitStatusCode = getIns05BenefitStatusCode;
+  protected readonly getIns06PlanTypeCode = getIns06PlanTypeCode;
+  protected readonly getIns07QualifyingStatusCode = getIns07QualifyingStatusCode;
+  protected readonly getIns08EmploymentStatusCode = getIns08EmploymentStatusCode;
+  protected readonly getIns10DisabledStatusCode = getIns10DisabledStatusCode;
 }
