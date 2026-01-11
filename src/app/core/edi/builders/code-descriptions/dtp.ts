@@ -18,5 +18,5 @@ export function getDtpDateType(code: string) {
 }
 
 export function getDtpFormat(code: string) {
-  return this.dtp02Format.find(x => x.code === code).description as string;
+  return dtp02Format.find(x => x.code === code)?.description as string;
 }
