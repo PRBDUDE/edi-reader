@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {D8DatePipe} from '@pipes/d8-date-pipe';
 import {Segment} from '../segment/segment';
-import {getDtpDateType, getDtpFormat} from '@edi/code-descriptions/dtp';
+import {getDtpDateType, getDtp02Format} from '@edi/code-descriptions/dtp';
 
 @Component({
   selector: 'prb-dtp',
@@ -24,5 +24,5 @@ export class Dtp extends Segment {
   }
 
   protected readonly getDtp01DateType = getDtpDateType;
-  protected readonly getDtp02Format = getDtpFormat;
+  protected readonly getDtp02Format = getDtp02Format;
 }
