@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {PhoneNumberPipe} from '@pipes/phone-number-pipe';
 import {Segment} from '../segment/segment';
-import {getPerCommunicationQualifier} from '@edi/builders/code-descriptions/per';
+import {getPerCommunicationQualifier} from '@edi/code-descriptions/per';
 
 @Component({
   selector: 'prb-per',

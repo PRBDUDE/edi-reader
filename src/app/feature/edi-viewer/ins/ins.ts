@@ -11,7 +11,7 @@ import {
   getIns07QualifyingStatusCode,
   getIns08EmploymentStatusCode,
   getIns10DisabledStatusCode
-} from '@edi/builders/code-descriptions/ins';
+} from '@edi/code-descriptions/ins';
 
 @Component({
   selector: 'prb-ins',

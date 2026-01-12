@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {D8DatePipe} from '@pipes/d8-date-pipe';
 import {Segment} from '../segment/segment';
-import {getDtpDateType, getDtpFormat} from '@edi/builders/code-descriptions/dtp';
+import {getDtpDateType, getDtpFormat} from '@edi/code-descriptions/dtp';
 
 @Component({
   selector: 'prb-dtp',
