@@ -22,8 +22,8 @@ describe('Ref', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('REF*1L*SUBPLAN01', () => {
-    const testData = 'REF*1L*SUBPLAN01';
+  describe('REF*1L*SUBPLAN02', () => {
+    const testData = 'REF*1L*SUBPLAN02';
 
     beforeEach(() => {
       fixture.componentRef.setInput('data', testData);
@@ -81,8 +81,8 @@ describe('Ref', () => {
         expect(spans[3].className).toContain('prb-12-element-delimiter');
       });
 
-      it('should contain span[4] with \'SUBPLAN01\'', () => {
-        expect(spans[4].innerHTML).toContain('SUBPLAN01');
+      it('should contain span[4] with \'SUBPLAN02\'', () => {
+        expect(spans[4].innerHTML).toContain('SUBPLAN02');
       });
     });
 
@@ -113,7 +113,7 @@ describe('Ref', () => {
 
       it('should contain value and description for \'REF02\'', () => {
         expect(descriptions[1].textContent).toContain('REF02:');
-        expect(descriptions[1].textContent).toContain('SUBPLAN01');
+        expect(descriptions[1].textContent).toContain('SUBPLAN02');
         expect(descriptions[1].textContent).toContain('reference identification');
       });
     })
