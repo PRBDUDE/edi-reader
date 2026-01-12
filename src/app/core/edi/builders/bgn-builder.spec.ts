@@ -7,7 +7,7 @@ describe('BgnBuilder', () => {
   let bgnBuilderFull: BgnBuilder;
   let segment: Segment;
   const bgnSegmentShort = 'BGN*00*723456*20251107*1430~';
-  const bgnSegmentFull = 'BGN*00*123456*20251107*1430*-5*34*RT~';
+  const bgnSegmentFull = 'BGN*00*123456*20260107*1430*-5*34*RT~';
   const delimiters = getTestEdiDelimiters();
 
   beforeEach(() => {
@@ -93,8 +93,8 @@ describe('BgnBuilder', () => {
         expect(segment.getElement(2)).toEqual('123456');
       });
 
-      it('should return \'20251107\' in element 3', () => {
-        expect(segment.getElement(3)).toEqual('20251107');
+      it('should return \'20260107\' in element 3', () => {
+        expect(segment.getElement(3)).toEqual('20260107');
       });
 
       it('should return \'1430\' in element 4', () => {
