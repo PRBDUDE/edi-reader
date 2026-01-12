@@ -20,6 +20,9 @@ export class Segment {
   }
 
   getElement(index: number) {
+    if (index > this._elements?.length - 1) {
+      return undefined;
+    }
     return this._elements?.[index].getElement();
   }
 
