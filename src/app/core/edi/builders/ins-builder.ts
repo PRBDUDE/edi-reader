@@ -10,7 +10,7 @@ import {
   getIns07QualifyingStatusCode,
   getIns08EmploymentStatusCode,
   getIns10DisabledStatusCode
-} from '@edi/builders/code-descriptions/ins';
+} from '@edi/code-descriptions/ins';
 
 export class InsBuilder extends EdiBuilder {
   constructor(segment: string, delimiters: Delimiters) {

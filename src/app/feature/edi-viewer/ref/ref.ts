@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {Segment} from '../segment/segment';
-import {getRefCodeDescription} from '@edi/builders/code-descriptions/ref';
+import {getRefCodeDescription} from '@edi/code-descriptions/ref';
 
 @Component({
   selector: 'prb-ref',
