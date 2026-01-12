@@ -16,9 +16,9 @@ const dtp01DateType = [
 
 ]
 const dtp02Format = [
-  {code: 'D6', description: 'YYMMDD'},
-  {code: 'D8', description: 'YYYYMMDD'},
-  {code: 'DT', description: 'YYYYMMDDHHMM'},
+  {code: 'D6', description: 'date format (YYMMDD)'},
+  {code: 'D8', description: 'date format (YYYYMMDD)'},
+  {code: 'DT', description: 'date/time format (YYYYMMDDHHMM)'},
 ]
 
 export function getDtpDateType(code: string) {
