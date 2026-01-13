@@ -9,7 +9,7 @@ export class Segment {
   constructor(segment: string, delimiters: Delimiters, loop?: string | undefined) {
     this._delimiters = delimiters;
     const segments = segment
-      .substring(0, segment.length - 1)
+      .substring(0, segment.length)
       .split(String(this._delimiters.getElementDelimiter()));
     segments.forEach((element) => {
       this._elements.push(new Element(element, delimiters));
@@ -17,6 +17,15 @@ export class Segment {
     if (loop && segments.length > 1) {
       this._loop = loop;
     }
+  }
+
+  getElements() {
+    const elements = new Array<Element>();
+    let index: number;
+    for (index = 0; index < this._elements?.length; index++) {
+      elements.push(this._elements[index]);
+    }
+    return elements;
   }
 
   getElement(index: number) {
