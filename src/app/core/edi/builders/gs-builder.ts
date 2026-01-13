@@ -4,7 +4,7 @@ import {Delimiters} from '@edi/delimiters';
 export class GsBuilder extends EdiBuilder {
 
   constructor(segment: string, delimiters: Delimiters) {
-    super(segment, delimiters);
+    super(segment, delimiters, '100A');
   }
 
   override setDescriptions() {
