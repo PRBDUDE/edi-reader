@@ -17,6 +17,10 @@ describe('IsaBuilder', () => {
     expect(isaBuilder).toBeTruthy();
   });
 
+  it('should have loop set to \'1000\'', () => {
+    expect(segment.getLoop()).toEqual('1000');
+  });
+
   describe('check elements', () => {
     it('should return \'ISA\' in element 0', () => {
       expect(segment.getElement(0)).toEqual('ISA');
