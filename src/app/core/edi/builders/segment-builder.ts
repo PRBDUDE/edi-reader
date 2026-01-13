@@ -12,6 +12,11 @@ import {RefBuilder} from '@edi/builders/ref-builder';
 import {N3Builder} from '@edi/builders/n3-builder';
 import {N4Builder} from '@edi/builders/n4-builder';
 import {InsBuilder} from '@edi/builders/ins-builder';
+import {DtpBuilder} from '@edi/builders/dtp-builder';
+import {PerBuilder} from '@edi/builders/per-builder';
+import {Nm1Builder} from '@edi/builders/nm1-builder';
+import {DmgBuilder} from '@edi/builders/dmg-builder';
+import {HdBuilder} from '@edi/builders/hd-builder';
 
 export class SegmentBuilder {
   private delimiters: Delimiters;
@@ -56,6 +61,16 @@ export class SegmentBuilder {
         return new N4Builder(segment, this.delimiters);
       } else if (segment.startsWith('INS')) {
         return new InsBuilder(segment, this.delimiters);
+      } else if (segment.startsWith('DTP')) {
+        return new DtpBuilder(segment, this.delimiters);
+      } else if (segment.startsWith('PER')) {
+        return new PerBuilder(segment, this.delimiters);
+      } else if (segment.startsWith('NM1')) {
+        return new Nm1Builder(segment, this.delimiters);
+      } else if (segment.startsWith('DMG')) {
+        return new DmgBuilder(segment, this.delimiters);
+      } else if (segment.startsWith('HD')) {
+        return new HdBuilder(segment, this.delimiters);
       }
     }
     return new EdiBuilder(segment, this.delimiters);
