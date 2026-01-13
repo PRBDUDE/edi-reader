@@ -59,8 +59,8 @@ describe('Ge', () => {
         spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
       });
 
-      it('should contain class \'prb-x12-group\'', () => {
-        expect(compiled.querySelector('div')?.className).toContain('prb-x12-group');
+      it('should contain class \'prb-x12-loop-100A\'', () => {
+        expect(compiled.querySelector('div')?.className).toContain('prb-x12-loop-100A');
       });
 
       it('should contain span[0] with \'GE\'', () => {
