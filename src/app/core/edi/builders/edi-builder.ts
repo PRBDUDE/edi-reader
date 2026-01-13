@@ -3,8 +3,10 @@ import {Delimiters} from '../delimiters';
 
 export class EdiBuilder {
   protected _segment: Segment
+  protected _delimiters: Delimiters
 
   constructor(segment: string, delimiters: Delimiters, loop?: string) {
+    this._delimiters = delimiters;
     if (loop) {
       this._segment = new Segment(segment, delimiters, loop);
     } else {
@@ -15,6 +17,18 @@ export class EdiBuilder {
 
   getSegment() {
     return this._segment;
+  }
+
+  getElements() {
+    return this._segment.getElements();
+  }
+
+  getElement(index: number) {
+    return this._segment.getElement(index);
+  }
+
+  getElementDelimiter() {
+    return this._delimiters.getElementDelimiter();
   }
 
   protected setDescriptions() {
