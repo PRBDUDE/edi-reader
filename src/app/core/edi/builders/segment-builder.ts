@@ -21,7 +21,7 @@ export class SegmentBuilder {
     if (isa.startsWith('ISA') && isa.length !== 104) {
       throw new Error('Invalid EDI Data');
     }
-    this.delimiters = new Delimiters(ediData);
+    this.delimiters = new Delimiters(isa);
   }
 
   getDelimiters() {
