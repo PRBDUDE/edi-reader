@@ -155,7 +155,7 @@ describe('Nm1', () => {
       let descriptions: NodeListOf<HTMLElement>;
 
       beforeEach(fakeAsync(() => {
-        debugElement = fixture.debugElement.query(By.css('.prb-info'));
+        debugElement = fixture.debugElement.query(By.css('.prb-x12-info'));
         debugElement.triggerEventHandler('mouseenter', {});
         tick();
         fixture.detectChanges();
