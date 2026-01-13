@@ -7,7 +7,7 @@
   margin-left: 1em;
 }
 
-.prb-info {
+.prb-x12-info {
   display: none;
 }
 
@@ -29,7 +29,7 @@
 .prb-x12-segment {
   width: fit-content;
 
-  &:hover .prb-info {
+  &:hover .prb-x12-info {
     position: absolute;
     z-index: 1;
     display: block;
@@ -60,7 +60,7 @@
   width: fit-content;
 }
 
-.prb-indent {
+.prb-x12-indent {
   margin-left: 1em;
 }
 
@@ -84,7 +84,7 @@
   color: #b4b4b4;
 }
 
-.prb-is-valid {
+.prb-x12-is-valid {
   font-family: "Comic Sans MS", serif;
   font-size: 0.8em;
 }
