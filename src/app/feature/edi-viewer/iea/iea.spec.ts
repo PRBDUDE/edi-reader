@@ -58,8 +58,8 @@ describe('Iea', () => {
         spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
       });
 
-      it('should contain class \'prb-x12-isa\'', () => {
-        expect(compiled.querySelector('div')?.className).toContain('prb-x12-isa');
+      it('should contain class \'prb-x12-loop-1000\'', () => {
+        expect(compiled.querySelector('div')?.className).toContain('prb-x12-loop-1000');
       });
 
       it('should contain span[0] with \'IEA\'', () => {
