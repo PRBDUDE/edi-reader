@@ -31,6 +31,10 @@ export class EdiBuilder {
     return this._delimiters.getElementDelimiter();
   }
 
+  getLoop() {
+    return this._segment.getLoop();
+  }
+
   protected setDescriptions() {
 
   }
