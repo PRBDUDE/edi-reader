@@ -3,7 +3,7 @@ import {Routes} from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/enhanced',
     pathMatch: 'full'
   },
   {
@@ -11,6 +11,12 @@ export const routes: Routes = [
     loadComponent: () => import('./feature/edi-viewer/edi-viewer')
       .then(m => m.EdiViewer),
     title: 'Home'
+  },
+  {
+    path: 'enhanced',
+    loadComponent: () => import('./feature/enhanced-edi-viewer/enhanced-edi-viewer')
+      .then(m => m.EnhancedEdiViewer),
+    title: 'Enhanced Viewer'
   },
   {
     path: 'page-not-found',
