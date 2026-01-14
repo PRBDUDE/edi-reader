@@ -1,0 +1,129 @@
+<h1>Messy EDI Viewer</h1>
+<div class="prb-x12-container">
+  @for (segment of segments; track $index) {
+    @if (segment.startsWith('ISA')) {
+      <prb-isa
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('GS')) {
+      <prb-gs
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('ST')) {
+      <prb-st
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('SE')) {
+      <prb-se
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('GE')) {
+      <prb-ge
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('IEA')) {
+      <prb-iea
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('BGN')) {
+      <prb-bgn
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('REF')) {
+      <prb-ref
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('DTP')) {
+      <prb-dtp
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('N1')) {
+      <prb-n1
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('N3')) {
+      <prb-n3
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('N4')) {
+      <prb-n4
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('INS')) {
+      <prb-ins
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('NM1')) {
+      <prb-nm1
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('PER')) {
+      <prb-per
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('DMG')) {
+      <prb-dmg
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else if (segment.startsWith('HD')) {
+      <prb-hd
+        [data]="segment"
+        [segmentDelimiter]="segmentDelimiter"
+        [elementDelimiter]="elementDelimiter"
+        [subElementDelimiter]="subElementDelimiter"
+      />
+    } @else {
+      <div class="prb-x12-segment">
+        {{ segment }}
+      </div>
+    }
+  }
+</div>
