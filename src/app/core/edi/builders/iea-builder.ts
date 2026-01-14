@@ -4,7 +4,7 @@ import {Delimiters} from '@edi/delimiters';
 export class IeaBuilder extends EdiBuilder {
 
   constructor(segment: string, delimiters: Delimiters) {
-    super(segment, delimiters, '1000');
+    super(segment, delimiters, 'ISA');
   }
 
   override setDescriptions() {
