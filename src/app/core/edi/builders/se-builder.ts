@@ -3,7 +3,7 @@ import {Delimiters} from '@edi/delimiters';
 
 export class SeBuilder extends EdiBuilder {
   constructor(segment: string, delimiters: Delimiters) {
-    super(segment, delimiters);
+    super(segment, delimiters, 'ST');
   }
 
   override setDescriptions() {
