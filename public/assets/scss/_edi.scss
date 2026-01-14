@@ -5,6 +5,11 @@
   --prb-x12-element-delimiter-color: #7a0a86;
   --prb-x12-data-color: #366b22;
   --prb-x12-data-background-color: #cacaca;
+  --prb-x12-ins-outline-color: #0088ff;
+  --prb-x12-dialog-color: #ffffff;
+  --prb-x12-dialog-background-color: #585858;
+  --prb-x12-dialog-h5-color: #000000;
+  --prb-x12-dialog-h5-background-color: #bcb6b1;
 
   &[class*="prb-dark-theme"] {
     --prb-x12-color: #fff;
@@ -41,7 +46,7 @@
 }
 
 .prb-x12-ins {
-  outline: 1px solid #0088ff;
+  outline: 1px solid var(--prb-x12-ins-outline-color);
   width: fit-content;
   margin-left: 3em;
 }
@@ -61,9 +66,9 @@
     font-size: 0.8em;
     margin-left: 6em;
     padding: 0.5em;
-    border: 1px solid white;
+    border: 1px solid var(--prb-x12-dialog-color);
     border-radius: 6px;
-    background-color: #585858;
+    background-color: var(--prb-x12-dialog-background-color);
     width: fit-content;
 
     h5 {
@@ -72,8 +77,8 @@
       padding-left: 2em;
       padding-right: 2em;
       width: fit-content;
-      color: black;
-      background-color: #bcb6b1;
+      color: var(--prb-x12-dialog-h5-color);
+      background-color: var(--prb-x12-dialog-h5-background-color);
       border-radius: 6px;
     }
   }
