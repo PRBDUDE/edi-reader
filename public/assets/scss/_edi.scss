@@ -6,10 +6,12 @@
   --prb-x12-data-color: #366b22;
   --prb-x12-data-background-color: #cacaca;
   --prb-x12-ins-outline-color: #0088ff;
+  --prb-x12-unknown-segment-color: #FFFF00FF;
   --prb-x12-dialog-color: #ffffff;
   --prb-x12-dialog-background-color: #585858;
   --prb-x12-dialog-h5-color: #000000;
   --prb-x12-dialog-h5-background-color: #bcb6b1;
+  --prb-x12-dialog-description-color: #b4b4b4;
 
   &[class*="prb-dark-theme"] {
     --prb-x12-color: #fff;
@@ -85,7 +87,7 @@
 }
 
 .prb-x12-unknown-segment {
-  border: 1px solid yellow;
+  border: 1px solid var(--prb-x12-unknown-segment-color);
   width: fit-content;
 }
 
@@ -113,7 +115,7 @@
 }
 
 .prb-x12-element-desc {
-  color: #b4b4b4;
+  color: var(--prb-x12-dialog-description-color);
 }
 
 .prb-x12-is-valid {
