@@ -1,0 +1,8 @@
+@for (element of segment()?.getElements(); track $index) {
+  <span>{{ element.getElement()?.replaceAll(' ', '&nbsp;') }}</span>
+  @if (this.isLastSegment($index)) {
+    <span class="prb-x12-segment-delimiter">~</span>
+  } @else {
+    <span class="prb-12-element-delimiter">{{ segment()?.getElementDelimiter() }}</span>
+  }
+}

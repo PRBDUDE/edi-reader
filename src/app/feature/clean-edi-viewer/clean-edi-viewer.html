@@ -1,4 +1,4 @@
-<h1>Enhanced EDI Viewer</h1>
+<h1>Clean EDI Viewer</h1>
 <div class="prb-x12-container">
   @for (segment of ediSegments; track $index) {
     @if (segment.getElements().length > 1) {
@@ -8,14 +8,7 @@
         [class.prb-x12-st]="segment.getCssClass() === 'ST'"
         [class.prb-x12-ins]="segment.getCssClass() === 'INS'"
         [class.prb-x12-segment]="segment.getCssClass() === 'SEGMENT'">
-        @for (element of segment.getElements(); track $index) {
-          <span>{{ element.getElement()?.replaceAll(' ', '&nbsp;') }}</span>
-          @if ($index == (segment.getElements().length - 1)) {
-            <span class="prb-x12-segment-delimiter">~</span>
-          } @else {
-            <span class="prb-12-element-delimiter">{{ segment.getElementDelimiter() }}</span>
-          }
-        }
+        <prb-edi-segment [segment]="segment"></prb-edi-segment>
         <div class="prb-x12-info">
           <prb-edi-info-dialog [segment]="segment"></prb-edi-info-dialog>
         </div>
