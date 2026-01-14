@@ -6,7 +6,7 @@
         <span class="prb-html-tag-attribute-quote">="<span class="prb-html-tag-attribute-value">{{ attributes()[0].value }}</span>"</span>
       } @else {
         <br/>
-        @for (attr of attributes(); track attr) {
+        @for (attr of attributes(); track $index) {
           {{ getIndentation(2) }}<span class="prb-html-tag-attribute">{{ attr.name }}</span>
           <span class="prb-html-tag-attribute-value">="{{ attr.value }}"</span><br/>
         }
