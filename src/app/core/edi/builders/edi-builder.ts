@@ -32,7 +32,7 @@ export class EdiBuilder {
   }
 
   getLoop() {
-    return this._segment.getLoop();
+    return this._segment.getLoop() || 'SEGMENT';
   }
 
   protected setDescriptions() {
