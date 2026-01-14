@@ -14,7 +14,7 @@ import {
 
 export class InsBuilder extends EdiBuilder {
   constructor(segment: string, delimiters: Delimiters) {
-    super(segment, delimiters);
+    super(segment, delimiters, 'INS');
   }
 
   override setDescriptions() {

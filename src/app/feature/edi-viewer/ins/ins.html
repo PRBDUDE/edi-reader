@@ -1,14 +1,12 @@
-<div class="prb-x12-segment">
-  <div class="prb-x12-ins">
-    @for (element of this.parsedElements; track $index) {
-      <span>{{ element }}</span>
-      @if ($index == (getLength() - 1)) {
-        <span class="prb-x12-segment-delimiter">~</span>
-      } @else {
-        <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
-      }
+<div class="prb-x12-ins">
+  @for (element of this.parsedElements; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getLength() - 1)) {
+      <span class="prb-x12-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
     }
-  </div>
+  }
   <div class="prb-x12-info">
     <h5>INS Elements</h5>
     <prb-element-description
