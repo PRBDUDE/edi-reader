@@ -1,6 +1,6 @@
 <h1>EDI Viewer</h1>
 <div class="prb-x12-container">
-  @for (segment of segments; track segment) {
+  @for (segment of segments; track $index) {
     @if (segment.startsWith('ISA')) {
       <prb-isa
         [data]="segment"
