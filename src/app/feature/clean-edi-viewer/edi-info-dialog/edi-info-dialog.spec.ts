@@ -26,6 +26,7 @@ describe('EdiInfoDialog', () => {
     let compiled: HTMLElement;
     const testData = 'BGN*00*345678*20251210*1440';
     const delimiters = getTestEdiDelimiters();
+
     beforeEach(() => {
       const testSegment = new BgnBuilder(testData, delimiters)
       fixture.componentRef.setInput('segment', testSegment);
