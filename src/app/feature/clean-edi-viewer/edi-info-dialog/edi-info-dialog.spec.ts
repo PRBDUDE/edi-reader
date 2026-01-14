@@ -22,7 +22,7 @@ describe('EdiInfoDialog', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('check contents of \'BGN*00*345678*20251210*1440\'', () => {
+  describe('check contents of \'BGN*00*345678*20251210*1440~\'', () => {
     let compiled: HTMLElement;
     const testData = 'BGN*00*345678*20251210*1440';
     const delimiters = getTestEdiDelimiters();
