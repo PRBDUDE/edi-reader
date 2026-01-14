@@ -1,0 +1,35 @@
+<h1>Enhanced EDI Viewer</h1>
+<div class="prb-x12-container">
+  @for (segment of ediSegments; track $index) {
+    @if (segment.getElements().length > 1) {
+      <div
+        [class.prb-x12-isa]="segment.getCssClass() === 'ISA'"
+        [class.prb-x12-gs]="segment.getCssClass() === 'GS'"
+        [class.prb-x12-st]="segment.getCssClass() === 'ST'"
+        [class.prb-x12-ins]="segment.getCssClass() === 'INS'"
+        [class.prb-x12-segment]="segment.getCssClass() === 'SEGMENT'">
+        @for (element of segment.getElements(); track $index) {
+          <span>{{ element.getElement()?.replaceAll(' ', '&nbsp;') }}</span>
+          @if ($index == (segment.getElements().length - 1)) {
+            <span class="prb-x12-segment-delimiter">~</span>
+          } @else {
+            <span class="prb-12-element-delimiter">{{ segment.getElementDelimiter() }}</span>
+          }
+        }
+        <div class="prb-x12-info">
+          <h5>{{ segment.getElement(0) }} Elements</h5>
+          @for (element of segment.getElements(); track $index) {
+            @if ($index > 0 && element.getElement()) {
+              <div>{{ segment.getElement(0) }}{{ $index | number:'2.0' }}:&nbsp;
+                <span class="prb-x12-element-data">{{ element.getElement()?.replaceAll(' ', '&nbsp;') }}</span>
+                @if (element.getDescription()) {
+                  <span class="prb-x12-element-desc">{{ element.getDescription() }}</span>
+                }
+              </div>
+            }
+          }
+        </div>
+      </div>
+    }
+  }
+</div>
