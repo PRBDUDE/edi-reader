@@ -42,11 +42,14 @@
 
 .prb-x12-ins {
   outline: 1px solid #0088ff;
+  width: fit-content;
+  margin-left: 3em;
 }
 
 .prb-x12-isa,
 .prb-x12-gs,
 .prb-x12-st,
+.prb-x12-ins,
 .prb-x12-segment {
   width: fit-content;
 

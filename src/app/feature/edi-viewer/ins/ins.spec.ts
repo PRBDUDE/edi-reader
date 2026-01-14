@@ -59,8 +59,8 @@ describe('Ins', () => {
         spans = compiled.getElementsByTagName('span') as unknown as HTMLCollectionOf<HTMLElement>;
       });
 
-      it('should contain class \'prb-x12-segment\'', () => {
-        expect(compiled.querySelector('div')?.className).toContain('prb-x12-segment');
+      it('should contain class \'prb-x12-ins\'', () => {
+        expect(compiled.querySelector('div')?.className).toContain('prb-x12-ins');
       });
 
       it('should contain span[0] with \'INS\'', () => {
