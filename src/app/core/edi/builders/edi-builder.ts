@@ -5,10 +5,10 @@ export class EdiBuilder {
   protected _segment: Segment
   protected _delimiters: Delimiters
 
-  constructor(segment: string, delimiters: Delimiters, loop?: string) {
+  constructor(segment: string, delimiters: Delimiters, cssClass?: string) {
     this._delimiters = delimiters;
-    if (loop) {
-      this._segment = new Segment(segment, delimiters, loop);
+    if (cssClass) {
+      this._segment = new Segment(segment, delimiters, cssClass);
     } else {
       this._segment = new Segment(segment, delimiters);
     }
