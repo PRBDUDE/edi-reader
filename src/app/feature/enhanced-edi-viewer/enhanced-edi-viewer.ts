@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {EdiBuilder} from '@edi/builders/edi-builder';
 import {SegmentBuilder} from '@edi/builders/segment-builder';
-import {DecimalPipe} from '@angular/common';
+import {EdiInfoDialog} from './edi-info-dialog/edi-info-dialog';
 
 @Component({
   selector: 'prb-enhanced-edi-viewer',
   imports: [
-    DecimalPipe
+    EdiInfoDialog
   ],
   templateUrl: './enhanced-edi-viewer.html',
   styleUrl: './enhanced-edi-viewer.scss',
