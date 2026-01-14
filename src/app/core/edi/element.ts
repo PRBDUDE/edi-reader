@@ -17,7 +17,7 @@ export class Element {
   }
 
   getElement() {
-    return this._data as string;
+    return this._data;
   }
 
   isSubElement() {
