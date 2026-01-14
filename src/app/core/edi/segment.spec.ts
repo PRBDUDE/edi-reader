@@ -35,13 +35,13 @@ describe('Segment', () => {
 
     describe('check loop', () => {
       it('should contain loop \'1000\'', () => {
-        segment.setLoop('1000');
-        expect(segment.getLoop()).toEqual('1000');
+        segment.setCssClass('1000');
+        expect(segment.getCssClass()).toEqual('1000');
       });
 
       it('should contain \'ISA\'', () => {
-        segment.setLoop('1100');
-        expect(segment.getLoop()).toEqual('1100');
+        segment.setCssClass('1100');
+        expect(segment.getCssClass()).toEqual('1100');
       });
     });
 
