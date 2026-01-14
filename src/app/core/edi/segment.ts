@@ -4,9 +4,9 @@ import {Element} from './element';
 export class Segment {
   private _elements: Element[] = new Array<Element>();
   private _delimiters: Delimiters | undefined;
-  private _loop?: string | undefined;
+  private _cssClass?: string | undefined;
 
-  constructor(segment: string, delimiters: Delimiters, loop?: string | undefined) {
+  constructor(segment: string, delimiters: Delimiters, cssClass?: string | undefined) {
     this._delimiters = delimiters;
     const segments = segment
       .substring(0, segment.length)
@@ -14,8 +14,8 @@ export class Segment {
     segments.forEach((element) => {
       this._elements.push(new Element(element, delimiters));
     });
-    if (loop && segments.length > 1) {
-      this._loop = loop;
+    if (cssClass && segments.length > 1) {
+      this._cssClass = cssClass;
     }
   }
 
@@ -61,12 +61,12 @@ export class Segment {
     return this._elements?.[index].getSubElement(subIndex);
   }
 
-  getLoop() {
-    return this._loop;
+  getCssClass() {
+    return this._cssClass;
   }
 
-  setLoop(loop: string) {
-    this._loop = loop;
+  setCssClass(cssClass: string) {
+    this._cssClass = cssClass;
   }
 
   getDelimiters() {

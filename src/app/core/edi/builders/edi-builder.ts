@@ -31,8 +31,8 @@ export class EdiBuilder {
     return this._delimiters.getElementDelimiter();
   }
 
-  getLoop() {
-    return this._segment.getLoop() || 'SEGMENT';
+  getCssClass() {
+    return this._segment.getCssClass() || 'SEGMENT';
   }
 
   protected setDescriptions() {

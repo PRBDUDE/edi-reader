@@ -18,7 +18,7 @@ describe('IsaBuilder', () => {
   });
 
   it('should have loop set to \'ISA\'', () => {
-    expect(segment.getLoop()).toEqual('ISA');
+    expect(segment.getCssClass()).toEqual('ISA');
   });
 
   describe('check elements', () => {
