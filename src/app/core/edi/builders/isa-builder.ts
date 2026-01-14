@@ -4,7 +4,7 @@ import {EdiBuilder} from './edi-builder';
 export class IsaBuilder extends EdiBuilder {
 
   constructor(segment: string, delimiters: Delimiters) {
-    super(segment, delimiters, '1000');
+    super(segment, delimiters, 'ISA');
   }
 
   override setDescriptions() {
