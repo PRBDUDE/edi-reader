@@ -59,8 +59,8 @@ describe('Se', () => {
         spans = compiled.getElementsByTagName('span');
       });
 
-      it('should contain class \'prb-x12-transaction-set\'', () => {
-        expect(compiled.querySelector('div')?.className).toContain('prb-x12-transaction-set');
+      it('should contain class \'prb-x12-st\'', () => {
+        expect(compiled.querySelector('div')?.className).toContain('prb-x12-st');
       });
 
       it('should contain span[0] with \'SE\'', () => {
