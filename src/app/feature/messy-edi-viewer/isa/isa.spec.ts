@@ -279,7 +279,7 @@ describe('Isa', () => {
 
       it('should contain value and description for \'ISA09\'', () => {
         expect(descriptions[8].textContent).toContain('ISA09:');
-        expect(descriptions[8].textContent).toContain('251107');
+        expect(descriptions[8].textContent).toContain('11/07/2025');
         expect(descriptions[8].textContent).toContain('date in YYMMDD format');
       });
 

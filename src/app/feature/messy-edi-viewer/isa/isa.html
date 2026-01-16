@@ -52,7 +52,7 @@
     />
     <prb-element-description
       [element]="'ISA09'"
-      [data]=getElement(9)
+      [data]="getElement(9) | d6Date"
       [description]="'date in YYMMDD format'"
     />
     <prb-element-description
@@ -69,7 +69,7 @@
       [element]="'ISA12'"
       [data]=getElement(12)
       [description]="'interchange control version number'"
-      />
+    />
     <prb-element-description
       [element]="'ISA13'"
       [data]=getElement(13)
