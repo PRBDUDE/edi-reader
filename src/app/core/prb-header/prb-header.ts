@@ -9,7 +9,7 @@ import {isPrbMode, prbModes, setDarkTheme, setDebugMode, setFixedFooter, toggleM
 import {ProfileService} from "@services/profile.service";
 
 @Component({
-  selector: 'prb-roadblock-header',
+  selector: 'prb-header',
   imports: [
     MegaMenuModule,
     Button,
@@ -17,10 +17,10 @@ import {ProfileService} from "@services/profile.service";
     NgOptimizedImage,
     ColorPalettePicker
   ],
-  templateUrl: './roadblock-header.html',
-  styleUrl: './roadblock-header.scss'
+  templateUrl: './prb-header.html',
+  styleUrl: './prb-header.scss'
 })
-export class RoadblockHeader implements OnInit {
+export class PrbHeader implements OnInit {
 
   private profileService = inject(ProfileService);
   // menuItems: MegaMenuItem[] | undefined;
