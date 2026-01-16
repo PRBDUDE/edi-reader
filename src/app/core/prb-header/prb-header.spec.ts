@@ -1,18 +1,18 @@
 import {ComponentFixture, TestBed, waitForAsync} from '@angular/core/testing';
 
-import {RoadblockHeader} from './roadblock-header';
+import {PrbHeader} from './prb-header';
 import {provideRouter} from "@angular/router";
 import {provideHttpClient} from "@angular/common/http";
 import {provideHttpClientTesting} from "@angular/common/http/testing";
 
-describe('RoadblockHeader', () => {
-  let component: RoadblockHeader;
-  let fixture: ComponentFixture<RoadblockHeader>;
+describe('PrbHeader', () => {
+  let component: PrbHeader;
+  let fixture: ComponentFixture<PrbHeader>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
-        RoadblockHeader
+        PrbHeader
       ],
       providers: [
         provideRouter([]),
@@ -23,7 +23,7 @@ describe('RoadblockHeader', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RoadblockHeader);
+    fixture = TestBed.createComponent(PrbHeader);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
