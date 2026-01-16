@@ -28,5 +28,15 @@ export class EdiInfoDialog {
     return (index === 9);
   }
 
+  isGs04(index: number) {
+    if (this.segment()?.getElement(0) !== 'GS') return false;
+    return (index === 4);
+  }
+
+  isBgn03(index: number) {
+    if (this.segment()?.getElement(0) !== 'BGN') return false;
+    return (index === 3);
+  }
+
   protected readonly String = String;
 }
