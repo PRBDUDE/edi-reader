@@ -1,11 +1,13 @@
 import {Component, signal} from '@angular/core';
 import {ElementDescription} from '../element-description/element-description';
 import {Segment} from '../segment/segment';
+import {D6DatePipe} from '@pipes/d6-date-pipe';
 
 @Component({
   selector: 'prb-isa',
   imports: [
-    ElementDescription
+    ElementDescription,
+    D6DatePipe
   ],
   templateUrl: './isa.html',
   styleUrls: ['./isa.scss', '../messy-edi-viewer.scss']
