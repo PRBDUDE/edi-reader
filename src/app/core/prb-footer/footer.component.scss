@@ -1,0 +1,13 @@
+.prb-roadblock-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--prb-footer-background-color);
+  padding: 23px 20px;
+  width: 100%;
+  height: fit-content;
+
+  .prb-roadblock-footer-copyright {
+    grid-area: copyright;
+  }
+}
