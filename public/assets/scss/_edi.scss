@@ -15,7 +15,7 @@
 
   &[class*="prb-dark-theme"] {
     --prb-x12-color: #fff;
-    --prb-x12-bg-color: #202020;
+    --prb-x12-bg-color: #353535;
     --prb-x12-segment-delimiter-color: #7ff84b;
     --prb-x12-element-delimiter-color: #e511fc;
     --prb-x12-data-color: #7df54e;
@@ -29,6 +29,7 @@
   color: var(--prb-x12-color);
   background-color: var(--prb-x12-bg-color);
   padding: 1em;
+  width: fit-content;
 }
 
 .prb-x12-gs {
