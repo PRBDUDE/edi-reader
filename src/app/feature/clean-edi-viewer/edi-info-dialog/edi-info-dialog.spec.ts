@@ -96,8 +96,8 @@ describe('EdiInfoDialog', () => {
           expect(curDiv.textContent).toContain('BGN03:');
         });
 
-        it('should contain \'20251210\'', () => {
-          expect(curDiv.textContent).toContain('20251210');
+        it('should contain \'12/10/2025\'', () => {
+          expect(curDiv.textContent).toContain('12/10/2025');
         });
 
         it('should contain \'transaction set creation date (YYYYMMDD)\'', () => {
