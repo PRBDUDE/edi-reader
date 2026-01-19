@@ -1,0 +1,87 @@
+import {Delimiters} from './delimiters';
+import {Element} from './element';
+
+export class Segment {
+  private _elements: Element[] = new Array<Element>();
+  private _delimiters: Delimiters | undefined;
+  private _cssClass?: string | undefined;
+
+  constructor(segment: string, delimiters: Delimiters, cssClass?: string | undefined) {
+    this._delimiters = delimiters;
+    const segments = segment
+      .substring(0, segment.length)
+      .split(String(this._delimiters.getElementDelimiter()));
+    segments.forEach((element) => {
+      this._elements.push(new Element(element, delimiters));
+    });
+    if (cssClass && segments.length > 1) {
+      this._cssClass = cssClass;
+    }
+  }
+
+  getElements() {
+    const elements = new Array<Element>();
+    let index: number;
+    for (index = 0; index < this._elements?.length; index++) {
+      elements.push(this._elements[index]);
+    }
+    return elements;
+  }
+
+  getElement(index: number) {
+    if (index > this._elements?.length - 1) {
+      return undefined;
+    }
+    return this._elements?.[index].getElement();
+  }
+
+  getDescription(index: number) {
+    return this._elements?.[index].getDescription();
+  }
+
+  setDescription(index: number, description: string) {
+    if (index > this._elements?.length - 1) {
+      return;
+    }
+    this._elements[index].setDescription(description);
+  }
+
+  getSegmentId(index: number) {
+    return this._elements?.[index].getSegmentId();
+  }
+
+  setSegmentId(index: number, segmentId: string) {
+    if (index > this._elements?.length - 1) {
+      return;
+    }
+    this._elements[index].setSegmentId(segmentId);
+  }
+
+  getSubElement(index: number, subIndex: number) {
+    return this._elements?.[index].getSubElement(subIndex);
+  }
+
+  getCssClass() {
+    return this._cssClass;
+  }
+
+  setCssClass(cssClass: string) {
+    this._cssClass = cssClass;
+  }
+
+  getDelimiters() {
+    return this._delimiters;
+  }
+
+  setError(index: number, error: string) {
+    this._elements[index].setError(error);
+  }
+
+  getError(index: number) {
+    return this._elements[index].getError();
+  }
+
+  isError() {
+    return this._elements.some(element => element.isError());
+  }
+}

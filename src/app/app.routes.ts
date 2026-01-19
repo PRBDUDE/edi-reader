@@ -3,14 +3,20 @@ import {Routes} from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/clean',
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadComponent: () => import('./feature/edi-viewer/edi-viewer')
-      .then(m => m.EdiViewer),
-    title: 'Home'
+    path: 'messy',
+    loadComponent: () => import('./feature/messy-edi-viewer/messy-edi-viewer')
+      .then(m => m.MessyEdiViewer),
+    title: 'Messy EDI Viewer'
+  },
+  {
+    path: 'clean',
+    loadComponent: () => import('./feature/clean-edi-viewer/clean-edi-viewer')
+      .then(m => m.CleanEdiViewer),
+    title: 'Clean EDI Viewer'
   },
   {
     path: 'page-not-found',

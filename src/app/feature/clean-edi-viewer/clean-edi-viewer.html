@@ -1,0 +1,18 @@
+<h1>Clean EDI Viewer</h1>
+<div class="prb-x12-container">
+  @for (segment of ediSegments; track $index) {
+    @if (segment.getElements().length > 1) {
+      <div
+        [class.prb-x12-isa]="segment.getCssClass() === 'ISA'"
+        [class.prb-x12-gs]="segment.getCssClass() === 'GS'"
+        [class.prb-x12-st]="segment.getCssClass() === 'ST'"
+        [class.prb-x12-ins]="segment.getCssClass() === 'INS'"
+        [class.prb-x12-segment]="segment.getCssClass() === 'SEGMENT'">
+        <prb-edi-segment [segment]="segment"></prb-edi-segment>
+        <div class="prb-x12-info">
+          <prb-edi-info-dialog [segment]="segment"></prb-edi-info-dialog>
+        </div>
+      </div>
+    }
+  }
+</div>

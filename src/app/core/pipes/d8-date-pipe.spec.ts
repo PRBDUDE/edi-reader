@@ -15,4 +15,9 @@ describe('D8DatePipe', () => {
     const output = d8pipe.transform('20230124');
     expect(output).toBe('01/24/2023');
   });
+
+  it('should format \'20230124123456\' as \'20230124123456\'', () => {
+    const output = d8pipe.transform('20230124123456');
+    expect(output).toBe('20230124123456');
+  });
 });

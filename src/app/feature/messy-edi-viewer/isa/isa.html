@@ -1,0 +1,94 @@
+<div class="prb-x12-isa">
+  @for (element of this.parsedElements; track $index) {
+    <span>{{ element.replaceAll(' ', '&nbsp;') }}</span>
+    @if ($index == (getLength() - 1)) {
+      <span class="prb-x12-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
+    }
+  }
+
+  <div class="prb-x12-info">
+    <h5>ISA Elements</h5>
+    <prb-element-description
+      [element]="'ISA01'"
+      [data]=getElement(1)
+      [description]="'type of authorization'"
+    />
+    <prb-element-description
+      [element]="'ISA02'"
+      [data]=getElement(2)
+      [description]="'actual authorization info'"
+    />
+    <prb-element-description
+      [element]="'ISA03'"
+      [data]=getElement(3)
+      [description]="'type of security info'"
+    />
+    <prb-element-description
+      [element]="'ISA04'"
+      [data]=getElement(4)
+      [description]="'actual security info'"
+    />
+    <prb-element-description
+      [element]="'ISA05'"
+      [data]=getElement(5)
+      [description]="'code identifying the sender\'s ID type'"
+    />
+    <prb-element-description
+      [element]="'ISA06'"
+      [data]=getElement(6)
+      [description]="'sender\'s ID'"
+    />
+    <prb-element-description
+      [element]="'ISA07'"
+      [data]=getElement(7)
+      [description]="'code identifying the receiver\'s ID type'"
+    />
+    <prb-element-description
+      [element]="'ISA08'"
+      [data]=getElement(8)
+      [description]="'receiver\'s ID'"
+    />
+    <prb-element-description
+      [element]="'ISA09'"
+      [data]="getElement(9) | d6Date"
+      [description]="'date in YYMMDD format'"
+    />
+    <prb-element-description
+      [element]="'ISA10'"
+      [data]=getElement(10)
+      [description]="'time in HHMM format'"
+    />
+    <prb-element-description
+      [element]="'ISA11'"
+      [data]=getElement(11)
+      [description]="'control standards ID'"
+    />
+    <prb-element-description
+      [element]="'ISA12'"
+      [data]=getElement(12)
+      [description]="'interchange control version number'"
+    />
+    <prb-element-description
+      [element]="'ISA13'"
+      [data]=getElement(13)
+      [description]="'interchange control number'"
+    />
+    <prb-element-description
+      [element]="'ISA14'"
+      [data]=getElement(14)
+      [description]="'acknowledgement requested'"
+    />
+    <prb-element-description
+      [element]="'ISA15'"
+      [data]=getElement(15)
+      [description]="'usage indicator (P for Production; T for Test)'"
+    />
+    <prb-element-description
+      [element]="'ISA16'"
+      [data]=getElement(16)
+      [description]="'component element separator'"
+    />
+  </div>
+</div>

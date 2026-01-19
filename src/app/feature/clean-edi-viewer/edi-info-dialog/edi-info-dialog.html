@@ -1,0 +1,17 @@
+<h5>{{ segment()?.getElement(0) }} Elements</h5>
+@for (element of segment()?.getElements(); track $index) {
+  @if ($index > 0 && element.getElement()) {
+    <div>{{ segment()?.getElement(0) }}{{ $index | number:'2.0' }}:&nbsp;
+      @if (this.isLastElementD8($index) || this.isGs04($index) || this.isBgn03($index)) {
+        <span class="prb-x12-element-data">{{ String(element.getElement()) | d8Date }}</span>
+      } @else if (this.isIsa09($index)) {
+        <span class="prb-x12-element-data">{{ String(element.getElement()) | d6Date }}</span>
+      } @else {
+        <span class="prb-x12-element-data">{{ element.getElement()?.replaceAll(' ', '&nbsp;') }}</span>
+      }
+      @if (element.getDescription()) {
+        <span class="prb-x12-element-desc">{{ element.getDescription() }}</span>
+      }
+    </div>
+  }
+}

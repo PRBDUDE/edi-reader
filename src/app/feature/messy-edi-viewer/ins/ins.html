@@ -1,0 +1,76 @@
+<div class="prb-x12-ins">
+  @for (element of this.parsedElements; track $index) {
+    <span>{{ element }}</span>
+    @if ($index == (getLength() - 1)) {
+      <span class="prb-x12-segment-delimiter">~</span>
+    } @else {
+      <span class="prb-12-element-delimiter">{{ this.getElementDelimiter() }}</span>
+    }
+  }
+  <div class="prb-x12-info">
+    <h5>INS Elements</h5>
+    <prb-element-description
+      [element]="'INS01'"
+      [data]=this.getElement(1)
+      [description]="getIns01Description(this.getElement(1)) || 'subscriber relationship code (Y Subscriber, N Dependent)'"
+    />
+    <prb-element-description
+      [element]="'INS02'"
+      [data]=this.getElement(2)
+      [description]="getIns02Relationship(this.getElement(2)) || 'relationship code'"
+    />
+    <prb-element-description
+      [element]="'INS03'"
+      [data]=this.getElement(3)
+      [description]="getIns03TransactionTypeCode(this.getElement(3)) || 'maintenance type code'"
+    />
+    <prb-element-description
+      [element]="'INS04'"
+      [data]=this.getElement(4)
+      [description]="getIns04MaintenanceReasonCode(this.getElement(4)) || 'maintenance reason code'"
+    />
+    <prb-element-description
+      [element]="'INS05'"
+      [data]=this.getElement(5)
+      [description]="getIns05BenefitStatusCode(this.getElement(5)) || 'benefit status code; A - active, T - terminated'"
+    />
+    <prb-element-description
+      [element]="'INS06'"
+      [data]=this.getElement(6)
+      [description]="getIns06PlanTypeCode(this.getElement(6)) || 'date/time period over which maintenance is provided'"
+    />
+    <prb-element-description
+      [element]="'INS07'"
+      [data]=this.getElement(7)
+      [description]="getIns07QualifyingStatusCode(this.getElement(7)) || 'COBRA related events'"
+    />
+    <prb-element-description
+      [element]="'INS08'"
+      [data]=this.getElement(8)
+      [description]="getIns08EmploymentStatusCode(this.getElement(8)) || 'employment status code'"
+    />
+    <prb-element-description
+      [element]="'INS09'"
+      [data]=this.getElement(9)
+    />
+    <prb-element-description
+      [element]="'INS10'"
+      [data]=this.getElement(10)
+      [description]="getIns10DisabledStatusCode(this.getElement(10)) || 'disabled status code'"
+    />
+    <prb-element-description
+      [element]="'INS11'"
+      [data]=this.getElement(11)
+    />
+    <prb-element-description
+      [element]="'INS12'"
+      [data]=this.getElement(12)
+      [description]="'relative dates'"
+    />
+    <prb-element-description
+      [element]="'INS17'"
+      [data]=this.getElement(17)
+      [description]="'birth sequence number'"
+    />
+  </div>
+</div>

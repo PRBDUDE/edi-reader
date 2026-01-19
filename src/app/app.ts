@@ -1,7 +1,8 @@
 import {Component, inject, OnInit, signal} from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import {RoadblockHeader} from '@header/roadblock-header';
+import {RouterOutlet} from '@angular/router';
 import {PrimeNG} from 'primeng/config';
+import {FooterComponent} from '@footer/footer.component';
+// import {PrbHeader} from './core/prb-header/prb-header';
 // import {ProfileService} from '@services/profile.service';
 // import {setPrimaryColor} from '@utility/set-primary-color';
 // import {setSurfaceColor} from '@utility/set-surface-color';
@@ -11,7 +12,8 @@ import {PrimeNG} from 'primeng/config';
   selector: 'prb-root',
   imports: [
     RouterOutlet,
-    // RoadblockHeader
+    FooterComponent,
+    // PrbHeader
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss'
