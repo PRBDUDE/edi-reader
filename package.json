@@ -15,7 +15,7 @@
     "watch:qat": "ng build --watch --configuration qat",
     "watch:stg": "ng build --watch --configuration stg",
     "watch:prd": "ng build --watch --configuration prd",
-    "test": "ng test",
+    "test": "ng test --browsers=ChromeHeadless",
     "lint": "ng lint",
     "lint:fix": "ng lint --fix"
   },
